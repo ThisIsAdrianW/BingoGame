@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.thisis.adrianw.bingogame.Model.BingoBoard;
 import com.thisis.adrianw.bingogame.databinding.FragmentMapThreeBinding;
 
 
@@ -70,8 +71,10 @@ public class MapThree extends Fragment {
         //set variables in Binding
         model = ViewModelProviders.of(getActivity()).get(GameViewModel.class);
         binding.setTestString(model.testString);
+        BingoBoard bingoBoard = new BingoBoard(6);
         return binding.getRoot();
-//        return inflater.inflate(R.layout.fragment_map_three, container, false);
+
+        //        return inflater.inflate(R.layout.fragment_map_three, container, false);
     }
 
 }
