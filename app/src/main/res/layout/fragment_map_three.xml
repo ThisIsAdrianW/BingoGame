@@ -3,6 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools">
     <data>
         <import type="android.view.View" />
+        <variable
+            name="testString"
+            type="String"/>
     </data>
 <FrameLayout
     android:id="@+id/fragmentThree"
@@ -12,6 +15,6 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:text="@{testString}" />
 </FrameLayout>
 </layout>
