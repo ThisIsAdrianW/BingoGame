@@ -8,11 +8,11 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
     <style name="TextView3Style">
+
         <item name="autoSizeTextType">uniform</item>
         <item name="android:gravity">center</item>
         <item name="android:maxLines">3</item>
         <item name="autoSizeMaxTextSize">28sp</item>
-        <item name="android:autoSizeMinTextSize">7sp</item>
         <item name="autoSizeStepGranularity">1sp</item>
         <item name="layout_constrainedWidth">true</item>
         <item name="layout_constrainedHeight">true</item>

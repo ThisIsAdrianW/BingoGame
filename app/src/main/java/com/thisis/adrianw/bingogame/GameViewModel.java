@@ -1,10 +1,7 @@
 package com.thisis.adrianw.bingogame;
-
 import android.util.Log;
-
 import com.thisis.adrianw.bingogame.Model.Bingo;
 import com.thisis.adrianw.bingogame.Model.BingoBoard;
-
 import androidx.databinding.ObservableArrayMap;
 import androidx.lifecycle.ViewModel;
 
@@ -14,7 +11,7 @@ public class GameViewModel extends ViewModel {
     private BingoBoard model;
     private int boardSize=5;
 
-    GameViewModel () {
+    public GameViewModel () {
         model = new BingoBoard(boardSize);
     }
     public void markBingo(int row, int col) {
