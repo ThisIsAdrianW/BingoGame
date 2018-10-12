@@ -3,4 +3,10 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+    <color name="bingoDarkBlue">#324E52</color>
+    <color name="bingoLightBlue">#60969E</color>
+    <color name="bingoBrown">#524132</color>
+    <color name="bingoLightBrown">#9E7360</color>
+    <color name="bingoGray">#ADADAD</color>
+    <color name="bingoNavy">#525252</color>
 </resources>

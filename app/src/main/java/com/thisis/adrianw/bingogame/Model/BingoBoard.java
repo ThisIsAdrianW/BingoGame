@@ -4,18 +4,17 @@ import android.util.Log;
 
 public class BingoBoard {
     //Current max board size
-    private int boardSize=5;
+    private int boardSize = 5;
     //Parameters for min and max board size
     private static final int MAX_BOARD_SIZE = 5;
     private static final int MIN_BOARD_SIZE = 0;
     private BingoCell[][] cells = new BingoCell[boardSize][boardSize];
 
     //Public constructor taking param that will determine size of board (default is 5)
-    public BingoBoard (int boardSize) {
+    public BingoBoard(int boardSize) {
         if (!checkForValidBordSize(boardSize)) {
             Log.e("BingoBoard", "Out of bound board size " + boardSize);
-        }
-        else {
+        } else {
             this.boardSize = boardSize;
             clearBingoBoard(boardSize);
         }
@@ -29,6 +28,7 @@ public class BingoBoard {
             }
         }
     }
+
     private boolean checkForValidBordSize(int boardSize) {
         if (boardSize > MAX_BOARD_SIZE || boardSize < MIN_BOARD_SIZE) {
             return false;
@@ -42,6 +42,41 @@ public class BingoBoard {
 
     public void setBoardSize(int boardSize) {
         this.boardSize = boardSize;
+    }
+
+    //Setting value for single cell in 2d array
+    public Bingo mark(int x, int y) {
+        Bingo bingo = null;
+        if (cells[x][y].getValue() == Bingo.notBingo) {
+            cells[x][y].setValue(Bingo.Bingo);
+            bingo = Bingo.Bingo;
+        } else if (cells[x][y].getValue() == Bingo.Bingo) {
+            cells[x][y].setValue(Bingo.notBingo);
+            bingo = Bingo.notBingo;
+        } else {
+            cells[x][y].setValue(Bingo.Bingo);
+            bingo = Bingo.Bingo;
+        }
+        Log.v("BingoBoard", "Current value of bingo is ... " + String.valueOf(bingo));
+        return bingo;
+    }
+
+    public boolean isItBingoTable3x3(int currentRow, int currentCol) {
+        Bingo bingo = Bingo.Bingo;
+        return (cells[currentRow][0].getValue() == bingo
+                && cells[currentRow][1].getValue() == bingo
+                && cells[currentRow][2].getValue() == bingo
+                || cells[0][currentCol].getValue() == bingo      // 3-in-the-column
+                && cells[1][currentCol].getValue() == bingo
+                && cells[2][currentCol].getValue() == bingo
+                || currentRow == currentCol            // 3-in-the-diagonal
+                && cells[0][0].getValue() == bingo
+                && cells[1][1].getValue() == bingo
+                && cells[2][2].getValue() == bingo
+                || currentRow + currentCol == 2    // 3-in-the-opposite-diagonal
+                && cells[0][2].getValue() == bingo
+                && cells[1][1].getValue() == bingo
+                && cells[2][0].getValue() == bingo);
     }
 
 }

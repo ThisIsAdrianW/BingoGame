@@ -6,9 +6,12 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.thisis.adrianw.bingogame.Model.BingoBoard;
 import com.thisis.adrianw.bingogame.databinding.FragmentMapThreeBinding;
@@ -25,6 +28,9 @@ public class MapThree extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    void methodTest(View view) {
+        Log.v("FragmentMethod", "This id is " + view.getId());
+    }
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -60,6 +66,7 @@ public class MapThree extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
     }
 
     @Override
@@ -71,10 +78,20 @@ public class MapThree extends Fragment {
         //set variables in Binding
         model = ViewModelProviders.of(getActivity()).get(GameViewModel.class);
         binding.setTestString(model.testString);
-        BingoBoard bingoBoard = new BingoBoard(6);
+        binding.setViewModel(model);
+        binding.setActivity(MapThree.this);
+        BingoBoard bingoBoard = new BingoBoard(5);
         return binding.getRoot();
 
         //        return inflater.inflate(R.layout.fragment_map_three, container, false);
     }
-
+    public void testMethod (View view, int x, int y) {
+        int a = view.getId();
+        if (view instanceof TextView) {
+            String b = ((TextView) view).getText().toString().trim();
+            Log.v("testMethod", "text is ... " +b);
+        }
+        model.markBingo(x, y);
+        Log.v("MapThreeFragment", "And your id for view is ....... " + a);
+    }
 }
