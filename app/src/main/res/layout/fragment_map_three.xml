@@ -5,9 +5,7 @@
         <import type="android.view.View" />
         <variable name="testString" type="String"/>
         <variable name="viewModel" type="com.thisis.adrianw.bingogame.GameViewModel"/>
-        <variable
-            name="activity"
-            type="com.thisis.adrianw.bingogame.MapThree"/>
+        <variable name="activity" type="com.thisis.adrianw.bingogame.MapThree"/>
     </data>
 <FrameLayout
     android:id="@+id/fragmentThree"
@@ -26,18 +24,21 @@
             <TextView
                 android:id="@+id/textView1"
                 style="@style/TextView3Style"
-                android:onClick="@{(view) -> activity.testMethod(view, 0, 0)}"
+                android:onLongClick="@{(view) -> activity.onLongClick(view)}"
+                android:onClick="@{() -> viewModel.markBingo(0,0)}"
                 android:background='@{String.valueOf(viewModel.cells["00"]).equals("Bingo") ? @color/bingoLightBlue : @color/bingoDarkBlue}'
                 android:text='@{String.valueOf(viewModel.cells["00"])}'/>
             <TextView
                 android:id="@+id/textView2"
                 style="@style/TextView3Style"
+                android:onLongClick="@{(view) -> activity.onLongClick(view)}"
                 android:onClick="@{() -> viewModel.markBingo(0,1)}"
                 android:background='@{String.valueOf(viewModel.cells["01"]).equals("Bingo") ? @color/bingoLightBlue : @color/bingoDarkBlue}'
                 android:text='@{String.valueOf(viewModel.cells["01"])}'/>
             <TextView
                 android:id="@+id/textView3"
                 style="@style/TextView3Style"
+                android:onLongClick="@{(view) -> activity.onLongClick(view)}"
                 android:onClick="@{() -> viewModel.markBingo(0,2)}"
                 android:background='@{String.valueOf(viewModel.cells["02"]).equals("Bingo") ? @color/bingoLightBlue : @color/bingoDarkBlue}'
                 android:text='@{String.valueOf(viewModel.cells["02"])}'/>
@@ -50,18 +51,21 @@
             <TextView
                 android:id="@+id/textView4"
                 style="@style/TextView3Style"
+                android:onLongClick="@{(view) -> activity.onLongClick(view)}"
                 android:onClick="@{() -> viewModel.markBingo(1,0)}"
                 android:background='@{String.valueOf(viewModel.cells["10"]).equals("Bingo") ? @color/bingoLightBlue : @color/bingoDarkBlue}'
                 android:text='@{String.valueOf(viewModel.cells["10"])}'/>
             <TextView
                 android:id="@+id/textView5"
                 style="@style/TextView3Style"
+                android:onLongClick="@{(view) -> activity.onLongClick(view)}"
                 android:onClick="@{() -> viewModel.markBingo(1,1)}"
                 android:background='@{String.valueOf(viewModel.cells["11"]).equals("Bingo") ? @color/bingoLightBlue : @color/bingoDarkBlue}'
                 android:text='@{String.valueOf(viewModel.cells["11"])}'/>
             <TextView
                 android:id="@+id/textView6"
                 style="@style/TextView3Style"
+                android:onLongClick="@{(view) -> activity.onLongClick(view)}"
                 android:onClick="@{() -> viewModel.markBingo(1,2)}"
                 android:background='@{String.valueOf(viewModel.cells["12"]).equals("Bingo") ? @color/bingoLightBlue : @color/bingoDarkBlue}'
                 android:text='@{String.valueOf(viewModel.cells["12"])}'/>
@@ -74,18 +78,21 @@
             <TextView
                 android:id="@+id/textView7"
                 style="@style/TextView3Style"
+                android:onLongClick="@{(view) -> activity.onLongClick(view)}"
                 android:onClick="@{() -> viewModel.markBingo(2,0)}"
                 android:background='@{String.valueOf(viewModel.cells["20"]).equals("Bingo") ? @color/bingoLightBlue : @color/bingoDarkBlue}'
                 android:text='@{String.valueOf(viewModel.cells["20"])}'/>
             <TextView
                 android:id="@+id/textView8"
                 style="@style/TextView3Style"
+                android:onLongClick="@{(view) -> activity.onLongClick(view)}"
                 android:onClick="@{() -> viewModel.markBingo(2,1)}"
                 android:background='@{String.valueOf(viewModel.cells["21"]).equals("Bingo") ? @color/bingoLightBlue : @color/bingoDarkBlue}'
                 android:text='@{String.valueOf(viewModel.cells["21"])}'/>
             <TextView
                 android:id="@+id/textView9"
                 style="@style/TextView3Style"
+                android:onLongClick="@{(view) -> activity.onLongClick(view)}"
                 android:onClick="@{() -> viewModel.markBingo(2,2)}"
                 android:background='@{String.valueOf(viewModel.cells["22"]).equals("Bingo") ? @color/bingoLightBlue : @color/bingoDarkBlue}'
                 android:text='@{String.valueOf(viewModel.cells["22"])}'/>

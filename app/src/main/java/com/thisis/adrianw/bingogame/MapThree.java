@@ -1,8 +1,12 @@
 package com.thisis.adrianw.bingogame;
 
 
+import android.content.Context;
+import android.content.DialogInterface;
+import android.os.Build;
 import android.os.Bundle;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
@@ -22,7 +26,7 @@ import com.thisis.adrianw.bingogame.databinding.FragmentMapThreeBinding;
  * Use the {@link MapThree#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class MapThree extends Fragment {
+public class MapThree extends Fragment implements View.OnLongClickListener {
     private GameViewModel model;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -85,13 +89,32 @@ public class MapThree extends Fragment {
 
         //        return inflater.inflate(R.layout.fragment_map_three, container, false);
     }
-    public void testMethod (View view, int x, int y) {
-        int a = view.getId();
-        if (view instanceof TextView) {
-            String b = ((TextView) view).getText().toString().trim();
-            Log.v("testMethod", "text is ... " +b);
+
+    @Override
+    public boolean onLongClick(View view) {
+        Context context = view.getContext();
+        AlertDialog.Builder builder;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            builder = new AlertDialog.Builder(context, android.R.style.Theme_Material_Dialog_Alert);
+        } else {
+            builder = new AlertDialog.Builder(context);
         }
-        model.markBingo(x, y);
-        Log.v("MapThreeFragment", "And your id for view is ....... " + a);
+        String textToDisplay;
+        if (view instanceof TextView) {
+            textToDisplay = (String) ((TextView) view).getText();
+        } else {
+            textToDisplay = "Unknown error";
+        }
+        Log.v("UiHellpler", "text is : " + textToDisplay);
+        builder.setTitle("Text in this field is:")
+                .setMessage(textToDisplay)
+                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        // continue with delete
+                        dialog.cancel();
+                    }
+                })
+                .show();
+        return false;
     }
 }
