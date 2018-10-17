@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="minTXTsp">7sp</dimen>
+    <dimen name="padding10">10dp</dimen>
+    <dimen name="paddingForFab">70dp</dimen>
 </resources>

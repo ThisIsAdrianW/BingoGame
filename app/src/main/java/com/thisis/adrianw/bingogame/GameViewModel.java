@@ -23,4 +23,5 @@ public class GameViewModel extends ViewModel {
     public void clearCells() {
         cells.clear();
     }
+
 }

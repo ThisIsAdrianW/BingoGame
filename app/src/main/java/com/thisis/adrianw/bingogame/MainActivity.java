@@ -29,13 +29,6 @@ public class MainActivity extends AppCompatActivity {
         ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         binding.setLifecycleOwner(this);
         // Create new fragment and transaction
-        Fragment mapThree = new MapThree();
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.frameLayout, mapThree);
-        transaction.addToBackStack(null);
-        transaction.commit();
-
-
     }
 
     @Override
@@ -44,8 +37,40 @@ public class MainActivity extends AppCompatActivity {
         //inflater.inflate(R.menu.main_menu, menu);
         getMenuInflater().inflate(R.menu.main_menu, menu);
         return true;
-
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.new_words:
+                addWords();
+                return true;
+            case R.id.chooseList:
+                gotoThree();
+                return true;
+            case R.id.changeBoard:
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    public void gotoThree() {
+        // Create new fragment and transaction
+        Fragment mapThree = new MapThree();
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.frameLayout, mapThree);
+        transaction.addToBackStack(null);
+        transaction.commit();
+    }
+    public void addWords() {
+        // Create new fragment and transaction
+        Fragment addWords = new AddWords();
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.frameLayout, addWords);
+        transaction.addToBackStack(null);
+        transaction.commit();
+    }
 
 }
