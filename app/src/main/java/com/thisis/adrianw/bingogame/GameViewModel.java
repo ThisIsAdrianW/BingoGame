@@ -1,17 +1,24 @@
 package com.thisis.adrianw.bingogame;
+import android.app.Application;
 import android.util.Log;
+
+import com.thisis.adrianw.bingogame.Bingodata.BingoRepository;
 import com.thisis.adrianw.bingogame.Model.Bingo;
 import com.thisis.adrianw.bingogame.Model.BingoBoard;
 import androidx.databinding.ObservableArrayMap;
-import androidx.lifecycle.ViewModel;
+import androidx.lifecycle.AndroidViewModel;
 
-public class GameViewModel extends ViewModel {
+
+public class GameViewModel extends AndroidViewModel{
     String testString = "Default text for tests";
     public final ObservableArrayMap<String, String> cells = new ObservableArrayMap<>();
     private BingoBoard model;
     private int boardSize=5;
+    private BingoRepository bingoRepository;
 
-    public GameViewModel () {
+    public GameViewModel (Application application) {
+        super(application);
+        bingoRepository = new BingoRepository(application);
         model = new BingoBoard(boardSize);
     }
     public void markBingo(int row, int col) {
@@ -23,5 +30,4 @@ public class GameViewModel extends ViewModel {
     public void clearCells() {
         cells.clear();
     }
-
 }

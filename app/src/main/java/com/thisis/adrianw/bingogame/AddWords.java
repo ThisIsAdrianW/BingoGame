@@ -12,9 +12,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
+import com.thisis.adrianw.bingogame.Bingodata.IndexWord;
+import com.thisis.adrianw.bingogame.Bingodata.Words;
 import com.thisis.adrianw.bingogame.databinding.FragmentAddWordsBinding;
 import com.thisis.adrianw.bingogame.databinding.FragmentMapThreeBinding;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -28,6 +34,7 @@ public class AddWords extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    private static final int MIN_BOARD_SIZE = 9;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -90,8 +97,35 @@ public class AddWords extends Fragment {
         editText.setId(nextId);
         linearLayout.addView(editText);
         Log.v("AddWords", "New id is" + nextId + " and now count is " + linearLayout.getChildCount());
+    }
 
+    public void saveItemsForGame(View view) {
+        IndexWord indexWord = null;
+        Words words = null;
+        List<String> listOfWords = new ArrayList<String>();
+        EditText editTitle = view.getRootView().findViewById(R.id.titleForList);
+        LinearLayout linearLayout = view.getRootView().findViewById(R.id.linearAddWords);
+        for (int i = 0; i < linearLayout.getChildCount(); i++) {
+            View edit = linearLayout.getChildAt(i);
+            if (edit instanceof EditText) {
+                String textFromEditText = ((EditText) edit).getText().toString().trim();
+                if (!textFromEditText.isEmpty()) {
+                    listOfWords.add(i, textFromEditText);
+                    Log.v("AddWords", "SaveItemsForGame now saved word"  + textFromEditText + "and count is " + listOfWords.size());
+                }
+            }
+        }
+        String keyWord = editTitle.getText().toString().trim();
+        if (keyWord.isEmpty()) {
+            Toast toast = Toast.makeText(view.getRootView().getContext(), R.string.Toast_error_title, Toast.LENGTH_SHORT); toast.show();
+        }
+        else if (linearLayout.getChildCount() < MIN_BOARD_SIZE || listOfWords.size() < MIN_BOARD_SIZE-1) {
+            Toast toast = Toast.makeText(view.getRootView().getContext(), R.string.Toast_error_count, Toast.LENGTH_SHORT); toast.show();
+        }
+        else {
 
+            Log.v("AddWords", "Now we should save a lot of words");
+        }
     }
 
 }

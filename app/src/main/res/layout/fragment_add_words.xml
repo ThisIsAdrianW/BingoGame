@@ -48,8 +48,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
-        android:src="@drawable/ic_action_add"
-        android:onClick="@{(view) -> activity.addNewEditText(view)}"
+        android:src="@drawable/ic_action_save"
+        android:backgroundTint="@color/bingoLightBlue"
+        android:onClick="@{(view) -> activity.saveItemsForGame(view)}"
         />
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabSave"
@@ -57,6 +58,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
+        android:backgroundTint="@color/bingoLightBlue"
         android:src="@drawable/ic_action_add"
         android:onClick="@{(view) -> activity.addNewEditText(view)}"
         />

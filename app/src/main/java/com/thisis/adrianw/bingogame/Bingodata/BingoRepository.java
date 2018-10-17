@@ -3,6 +3,8 @@ package com.thisis.adrianw.bingogame.Bingodata;
 import android.app.Application;
 import android.os.AsyncTask;
 
+import com.thisis.adrianw.bingogame.Model.Bingo;
+
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
@@ -14,7 +16,7 @@ public class BingoRepository {
     public BingoRepository(Application application) {
         BingoDatabase db = BingoDatabase.getDatabase(application);
         bingoDao = db.bingoDao();
-        allIndexWords = bingoDao.selectAllIndexWords();
+        allIndexWords = getAllIndexWordsAsync();
     }
 
     public List<IndexWord> getAllIndexWords() {
@@ -132,6 +134,30 @@ public class BingoRepository {
         protected List<Words> doInBackground(final String... params) {
             List<Words> myList = AsyncTaskDao.getWordsList(params[0]);
             return myList;
+        }
+    }
+    public List<IndexWord> getAllIndexWordsAsync() {
+        List<IndexWord> allIndexWords = null;
+        try {
+            allIndexWords = new getAllIndexAsyncTask(bingoDao).execute().get();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return allIndexWords;
+    }
+    private static class getAllIndexAsyncTask extends AsyncTask <Void, Void, List<IndexWord>> {
+        private BingoDao AsyncTaskDao;
+
+        getAllIndexAsyncTask(BingoDao dao) {
+            AsyncTaskDao = dao;
+        }
+
+        @Override
+        protected List<IndexWord> doInBackground(Void... voids) {
+            List<IndexWord> allIndex = AsyncTaskDao.selectAllIndexWords();
+            return allIndex;
         }
     }
 
