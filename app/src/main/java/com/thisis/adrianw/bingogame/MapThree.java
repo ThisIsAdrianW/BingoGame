@@ -75,6 +75,7 @@ public class MapThree extends Fragment implements View.OnLongClickListener {
         // Inflate the layout for this fragment
         FragmentMapThreeBinding binding = FragmentMapThreeBinding.inflate(inflater, container, false);
         binding.setLifecycleOwner(this);
+        setHasOptionsMenu(true);
         //set variables in Binding
         model = ViewModelProviders.of(getActivity()).get(GameViewModel.class);
         binding.setTestString(model.testString);
