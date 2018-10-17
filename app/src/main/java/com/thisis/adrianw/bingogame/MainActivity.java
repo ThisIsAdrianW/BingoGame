@@ -43,13 +43,6 @@ public class MainActivity extends AppCompatActivity {
         //MenuInflater inflater = getMenuInflater();
         //inflater.inflate(R.menu.main_menu, menu);
         getMenuInflater().inflate(R.menu.main_menu, menu);
-        MenuItem item = menu.findItem(R.id.spinner);
-        Spinner spinner = (Spinner) item.getActionView();
-        ArrayList<String> test = new ArrayList<String>();
-        test.add("Jeden");
-        test.add("Dwa");
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, test);
-        spinner.setAdapter(adapter);
         return true;
 
     }

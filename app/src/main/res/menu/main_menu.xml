@@ -2,11 +2,9 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item android:id="@+id/new_game"
-        android:title="Add new board" />
-    <item
-        android:id="@+id/spinner"
-        android:title="Choose your words"
-        app:actionViewClass="android.widget.Spinner"
-        android:background="#ff00"
-        app:showAsAction="always" />
+        android:title="Add new words" />
+    <item android:id="@+id/chooseList"
+        android:title="Choose words for game"/>
+    <item android:id="@+id/changeBoard"
+        android:title="Change board size"/>
 </menu>
