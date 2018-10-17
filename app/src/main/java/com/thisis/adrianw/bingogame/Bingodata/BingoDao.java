@@ -18,6 +18,9 @@ public interface BingoDao {
     @Insert
     void insertWords(Words... words);
 
+    @Insert
+    void insertList(List<Words> listOfWords);
+
     @Delete
     void delete(IndexWord indexWord);
 
