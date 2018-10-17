@@ -20,4 +20,7 @@ public class GameViewModel extends ViewModel {
         Boolean winner = model.isItBingoTable3x3(row, col);
         Log.v("ViewBoard", "This is ... " + winner);
     }
+    public void clearCells() {
+        cells.clear();
+    }
 }

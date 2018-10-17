@@ -34,11 +34,14 @@ public class MainActivity extends AppCompatActivity {
         transaction.replace(R.id.frameLayout, mapThree);
         transaction.addToBackStack(null);
         transaction.commit();
+
+
     }
 
-    //Basic menu
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+        //MenuInflater inflater = getMenuInflater();
+        //inflater.inflate(R.menu.main_menu, menu);
         getMenuInflater().inflate(R.menu.main_menu, menu);
         MenuItem item = menu.findItem(R.id.spinner);
         Spinner spinner = (Spinner) item.getActionView();
@@ -46,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
         test.add("Jeden");
         test.add("Dwa");
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, test);
+        spinner.setAdapter(adapter);
         return true;
 
     }

@@ -62,6 +62,7 @@ public class MapThree extends Fragment implements View.OnLongClickListener {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
@@ -75,7 +76,7 @@ public class MapThree extends Fragment implements View.OnLongClickListener {
         // Inflate the layout for this fragment
         FragmentMapThreeBinding binding = FragmentMapThreeBinding.inflate(inflater, container, false);
         binding.setLifecycleOwner(this);
-        setHasOptionsMenu(true);
+
         //set variables in Binding
         model = ViewModelProviders.of(getActivity()).get(GameViewModel.class);
         binding.setTestString(model.testString);
