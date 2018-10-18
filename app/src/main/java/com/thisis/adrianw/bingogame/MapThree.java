@@ -7,6 +7,8 @@ import android.os.Build;
 import android.os.Bundle;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -29,6 +31,7 @@ import java.util.List;
  */
 public class MapThree extends Fragment implements View.OnLongClickListener {
     private GameViewModel model;
+    private List<Words> wordsList;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -88,6 +91,12 @@ public class MapThree extends Fragment implements View.OnLongClickListener {
         binding.setViewModel(model);
         binding.setActivity(MapThree.this);
         BingoBoard bingoBoard = new BingoBoard(5);
+        model.getStringMutableLiveData().observe(this, new Observer<String>() {
+            @Override
+            public void onChanged(String responseString) {
+                Log.v("AMapThree", "Now response is ...." + responseString);
+            }
+        });
         return binding.getRoot();
 
         //        return inflater.inflate(R.layout.fragment_map_three, container, false);

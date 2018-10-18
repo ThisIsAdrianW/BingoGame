@@ -9,8 +9,6 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ArrayAdapter;
-
 import com.thisis.adrianw.bingogame.Bingodata.IndexWord;
 import com.thisis.adrianw.bingogame.Helpers.BingoAdapter;
 import com.thisis.adrianw.bingogame.databinding.ActivityMainBinding;
@@ -25,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        final ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         binding.setLifecycleOwner(this);
         gameViewModel = ViewModelProviders.of(this).get(GameViewModel.class);
         List<IndexWord> myIndex = gameViewModel.returnIndexAsync();
@@ -35,10 +33,11 @@ public class MainActivity extends AppCompatActivity {
         else {
             binding.listView.setVisibility(View.VISIBLE);
             BingoAdapter adapter = new BingoAdapter(this, myIndex);
-//            ArrayAdapter<IndexWord> adapter = new ArrayAdapter<IndexWord>(this,
-//                    android.R.layout.simple_list_item_1, android.R.id.text1, myIndex);
             binding.listView.setAdapter(adapter);
+
         }
+
+
 
     }
 

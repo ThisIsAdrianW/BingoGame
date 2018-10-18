@@ -7,13 +7,12 @@ import com.thisis.adrianw.bingogame.Bingodata.IndexWord;
 import com.thisis.adrianw.bingogame.Bingodata.Words;
 import com.thisis.adrianw.bingogame.Model.Bingo;
 import com.thisis.adrianw.bingogame.Model.BingoBoard;
-
 import java.util.List;
 import java.util.concurrent.ExecutionException;
-
 import androidx.databinding.ObservableArrayMap;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 
 
 public class GameViewModel extends AndroidViewModel{
@@ -25,6 +24,7 @@ public class GameViewModel extends AndroidViewModel{
     private List<Words> words;
     private LiveData<List<IndexWord>> liveIndex;
     private BingoRepository bingoRepository;
+    private MutableLiveData<String> stringMutableLiveData;
 
     public GameViewModel (Application application) {
         super(application);
@@ -72,4 +72,33 @@ public class GameViewModel extends AndroidViewModel{
         }
         return bingoList;
     }
+
+    public LiveData<List<IndexWord>> getLiveIndex() {
+        return liveIndex;
+    }
+
+    public MutableLiveData<String> getStringMutableLiveData() {
+        return stringMutableLiveData;
+    }
+
+    public void setMutableLiveDataString(String string) {
+        stringMutableLiveData.postValue(string);
+    }
+
+    public String getMutableIndex() {
+        return stringMutableLiveData.getValue();
+    }
+
+    public List<Words> getBingoWords(String string) {
+        List<Words> list = null;
+        try {
+            list = this.bingoRepository.getAllWords(string);
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+
 }
