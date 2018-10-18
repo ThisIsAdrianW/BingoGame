@@ -13,8 +13,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.thisis.adrianw.bingogame.Bingodata.Words;
+import com.thisis.adrianw.bingogame.Model.Bingo;
 import com.thisis.adrianw.bingogame.Model.BingoBoard;
 import com.thisis.adrianw.bingogame.databinding.FragmentMapThreeBinding;
+
+import java.util.List;
 
 
 /**

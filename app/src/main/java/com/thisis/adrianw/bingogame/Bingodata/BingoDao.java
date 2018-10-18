@@ -31,7 +31,7 @@ public interface BingoDao {
     @Query("SELECT count(*) from words WHERE indexforword=:numOfWords")
     int numberOfWordsForIndex(final String numOfWords);
 
-    @Query("SELECT * FROM indexword ORDER BY indexforwords ASC")
+    @Query("SELECT * FROM indexword ORDER BY indexforwords COLLATE UNICODE")
     List<IndexWord> selectAllIndexWords();
 
 }

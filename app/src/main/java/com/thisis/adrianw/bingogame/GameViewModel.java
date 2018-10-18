@@ -9,6 +9,7 @@ import com.thisis.adrianw.bingogame.Model.Bingo;
 import com.thisis.adrianw.bingogame.Model.BingoBoard;
 
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 import androidx.databinding.ObservableArrayMap;
 import androidx.lifecycle.AndroidViewModel;
@@ -20,6 +21,7 @@ public class GameViewModel extends AndroidViewModel{
     private BingoBoard model;
     private int boardSize=5;
     List<IndexWord> myIndexWords;
+    private List<Words> words;
     private BingoRepository bingoRepository;
 
     public GameViewModel (Application application) {
@@ -37,18 +39,33 @@ public class GameViewModel extends AndroidViewModel{
     public void clearCells() {
         cells.clear();
     }
+
     public void inserBingoWord (Words word) {
         bingoRepository.insertBingoWord(word);
     }
+
     public void insertBingoIndex (IndexWord indexWord) {
         bingoRepository.insertIndex(indexWord);
     }
+
     public List<IndexWord> returnIndexWords() {
         return myIndexWords;
     }
-    public List<IndexWord> returnIndexAsync() {
-        List<IndexWord> myList = bingoRepository.getAllIndexWordsAsync();
-        return myList;
 
+    public List<IndexWord> returnIndexAsync() {
+        List<IndexWord> myIndexList = bingoRepository.getAllIndexWordsAsync();
+        return myIndexList;
+    }
+
+    public List<Words> returnBingoWords(String indexWord) {
+        List<Words> bingoList = null;
+        try {
+             bingoList = bingoRepository.getAllWords(indexWord);
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return bingoList;
     }
 }

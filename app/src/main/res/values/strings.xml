@@ -4,6 +4,7 @@
     <string name="add_words_for_game">Add words for Your game</string>
     <string name="Toast_error_title">You need title for Your words list</string>t
     <string name="Toast_error_count">You need at least 9 words for list</string>
+    <string name="Toast_saved">Saved Your list</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

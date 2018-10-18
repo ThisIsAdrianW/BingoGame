@@ -42,9 +42,9 @@ public class MainActivity extends AppCompatActivity {
                 addWords();
                 return true;
             case R.id.chooseList:
-                gotoThree();
                 return true;
             case R.id.changeBoard:
+                gotoThree();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

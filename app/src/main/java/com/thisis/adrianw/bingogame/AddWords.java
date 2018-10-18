@@ -131,6 +131,7 @@ public class AddWords extends Fragment {
                 words.setIndexforword(keyWord);
                 words.setWordForBingo(listOfWords.get(j));
                 model.inserBingoWord(words);
+                Toast toast = Toast.makeText(view.getRootView().getContext(), R.string.Toast_saved, Toast.LENGTH_SHORT); toast.show();
                 Log.v("AddWords", "Now we should save a lot of words");
             }
         }
