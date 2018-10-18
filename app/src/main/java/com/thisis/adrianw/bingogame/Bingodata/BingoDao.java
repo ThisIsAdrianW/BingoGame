@@ -5,18 +5,19 @@ import java.util.List;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
+import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 
 @Dao
 public interface BingoDao {
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertIndex(IndexWord indexWord);
 
     @Insert
     void inserWord(Words words);
 
     @Insert
-    void insertWords(Words... words);
+    void insertWords(Words words);
 
     @Insert
     void insertList(List<Words> listOfWords);
@@ -30,7 +31,7 @@ public interface BingoDao {
     @Query("SELECT count(*) from words WHERE indexforword=:numOfWords")
     int numberOfWordsForIndex(final String numOfWords);
 
-    @Query("Select * from indexword ORDER BY indexforwords COLLATE UNICODE")
+    @Query("SELECT * FROM indexword ORDER BY indexforwords ASC")
     List<IndexWord> selectAllIndexWords();
 
 }

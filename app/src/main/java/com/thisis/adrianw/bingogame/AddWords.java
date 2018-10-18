@@ -39,6 +39,7 @@ public class AddWords extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private List<IndexWord> indexWordsList;
 
 
     public AddWords() {
@@ -100,8 +101,7 @@ public class AddWords extends Fragment {
     }
 
     public void saveItemsForGame(View view) {
-        IndexWord indexWord = null;
-        Words words = null;
+        indexWordsList = model.returnIndexAsync();
         List<String> listOfWords = new ArrayList<String>();
         EditText editTitle = view.getRootView().findViewById(R.id.titleForList);
         LinearLayout linearLayout = view.getRootView().findViewById(R.id.linearAddWords);
@@ -123,8 +123,16 @@ public class AddWords extends Fragment {
             Toast toast = Toast.makeText(view.getRootView().getContext(), R.string.Toast_error_count, Toast.LENGTH_SHORT); toast.show();
         }
         else {
-
-            Log.v("AddWords", "Now we should save a lot of words");
+            IndexWord indexWord = new IndexWord();
+            indexWord.setIndexforwords(keyWord);
+            model.insertBingoIndex(indexWord);
+            for (int j = 0; j < listOfWords.size(); j++) {
+                Words words = new Words();
+                words.setIndexforword(keyWord);
+                words.setWordForBingo(listOfWords.get(j));
+                model.inserBingoWord(words);
+                Log.v("AddWords", "Now we should save a lot of words");
+            }
         }
     }
 

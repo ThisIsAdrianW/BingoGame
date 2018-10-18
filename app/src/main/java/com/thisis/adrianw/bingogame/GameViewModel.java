@@ -3,8 +3,13 @@ import android.app.Application;
 import android.util.Log;
 
 import com.thisis.adrianw.bingogame.Bingodata.BingoRepository;
+import com.thisis.adrianw.bingogame.Bingodata.IndexWord;
+import com.thisis.adrianw.bingogame.Bingodata.Words;
 import com.thisis.adrianw.bingogame.Model.Bingo;
 import com.thisis.adrianw.bingogame.Model.BingoBoard;
+
+import java.util.List;
+
 import androidx.databinding.ObservableArrayMap;
 import androidx.lifecycle.AndroidViewModel;
 
@@ -14,12 +19,14 @@ public class GameViewModel extends AndroidViewModel{
     public final ObservableArrayMap<String, String> cells = new ObservableArrayMap<>();
     private BingoBoard model;
     private int boardSize=5;
+    List<IndexWord> myIndexWords;
     private BingoRepository bingoRepository;
 
     public GameViewModel (Application application) {
         super(application);
         bingoRepository = new BingoRepository(application);
         model = new BingoBoard(boardSize);
+        myIndexWords = bingoRepository.getAllIndexWords();
     }
     public void markBingo(int row, int col) {
         Bingo cell = model.mark(row, col);
@@ -29,5 +36,19 @@ public class GameViewModel extends AndroidViewModel{
     }
     public void clearCells() {
         cells.clear();
+    }
+    public void inserBingoWord (Words word) {
+        bingoRepository.insertBingoWord(word);
+    }
+    public void insertBingoIndex (IndexWord indexWord) {
+        bingoRepository.insertIndex(indexWord);
+    }
+    public List<IndexWord> returnIndexWords() {
+        return myIndexWords;
+    }
+    public List<IndexWord> returnIndexAsync() {
+        List<IndexWord> myList = bingoRepository.getAllIndexWordsAsync();
+        return myList;
+
     }
 }
