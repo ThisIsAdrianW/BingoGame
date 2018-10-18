@@ -13,6 +13,7 @@ import java.util.concurrent.ExecutionException;
 
 import androidx.databinding.ObservableArrayMap;
 import androidx.lifecycle.AndroidViewModel;
+import androidx.lifecycle.LiveData;
 
 
 public class GameViewModel extends AndroidViewModel{
@@ -22,6 +23,7 @@ public class GameViewModel extends AndroidViewModel{
     private int boardSize=5;
     List<IndexWord> myIndexWords;
     private List<Words> words;
+    private LiveData<List<IndexWord>> liveIndex;
     private BingoRepository bingoRepository;
 
     public GameViewModel (Application application) {
@@ -29,6 +31,8 @@ public class GameViewModel extends AndroidViewModel{
         bingoRepository = new BingoRepository(application);
         model = new BingoBoard(boardSize);
         myIndexWords = bingoRepository.getAllIndexWords();
+        liveIndex = bingoRepository.returnLiveIndex();
+
     }
     public void markBingo(int row, int col) {
         Bingo cell = model.mark(row, col);

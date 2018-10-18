@@ -20,4 +20,9 @@ public class IndexWord {
     public void setIndexforwords(@NonNull String indexforwords) {
         this.indexforwords = indexforwords;
     }
+
+    @Override
+    public String toString() {
+        return indexforwords;
+    }
 }

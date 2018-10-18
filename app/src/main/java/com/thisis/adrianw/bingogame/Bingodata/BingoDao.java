@@ -2,6 +2,7 @@ package com.thisis.adrianw.bingogame.Bingodata;
 
 import java.util.List;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -33,5 +34,10 @@ public interface BingoDao {
 
     @Query("SELECT * FROM indexword ORDER BY indexforwords COLLATE UNICODE")
     List<IndexWord> selectAllIndexWords();
+
+    @Query("SELECT * FROM indexword ORDER BY indexforwords COLLATE UNICODE")
+    LiveData<List<IndexWord>> liveIndex();
+
+
 
 }

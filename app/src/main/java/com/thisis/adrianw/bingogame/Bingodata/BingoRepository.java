@@ -8,15 +8,23 @@ import com.thisis.adrianw.bingogame.Model.Bingo;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
+import androidx.lifecycle.LiveData;
+
 public class BingoRepository {
     private BingoDao bingoDao;
     private List<Words> allWords;
     private List<IndexWord> allIndexWords;
+    private LiveData<List<IndexWord>> liveIndex;
 
     public BingoRepository(Application application) {
         BingoDatabase db = BingoDatabase.getDatabase(application);
         bingoDao = db.bingoDao();
         allIndexWords = getAllIndexWordsAsync();
+        liveIndex = bingoDao.liveIndex();
+    }
+
+    public LiveData<List<IndexWord>> returnLiveIndex() {
+        return liveIndex;
     }
 
     public List<IndexWord> getAllIndexWords() {

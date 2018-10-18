@@ -19,5 +19,14 @@
         <item name="android:layout_height">match_parent</item>
         <item name="android:layout_width">0dp</item>
     </style>
+    <style name="ListItemStyle">
+        <item name="autoSizeTextType">uniform</item>
+        <item name="android:gravity">center</item>
+        <item name="android:maxLines">3</item>
+        <item name="autoSizeMaxTextSize">28sp</item>
+        <item name="autoSizeStepGranularity">1sp</item>
+        <item name="layout_constrainedWidth">true</item>
+        <item name="layout_constrainedHeight">true</item>
+    </style>
 
 </resources>
