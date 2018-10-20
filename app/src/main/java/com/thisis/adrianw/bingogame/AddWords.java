@@ -59,6 +59,7 @@ public class AddWords extends Fragment {
         model = ViewModelProviders.of(getActivity()).get(GameViewModel.class);
         binding.setLifecycleOwner(this);
         binding.setActivity(AddWords.this);
+        container.getRootView().findViewById(R.id.recycleView).setVisibility(View.GONE);
         binding.setViewModel(model);
         LinearLayout linearLayout = binding.linearAddWords;
         return binding.getRoot();

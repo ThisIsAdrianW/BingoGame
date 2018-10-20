@@ -4,41 +4,48 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.LinearLayoutManager;
+
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+
 import com.thisis.adrianw.bingogame.Bingodata.IndexWord;
-import com.thisis.adrianw.bingogame.Helpers.BingoAdapter;
+import com.thisis.adrianw.bingogame.Bingodata.Words;
+import com.thisis.adrianw.bingogame.Helpers.BingoListAdapter;
 import com.thisis.adrianw.bingogame.databinding.ActivityMainBinding;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity {
     GameViewModel gameViewModel;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        final ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
-        binding.setLifecycleOwner(this);
-        gameViewModel = ViewModelProviders.of(this).get(GameViewModel.class);
-        List<IndexWord> myIndex = gameViewModel.returnIndexAsync();
-        if (myIndex.isEmpty()) {
-            binding.listView.setVisibility(View.GONE);
-        }
-        else {
-            binding.listView.setVisibility(View.VISIBLE);
-            BingoAdapter adapter = new BingoAdapter(this, myIndex);
-            binding.listView.setAdapter(adapter);
-
-        }
-
-
-
+        final ActivityMainBinding binding = DataBindingUtil.setContentView(MainActivity.this, R.layout.activity_main);
+        binding.setLifecycleOwner(MainActivity.this);
+        gameViewModel = ViewModelProviders.of(MainActivity.this).get(GameViewModel.class);
+        final BingoListAdapter bingoListAdapter = new BingoListAdapter(MainActivity.this);
+        binding.recycleView.setVisibility(View.VISIBLE);
+        binding.recycleView.setAdapter(bingoListAdapter);
+        binding.recycleView.setLayoutManager(new LinearLayoutManager(this));
+        gameViewModel.getLiveIndex().observe(MainActivity.this, new Observer<List<IndexWord>>() {
+            @Override
+            public void onChanged(List<IndexWord> indexWords) {
+                bingoListAdapter.setIndexWords(indexWords);
+                Log.v("MainActivity", "List changed ^_^");
+            }
+        });
+        List<Words> myList = new ArrayList<>();
+        myList = gameViewModel.getBingoWords("1");
+        Log.v("MainActivity", myList.get(0).getWordForBingo());
     }
 
     @Override
@@ -80,5 +87,4 @@ public class MainActivity extends AppCompatActivity {
         transaction.addToBackStack(null);
         transaction.commit();
     }
-
 }

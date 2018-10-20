@@ -3,6 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools">
     <data>
         <import type="android.view.View" />
+        <import type="java.util.List"/>
+        <import type="com.thisis.adrianw.bingogame.Bingodata.Words"/>
+        <variable name="list" type="java.util.List&lt;String&gt;"/>
         <variable name="testString" type="String"/>
         <variable name="viewModel" type="com.thisis.adrianw.bingogame.GameViewModel"/>
         <variable name="activity" type="com.thisis.adrianw.bingogame.MapThree"/>
@@ -28,7 +31,7 @@
                 android:onLongClick="@{(view) -> activity.onLongClick(view)}"
                 android:onClick="@{() -> viewModel.markBingo(0,0)}"
                 android:background='@{String.valueOf(viewModel.cells["00"]).equals("Bingo") ? @color/bingoLightBlue : @color/bingoDarkBlue}'
-                android:text='@{String.valueOf(viewModel.cells["00"])}'/>
+                android:text='@{String.valueOf(viewModel.cells["00"]).equals("Bingo") ? String.valueOf(viewModel.cells["00"]) : list[0]}'/>
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/textView2"
                 style="@style/TextView3Style"
@@ -36,7 +39,7 @@
                 android:onLongClick="@{(view) -> activity.onLongClick(view)}"
                 android:onClick="@{() -> viewModel.markBingo(0,1)}"
                 android:background='@{String.valueOf(viewModel.cells["01"]).equals("Bingo") ? @color/bingoLightBlue : @color/bingoDarkBlue}'
-                android:text='@{String.valueOf(viewModel.cells["01"])}'/>
+                android:text='@{String.valueOf(list[1])}'/>
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/textView3"
                 style="@style/TextView3Style"

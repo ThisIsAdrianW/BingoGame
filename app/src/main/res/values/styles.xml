@@ -22,11 +22,9 @@
     <style name="ListItemStyle">
         <item name="autoSizeTextType">uniform</item>
         <item name="android:gravity">center</item>
-        <item name="android:maxLines">3</item>
-        <item name="autoSizeMaxTextSize">28sp</item>
+        <item name="android:maxLines">1</item>
+        <item name="autoSizeMaxTextSize">20sp</item>
         <item name="autoSizeStepGranularity">1sp</item>
-        <item name="layout_constrainedWidth">true</item>
-        <item name="layout_constrainedHeight">true</item>
     </style>
 
 </resources>

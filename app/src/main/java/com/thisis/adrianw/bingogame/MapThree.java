@@ -7,7 +7,6 @@ import android.os.Build;
 import android.os.Bundle;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import android.util.Log;
@@ -15,12 +14,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import com.thisis.adrianw.bingogame.Bingodata.Words;
-import com.thisis.adrianw.bingogame.Model.Bingo;
 import com.thisis.adrianw.bingogame.Model.BingoBoard;
 import com.thisis.adrianw.bingogame.databinding.FragmentMapThreeBinding;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -36,13 +34,11 @@ public class MapThree extends Fragment implements View.OnLongClickListener {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-    void methodTest(View view) {
-        Log.v("FragmentMethod", "This id is " + view.getId());
-    }
-
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private String indexFromBundle;
+    private List<String> tempList = new ArrayList<String>();
 
 
     public MapThree() {
@@ -60,6 +56,7 @@ public class MapThree extends Fragment implements View.OnLongClickListener {
     // TODO: Rename and change types and number of parameters
     public static MapThree newInstance(String param1, String param2) {
         MapThree fragment = new MapThree();
+        String indexTitleFromClick;
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -70,7 +67,11 @@ public class MapThree extends Fragment implements View.OnLongClickListener {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Bundle bundle = this.getArguments();
+        if (bundle!=null) {
+            indexFromBundle = bundle.getString("titleArgument"," ");
 
+        }
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
@@ -82,21 +83,34 @@ public class MapThree extends Fragment implements View.OnLongClickListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        FragmentMapThreeBinding binding = FragmentMapThreeBinding.inflate(inflater, container, false);
+        final FragmentMapThreeBinding binding = FragmentMapThreeBinding.inflate(inflater, container, false);
         binding.setLifecycleOwner(this);
-
         //set variables in Binding
         model = ViewModelProviders.of(getActivity()).get(GameViewModel.class);
         binding.setTestString(model.testString);
         binding.setViewModel(model);
+        container.getRootView().findViewById(R.id.recycleView).setVisibility(View.GONE);
         binding.setActivity(MapThree.this);
         BingoBoard bingoBoard = new BingoBoard(5);
-        model.getStringMutableLiveData().observe(this, new Observer<String>() {
-            @Override
-            public void onChanged(String responseString) {
-                Log.v("AMapThree", "Now response is ...." + responseString);
+        if (indexFromBundle!=null && !indexFromBundle.trim().isEmpty()) {
+            if (!indexFromBundle.equals(model.getMutableIndex())) {
+                model.getStringMutableLiveData().setValue(indexFromBundle);
+                model.updateWordList();
+                Log.v("MapThree", "changed index for searching for ... " + indexFromBundle);
             }
-        });
+        }
+        if (model.getStringMutableLiveData().getValue()!=null) {
+            model.getStringMutableLiveData().observe(this, new Observer<String>() {
+                @Override
+                public void onChanged(String responseString) {
+                    Log.v("MapThree", "Now response is ...." + responseString);
+                    tempList = model.returnStringList();
+                    binding.setList(tempList);
+                }
+            });
+            Log.v("MapThree", "Null value in string");
+        }
+
         return binding.getRoot();
 
         //        return inflater.inflate(R.layout.fragment_map_three, container, false);
@@ -129,4 +143,6 @@ public class MapThree extends Fragment implements View.OnLongClickListener {
                 .show();
         return false;
     }
+
+
 }

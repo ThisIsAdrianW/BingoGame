@@ -10,12 +10,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
-    <ListView
-        android:id="@+id/listView"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycleView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:divider="@color/bingoNavy"
-        android:footerDividersEnabled="true">
-    </ListView>
+        android:layout_height="match_parent"/>
 </FrameLayout>
 </layout>

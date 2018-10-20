@@ -2,6 +2,8 @@ package com.thisis.adrianw.bingogame.Bingodata;
 
 import android.app.Application;
 import android.os.AsyncTask;
+import android.util.Log;
+
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 import androidx.lifecycle.LiveData;
@@ -105,9 +107,15 @@ public class BingoRepository {
     }
 
     //Method for checking how many Words are assigned to Index
-    public int indexNumber(String title) throws ExecutionException, InterruptedException {
-        int number = new indexNumberAsyncTask(bingoDao).execute(title).get();
-        return number;
+    public int indexNumber(String title) {
+        try {
+            return new indexNumberAsyncTask(bingoDao).execute(title).get();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return 0;
     }
 
     private static class indexNumberAsyncTask extends AsyncTask<String, Void, Integer> {
@@ -119,16 +127,20 @@ public class BingoRepository {
 
         @Override
         protected Integer doInBackground(final String... params) {
-            int result = AsyncTaskDao.numberOfWordsForIndex(params[0]);
-            return result;
+            return AsyncTaskDao.numberOfWordsForIndex(params[0]);
         }
     }
 
-    public List<Words> getAllWords(String indexword) throws ExecutionException, InterruptedException {
-        List<Words> wordsList = new getAllWordsAsyncTask(bingoDao).execute(indexword).get();
-        return wordsList;
+    public List<Words> getAllWords(String indexword) {
+        try {
+            return new getAllWordsAsyncTask(bingoDao).execute(indexword).get();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
-
 
     private static class getAllWordsAsyncTask extends AsyncTask<String, Void, List<Words>> {
         private BingoDao AsyncTaskDao;
@@ -139,21 +151,20 @@ public class BingoRepository {
 
         @Override
         protected List<Words> doInBackground(final String... params) {
-            List<Words> myList = AsyncTaskDao.getWordsList(params[0]);
-            return myList;
+             return AsyncTaskDao.getWordsList(params[0]);
         }
     }
 
     public List<IndexWord> getAllIndexWordsAsync() {
-        List<IndexWord> allIndexWords = null;
         try {
-            allIndexWords = new getAllIndexAsyncTask(bingoDao).execute().get();
+            Log.v("BingoRepository", "executed");
+            return new getAllIndexAsyncTask(bingoDao).execute().get();
         } catch (ExecutionException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        return allIndexWords;
+        return null;
     }
 
     private static class getAllIndexAsyncTask extends AsyncTask<Void, Void, List<IndexWord>> {

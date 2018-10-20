@@ -7,24 +7,29 @@ import com.thisis.adrianw.bingogame.Bingodata.IndexWord;
 import com.thisis.adrianw.bingogame.Bingodata.Words;
 import com.thisis.adrianw.bingogame.Model.Bingo;
 import com.thisis.adrianw.bingogame.Model.BingoBoard;
+
+import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.ExecutionException;
+
+import androidx.databinding.Bindable;
 import androidx.databinding.ObservableArrayMap;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
-
 
 public class GameViewModel extends AndroidViewModel{
     String testString = "Default text for tests";
     public final ObservableArrayMap<String, String> cells = new ObservableArrayMap<>();
     private BingoBoard model;
     private int boardSize=5;
-    List<IndexWord> myIndexWords;
+    private int currentListSize;
+    private static final int MIN_REQ_FIELDS = 9;
+    private List<IndexWord> myIndexWords;
     private List<Words> words;
+    private List<String> stringList = new ArrayList<String>();
     private LiveData<List<IndexWord>> liveIndex;
     private BingoRepository bingoRepository;
-    private MutableLiveData<String> stringMutableLiveData;
+    private MutableLiveData<String> stringMutableLiveData = new MutableLiveData<String>();
 
     public GameViewModel (Application application) {
         super(application);
@@ -57,20 +62,11 @@ public class GameViewModel extends AndroidViewModel{
     }
 
     public List<IndexWord> returnIndexAsync() {
-        List<IndexWord> myIndexList = bingoRepository.getAllIndexWordsAsync();
-        return myIndexList;
+        return bingoRepository.getAllIndexWordsAsync();
     }
 
     public List<Words> returnBingoWords(String indexWord) {
-        List<Words> bingoList = null;
-        try {
-             bingoList = bingoRepository.getAllWords(indexWord);
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        return bingoList;
+            return bingoRepository.getAllWords(indexWord);
     }
 
     public LiveData<List<IndexWord>> getLiveIndex() {
@@ -90,15 +86,36 @@ public class GameViewModel extends AndroidViewModel{
     }
 
     public List<Words> getBingoWords(String string) {
-        List<Words> list = null;
-        try {
-            list = this.bingoRepository.getAllWords(string);
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        return list;
+        return bingoRepository.getAllWords(string);
     }
+
+    public int wordListSize(String string) {
+        return bingoRepository.indexNumber(string);
+    }
+    public void updateWordList() {
+        if (stringMutableLiveData.getValue()!=null && !stringMutableLiveData.getValue().isEmpty())
+        {
+            words = getBingoWords(stringMutableLiveData.getValue());
+            currentListSize = wordListSize(stringMutableLiveData.getValue());
+            if (currentListSize >= MIN_REQ_FIELDS) {
+                updateStringList(stringList, words);
+            }
+            Log.v("GameViewModel", "Values updated " + currentListSize);
+        }
+    }
+
+    public void updateStringList(List<String> listOfStrings, List<Words> listOfWords) {
+        for (int i = 0; i < listOfWords.size(); i++) {
+            String newValue = listOfWords.get(i).getWordForBingo();
+            Log.v("updatingStringList", "ListString number" + i +" value is " + newValue + "and word list its " + listOfWords.get(i).getWordForBingo());
+            listOfStrings.add(i, newValue);
+        }
+    }
+
+    public List<String> returnStringList () {
+        Log.v("returning this bullshit", stringList.get(0));
+        return stringList;
+    }
+
 
 }

@@ -11,7 +11,7 @@ import com.thisis.adrianw.bingogame.R;
 import java.util.List;
 
 import androidx.appcompat.widget.AppCompatTextView;
-
+//Early beta that will be not used in later development
 public class BingoAdapter extends ArrayAdapter<IndexWord> {
 
     public BingoAdapter(Context context, List<IndexWord> indexWords) {
