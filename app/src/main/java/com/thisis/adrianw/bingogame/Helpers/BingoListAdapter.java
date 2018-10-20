@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import com.thisis.adrianw.bingogame.Bingodata.IndexWord;
 import com.thisis.adrianw.bingogame.MapThree;
@@ -20,14 +21,18 @@ public class BingoListAdapter extends RecyclerView.Adapter<BingoListAdapter.Bing
 
     class BingoViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private final AppCompatTextView titleItemView;
+        private final ImageView deleteButton;
         private BingoViewHolder(View itemView) {
             super(itemView);
             titleItemView = itemView.findViewById(R.id.textViewCompatItem);
+            deleteButton = itemView.findViewById(R.id.deleteIcon);
             titleItemView.setOnClickListener(this);
+            deleteButton.setOnClickListener(this);
         }
 
         @Override
         public void onClick(View view) {
+            Log.v("onClickFromAdapter", String.valueOf(view.getId()));
             if (view instanceof TextView) {
                 String title = ((TextView) view).getText().toString().trim();
                 Log.v("BingoViewHolder", "Loool, working" + title);
@@ -37,6 +42,9 @@ public class BingoListAdapter extends RecyclerView.Adapter<BingoListAdapter.Bing
                 argumentsBundle.putString("titleArgument", title);
                 defaultFragment3.setArguments(argumentsBundle);
                 activity.getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, defaultFragment3).addToBackStack(null).commit();
+            }
+            else if (view instanceof ImageView) {
+                Log.v("BingoListAdapter", "This is imageview lolz");
             }
         }
     }
