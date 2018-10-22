@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -112,8 +113,6 @@ public class MapThree extends Fragment implements View.OnLongClickListener {
         }
 
         return binding.getRoot();
-
-        //        return inflater.inflate(R.layout.fragment_map_three, container, false);
     }
 
     @Override
@@ -143,6 +142,5 @@ public class MapThree extends Fragment implements View.OnLongClickListener {
                 .show();
         return false;
     }
-
 
 }
