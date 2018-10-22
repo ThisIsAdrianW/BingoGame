@@ -7,8 +7,6 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -40,6 +38,8 @@ public class MainActivity extends AppCompatActivity {
                 Log.v("MainActivity", "List changed ^_^");
             }
         });
+
+
     }
 
     @Override
