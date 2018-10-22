@@ -15,11 +15,9 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.thisis.adrianw.bingogame.Bingodata.IndexWord;
-import com.thisis.adrianw.bingogame.Bingodata.Words;
 import com.thisis.adrianw.bingogame.Helpers.BingoListAdapter;
 import com.thisis.adrianw.bingogame.databinding.ActivityMainBinding;
 
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -43,9 +41,6 @@ public class MainActivity extends AppCompatActivity {
                 Log.v("MainActivity", "List changed ^_^");
             }
         });
-        List<Words> myList = new ArrayList<>();
-        myList = gameViewModel.getBingoWords("1");
-        Log.v("MainActivity", myList.get(0).getWordForBingo());
     }
 
     @Override
