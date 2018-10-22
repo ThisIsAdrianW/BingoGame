@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         final ActivityMainBinding binding = DataBindingUtil.setContentView(MainActivity.this, R.layout.activity_main);
         binding.setLifecycleOwner(MainActivity.this);
         gameViewModel = ViewModelProviders.of(MainActivity.this).get(GameViewModel.class);
-        final BingoListAdapter bingoListAdapter = new BingoListAdapter(MainActivity.this);
+        final BingoListAdapter bingoListAdapter = new BingoListAdapter(MainActivity.this, gameViewModel);
         binding.recycleView.setVisibility(View.VISIBLE);
         binding.recycleView.setAdapter(bingoListAdapter);
         binding.recycleView.setLayoutManager(new LinearLayoutManager(this));

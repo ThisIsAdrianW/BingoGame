@@ -7,11 +7,8 @@ import com.thisis.adrianw.bingogame.Bingodata.IndexWord;
 import com.thisis.adrianw.bingogame.Bingodata.Words;
 import com.thisis.adrianw.bingogame.Model.Bingo;
 import com.thisis.adrianw.bingogame.Model.BingoBoard;
-
 import java.util.ArrayList;
 import java.util.List;
-
-import androidx.databinding.Bindable;
 import androidx.databinding.ObservableArrayMap;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
@@ -116,6 +113,8 @@ public class GameViewModel extends AndroidViewModel{
         Log.v("returning this bullshit", stringList.get(0));
         return stringList;
     }
-
+    public void deleteIndex (IndexWord indexWord) {
+        bingoRepository.deleteIndex(indexWord);
+    }
 
 }

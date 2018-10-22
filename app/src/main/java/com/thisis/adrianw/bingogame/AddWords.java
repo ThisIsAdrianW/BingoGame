@@ -90,7 +90,7 @@ public class AddWords extends Fragment {
             if (edit instanceof EditText) {
                 String textFromEditText = ((EditText) edit).getText().toString().trim();
                 if (!textFromEditText.isEmpty()) {
-                    listOfWords.add(i, textFromEditText);
+                    listOfWords.add(textFromEditText);
                     Log.v("AddWords", "SaveItemsForGame now saved word"  + textFromEditText + "and count is " + listOfWords.size());
                 }
             }
