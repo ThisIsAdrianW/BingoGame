@@ -20,6 +20,7 @@ public class GameViewModel extends AndroidViewModel{
     private BingoBoard model;
     private int boardSize=5;
     private int currentListSize;
+    private int currentBoardModel;
     private static final int MIN_REQ_FIELDS = 9;
     private List<IndexWord> myIndexWords;
     private List<Words> words;
@@ -27,6 +28,7 @@ public class GameViewModel extends AndroidViewModel{
     private LiveData<List<IndexWord>> liveIndex;
     private BingoRepository bingoRepository;
     private MutableLiveData<String> stringMutableLiveData = new MutableLiveData<String>();
+    private MutableLiveData<Bingo> bingoScore = new MutableLiveData<Bingo>();
 
     public GameViewModel (Application application) {
         super(application);
@@ -39,8 +41,13 @@ public class GameViewModel extends AndroidViewModel{
     public void markBingo(int row, int col) {
         Bingo cell = model.mark(row, col);
         cells.put("" + row + col, cell == null ? null : cell.toString());
-        Boolean winner = model.isItBingoTable3x3(row, col);
-        Log.v("ViewBoard", "This is ... " + winner);
+        if (currentBoardModel==9) {
+            Boolean winner = model.isItBingoTable3x3(row, col);
+            Log.v("ViewBoard", "This is ... " + winner);
+            if (model.isItBingoTable3x3(row, col)) {
+                bingoScore.postValue(Bingo.Bingo);
+            }
+        }
     }
     public void clearCells() {
         cells.clear();
@@ -97,24 +104,36 @@ public class GameViewModel extends AndroidViewModel{
             if (currentListSize >= MIN_REQ_FIELDS) {
                 updateStringList(stringList, words);
             }
-            Log.v("GameViewModel", "Values updated " + currentListSize);
         }
     }
 
     public void updateStringList(List<String> listOfStrings, List<Words> listOfWords) {
         for (int i = 0; i < listOfWords.size(); i++) {
             String newValue = listOfWords.get(i).getWordForBingo();
-            Log.v("updatingStringList", "ListString number" + i +" value is " + newValue + "and word list its " + listOfWords.get(i).getWordForBingo());
             listOfStrings.add(i, newValue);
         }
     }
 
     public List<String> returnStringList () {
-        Log.v("returning this bullshit", stringList.get(0));
         return stringList;
     }
     public void deleteIndex (IndexWord indexWord) {
         bingoRepository.deleteIndex(indexWord);
     }
 
+    public int getCurrentBoardModel() {
+        return currentBoardModel;
+    }
+
+    public void setCurrentBoardModel(int currentBoardModel) {
+        this.currentBoardModel = currentBoardModel;
+    }
+
+    public MutableLiveData<Bingo> getBingoScore() {
+        return bingoScore;
+    }
+
+    public void setBingoScore(Bingo bingo) {
+        this.bingoScore.postValue(bingo);
+    }
 }

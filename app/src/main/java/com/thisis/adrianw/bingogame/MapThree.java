@@ -15,7 +15,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import com.thisis.adrianw.bingogame.Bingodata.Words;
+import com.thisis.adrianw.bingogame.Model.Bingo;
 import com.thisis.adrianw.bingogame.Model.BingoBoard;
 import com.thisis.adrianw.bingogame.databinding.FragmentMapThreeBinding;
 
@@ -83,13 +86,12 @@ public class MapThree extends Fragment implements View.OnLongClickListener {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         final FragmentMapThreeBinding binding = FragmentMapThreeBinding.inflate(inflater, container, false);
         binding.setLifecycleOwner(this);
-        //set variables in Binding
         model = ViewModelProviders.of(getActivity()).get(GameViewModel.class);
         binding.setTestString(model.testString);
         binding.setViewModel(model);
+        model.setCurrentBoardModel(9);
         binding.setActivity(MapThree.this);
         BingoBoard bingoBoard = new BingoBoard(5);
         if (indexFromBundle!=null && !indexFromBundle.trim().isEmpty()) {
@@ -110,7 +112,16 @@ public class MapThree extends Fragment implements View.OnLongClickListener {
             });
             Log.v("MapThree", "Null value in string");
         }
-
+        model.getBingoScore().observe(this, new Observer<Bingo>() {
+            @Override
+            public void onChanged(Bingo bingo) {
+                if (bingo.equals(Bingo.Bingo)) {
+                    Log.v("MapThree", "This is Bingo");
+                    Toast.makeText(getActivity(),String.valueOf(bingo),Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+        Log.v("MapThree", "Null value in string");
         return binding.getRoot();
     }
 
@@ -134,7 +145,6 @@ public class MapThree extends Fragment implements View.OnLongClickListener {
                 .setMessage(textToDisplay)
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
-                        // continue with delete
                         dialog.cancel();
                     }
                 })

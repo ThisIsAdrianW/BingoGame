@@ -3,6 +3,7 @@ package com.thisis.adrianw.bingogame;
 
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProviders;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -112,8 +113,16 @@ public class AddWords extends Fragment {
                 model.inserBingoWord(words);
                 Toast toast = Toast.makeText(view.getRootView().getContext(), R.string.Toast_saved, Toast.LENGTH_SHORT); toast.show();
                 Log.v("AddWords", "Now we should save a lot of words");
+                switchToList();
             }
         }
+    }
+    private void switchToList() {
+        Fragment listFragment = new ListFragment();
+        FragmentTransaction transaction = getFragmentManager().beginTransaction();
+        transaction.replace(R.id.frameLayout, listFragment);
+        transaction.addToBackStack(null);
+        transaction.commit();
     }
 
 }

@@ -20,11 +20,6 @@ import com.thisis.adrianw.bingogame.databinding.FragmentListBinding;
 import java.util.List;
 
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link ListFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class ListFragment extends Fragment {
     private GameViewModel model;
     private static final String ARG_PARAM1 = "param1";
