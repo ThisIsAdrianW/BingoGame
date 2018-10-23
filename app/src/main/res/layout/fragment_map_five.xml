@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <import type="android.view.View" />
+        <import type="java.util.List"/>
+        <variable name="viewModel" type="com.thisis.adrianw.bingogame.GameViewModel"/>
+        <variable name="activity" type="com.thisis.adrianw.bingogame.MapFive"/>
+        <variable name="list" type="java.util.List&lt;String&gt;"/>
+    </data>
+<FrameLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -91,7 +99,8 @@
             app:layout_constraintGuide_percent="1.0" />
 
         <TextView
-            android:id="@+id/textView1"
+            android:id="@+id/textV51"
+            android:text='@{String.valueOf(viewModel.cells["00"]).equals("Bingo") ? String.valueOf(viewModel.cells["00"]) : list[0]}'
             style="@style/ConstrainStyleText"
             android:autoSizeMinTextSize="@dimen/minTXTsp"
             app:layout_constraintBottom_toTopOf="@+id/guidelinecolumn1"
@@ -343,3 +352,4 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>
+</layout>
