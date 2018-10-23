@@ -1,6 +1,4 @@
 package com.thisis.adrianw.bingogame;
-
-
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Build;
@@ -10,7 +8,6 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -18,12 +15,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.thisis.adrianw.bingogame.Bingodata.Words;
 import com.thisis.adrianw.bingogame.Model.Bingo;
 import com.thisis.adrianw.bingogame.Model.BingoBoard;
 import com.thisis.adrianw.bingogame.databinding.FragmentMapThreeBinding;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -139,6 +134,7 @@ public class MapThree extends Fragment implements View.OnLongClickListener {
     @Override
     public boolean onLongClick(View view) {
         Context context = view.getContext();
+
         AlertDialog.Builder builder;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             builder = new AlertDialog.Builder(context, android.R.style.Theme_Material_Dialog_Alert);

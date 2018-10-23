@@ -51,6 +51,7 @@ public class GameViewModel extends AndroidViewModel{
     }
     public void clearCells() {
         cells.clear();
+        cells.size();
     }
 
     public void inserBingoWord (Words word) {
