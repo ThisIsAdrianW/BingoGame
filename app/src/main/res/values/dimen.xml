@@ -4,4 +4,7 @@
     <dimen name="padding10">10dp</dimen>
     <dimen name="paddingForFab">70dp</dimen>
     <dimen name="listViewSize">60dp</dimen>
+    <dimen name="textEmptySize">45sp</dimen>
+    <dimen name="binH">40dp</dimen>
+    <dimen name="binW">70dp</dimen>
 </resources>

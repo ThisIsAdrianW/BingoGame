@@ -39,7 +39,7 @@
                 android:onLongClick="@{(view) -> activity.onLongClick(view)}"
                 android:onClick="@{() -> viewModel.markBingo(0,1)}"
                 android:background='@{String.valueOf(viewModel.cells["01"]).equals("Bingo") ? @color/bingoLightBlue : @color/bingoDarkBlue}'
-                android:text='@{String.valueOf(list[1])}'/>
+                android:text='@{String.valueOf(viewModel.cells["01"]).equals("Bingo") ? String.valueOf(viewModel.cells["01"]) : list[1]}'/>
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/textView3"
                 style="@style/TextView3Style"
@@ -47,7 +47,7 @@
                 android:onLongClick="@{(view) -> activity.onLongClick(view)}"
                 android:onClick="@{() -> viewModel.markBingo(0,2)}"
                 android:background='@{String.valueOf(viewModel.cells["02"]).equals("Bingo") ? @color/bingoLightBlue : @color/bingoDarkBlue}'
-                android:text='@{String.valueOf(viewModel.cells["02"])}'/>
+                android:text='@{String.valueOf(viewModel.cells["02"]).equals("Bingo") ? String.valueOf(viewModel.cells["02"]) : list[2]}'/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -61,7 +61,7 @@
                 android:onLongClick="@{(view) -> activity.onLongClick(view)}"
                 android:onClick="@{() -> viewModel.markBingo(1,0)}"
                 android:background='@{String.valueOf(viewModel.cells["10"]).equals("Bingo") ? @color/bingoLightBlue : @color/bingoDarkBlue}'
-                android:text='@{String.valueOf(viewModel.cells["10"])}'/>
+                android:text='@{String.valueOf(viewModel.cells["10"]).equals("Bingo") ? String.valueOf(viewModel.cells["10"]) : list[3]}'/>
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/textView5"
                 style="@style/TextView3Style"
@@ -69,7 +69,7 @@
                 android:onLongClick="@{(view) -> activity.onLongClick(view)}"
                 android:onClick="@{() -> viewModel.markBingo(1,1)}"
                 android:background='@{String.valueOf(viewModel.cells["11"]).equals("Bingo") ? @color/bingoLightBlue : @color/bingoDarkBlue}'
-                android:text='@{String.valueOf(viewModel.cells["11"])}'/>
+                android:text='@{String.valueOf(viewModel.cells["11"]).equals("Bingo") ? String.valueOf(viewModel.cells["11"]) : list[4]}'/>
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/textView6"
                 style="@style/TextView3Style"
@@ -77,7 +77,7 @@
                 android:onLongClick="@{(view) -> activity.onLongClick(view)}"
                 android:onClick="@{() -> viewModel.markBingo(1,2)}"
                 android:background='@{String.valueOf(viewModel.cells["12"]).equals("Bingo") ? @color/bingoLightBlue : @color/bingoDarkBlue}'
-                android:text='@{String.valueOf(viewModel.cells["12"])}'/>
+                android:text='@{String.valueOf(viewModel.cells["12"]).equals("Bingo") ? String.valueOf(viewModel.cells["12"]) : list[5]}'/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -91,7 +91,7 @@
                 android:onLongClick="@{(view) -> activity.onLongClick(view)}"
                 android:onClick="@{() -> viewModel.markBingo(2,0)}"
                 android:background='@{String.valueOf(viewModel.cells["20"]).equals("Bingo") ? @color/bingoLightBlue : @color/bingoDarkBlue}'
-                android:text='@{String.valueOf(viewModel.cells["20"])}'/>
+                android:text='@{String.valueOf(viewModel.cells["20"]).equals("Bingo") ? String.valueOf(viewModel.cells["20"]) : list[6]}'/>
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/textView8"
                 style="@style/TextView3Style"
@@ -99,7 +99,7 @@
                 android:onLongClick="@{(view) -> activity.onLongClick(view)}"
                 android:onClick="@{() -> viewModel.markBingo(2,1)}"
                 android:background='@{String.valueOf(viewModel.cells["21"]).equals("Bingo") ? @color/bingoLightBlue : @color/bingoDarkBlue}'
-                android:text='@{String.valueOf(viewModel.cells["21"])}'/>
+                android:text='@{String.valueOf(viewModel.cells["21"]).equals("Bingo") ? String.valueOf(viewModel.cells["21"]) : list[7]}'/>
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/textView9"
                 style="@style/TextView3Style"
@@ -107,7 +107,7 @@
                 android:onLongClick="@{(view) -> activity.onLongClick(view)}"
                 android:onClick="@{() -> viewModel.markBingo(2,2)}"
                 android:background='@{String.valueOf(viewModel.cells["22"]).equals("Bingo") ? @color/bingoLightBlue : @color/bingoDarkBlue}'
-                android:text='@{String.valueOf(viewModel.cells["22"])}'/>
+                android:text='@{String.valueOf(viewModel.cells["22"]).equals("Bingo") ? String.valueOf(viewModel.cells["22"]) : list[8]}'/>
         </LinearLayout>
     </LinearLayout>
 </FrameLayout>

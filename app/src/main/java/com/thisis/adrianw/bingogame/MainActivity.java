@@ -27,18 +27,9 @@ public class MainActivity extends AppCompatActivity {
         final ActivityMainBinding binding = DataBindingUtil.setContentView(MainActivity.this, R.layout.activity_main);
         binding.setLifecycleOwner(MainActivity.this);
         gameViewModel = ViewModelProviders.of(MainActivity.this).get(GameViewModel.class);
-        final BingoListAdapter bingoListAdapter = new BingoListAdapter(MainActivity.this, gameViewModel);
-        binding.recycleView.setVisibility(View.VISIBLE);
-        binding.recycleView.setAdapter(bingoListAdapter);
-        binding.recycleView.setLayoutManager(new LinearLayoutManager(this));
-        gameViewModel.getLiveIndex().observe(MainActivity.this, new Observer<List<IndexWord>>() {
-            @Override
-            public void onChanged(List<IndexWord> indexWords) {
-                bingoListAdapter.setIndexWords(indexWords);
-                Log.v("MainActivity", "List changed ^_^");
-            }
-        });
-
+        if (savedInstanceState == null) {
+            listFragment();
+        }
 
     }
 
@@ -50,12 +41,12 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle item selection
         switch (item.getItemId()) {
             case R.id.new_words:
                 addWords();
                 return true;
             case R.id.chooseList:
+                listFragment();
                 return true;
             case R.id.changeBoard:
                 gotoThree();
@@ -80,5 +71,19 @@ public class MainActivity extends AppCompatActivity {
         transaction.replace(R.id.frameLayout, addWords);
         transaction.addToBackStack(null);
         transaction.commit();
+    }
+
+    public void listFragment() {
+        Fragment listFragment = new ListFragment();
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.frameLayout, listFragment);
+        transaction.addToBackStack(null);
+        transaction.commit();
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        listFragment();
     }
 }

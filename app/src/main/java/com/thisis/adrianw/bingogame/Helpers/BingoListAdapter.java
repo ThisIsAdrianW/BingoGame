@@ -37,7 +37,7 @@ public class BingoListAdapter extends RecyclerView.Adapter<BingoListAdapter.Bing
             Log.v("onClickFromAdapter", String.valueOf(view.getId()));
             String title = titleItemView.getText().toString().trim();
             if (view instanceof TextView) {
-                AppCompatActivity activity = (AppCompatActivity) view.getContext();
+                AppCompatActivity activity = (AppCompatActivity) view.getRootView().getContext();
                 Fragment defaultFragment3 = new MapThree();
                 Bundle argumentsBundle = new Bundle();
                 argumentsBundle.putString("titleArgument", title);
