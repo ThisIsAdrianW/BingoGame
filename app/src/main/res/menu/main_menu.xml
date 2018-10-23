@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-    <item android:id="@+id/new_words"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:theme="@style/ToolbarTheme">
+    <item
+        android:id="@+id/new_words"
         android:title="Add new words" />
     <item android:id="@+id/chooseList"
         android:title="Choose words for game"/>
-    <item android:id="@+id/clearBoard"
-        android:title="Clear game board"/>
+    <item android:id="@+id/changeBoard"
+        android:title="Change board size"/>
+    <item
+        android:id="@+id/clearBoard"
+        android:title="Clear game board" />
 </menu>

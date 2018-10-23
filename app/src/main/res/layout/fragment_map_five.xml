@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".MapFive">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constrainLayoutFive"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelinerow1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintGuide_percent="0.2" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelinecolumn1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintGuide_percent="0.2" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelinerow2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintGuide_percent="0.4" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelinerow3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintGuide_percent="0.6" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelinerow4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintGuide_percent="0.8" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelinecolumn2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintGuide_percent="0.4" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelinecolumn3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintGuide_percent="0.6" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelinecolumn4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintGuide_percent="0.6" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelinecolumn5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintGuide_percent="0.8" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelinecolumn6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintGuide_percent="1.0" />
+
+        <TextView
+            android:id="@+id/textView1"
+            style="@style/ConstrainStyleText"
+            android:autoSizeMinTextSize="@dimen/minTXTsp"
+            app:layout_constraintBottom_toTopOf="@+id/guidelinecolumn1"
+            app:layout_constraintDimensionRatio="h,2:1"
+            app:layout_constraintEnd_toStartOf="@+id/guidelinerow1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView2"
+            style="@style/ConstrainStyleText"
+            android:autoSizeMinTextSize="@dimen/minTXTsp"
+            app:layout_constraintBottom_toTopOf="@+id/guidelinecolumn1"
+            app:layout_constraintDimensionRatio="h,2:1"
+            app:layout_constraintEnd_toStartOf="@+id/guidelinerow2"
+            app:layout_constraintStart_toStartOf="@id/guidelinerow1"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView3"
+            style="@style/ConstrainStyleText"
+            android:autoSizeMinTextSize="@dimen/minTXTsp"
+            app:layout_constraintBottom_toTopOf="@+id/guidelinecolumn1"
+            app:layout_constraintDimensionRatio="h,2:1"
+            app:layout_constraintEnd_toStartOf="@+id/guidelinerow3"
+            app:layout_constraintStart_toStartOf="@id/guidelinerow2"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView4"
+            style="@style/ConstrainStyleText"
+            android:autoSizeMinTextSize="@dimen/minTXTsp"
+            app:layout_constraintBottom_toTopOf="@+id/guidelinecolumn1"
+            app:layout_constraintDimensionRatio="h,2:1"
+            app:layout_constraintEnd_toStartOf="@+id/guidelinerow4"
+            app:layout_constraintStart_toStartOf="@id/guidelinerow3"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView5"
+            style="@style/ConstrainStyleText"
+            android:autoSizeMinTextSize="@dimen/minTXTsp"
+            app:layout_constraintBottom_toTopOf="@+id/guidelinecolumn1"
+            app:layout_constraintDimensionRatio="h,2:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/guidelinerow4"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView6"
+            style="@style/ConstrainStyleText"
+            android:autoSizeMinTextSize="@dimen/minTXTsp"
+            app:layout_constraintBottom_toTopOf="@+id/guidelinecolumn2"
+            app:layout_constraintDimensionRatio="h,2:1"
+            app:layout_constraintEnd_toEndOf="@id/guidelinerow1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/guidelinecolumn1" />
+
+        <TextView
+            android:id="@+id/textView7"
+            style="@style/ConstrainStyleText"
+            android:autoSizeMinTextSize="@dimen/minTXTsp"
+            app:layout_constraintBottom_toTopOf="@+id/guidelinecolumn2"
+            app:layout_constraintDimensionRatio="h,2:1"
+            app:layout_constraintEnd_toStartOf="@id/guidelinerow2"
+            app:layout_constraintStart_toStartOf="@id/guidelinerow1"
+            app:layout_constraintTop_toTopOf="@id/guidelinecolumn1" />
+
+        <TextView
+            android:id="@+id/textView8"
+            style="@style/ConstrainStyleText"
+            android:autoSizeMinTextSize="@dimen/minTXTsp"
+            app:layout_constraintBottom_toTopOf="@+id/guidelinecolumn2"
+            app:layout_constraintDimensionRatio="h,2:1"
+            app:layout_constraintEnd_toStartOf="@id/guidelinerow3"
+            app:layout_constraintStart_toStartOf="@id/guidelinerow2"
+            app:layout_constraintTop_toTopOf="@id/guidelinecolumn1" />
+
+        <TextView
+            android:id="@+id/textView9"
+            style="@style/ConstrainStyleText"
+            android:autoSizeMinTextSize="@dimen/minTXTsp"
+            app:layout_constraintBottom_toTopOf="@+id/guidelinecolumn2"
+            app:layout_constraintDimensionRatio="h,2:1"
+            app:layout_constraintEnd_toStartOf="@id/guidelinerow4"
+            app:layout_constraintStart_toStartOf="@id/guidelinerow3"
+            app:layout_constraintTop_toTopOf="@id/guidelinecolumn1" />
+
+        <TextView
+            android:id="@+id/textView10"
+            style="@style/ConstrainStyleText"
+            android:autoSizeMinTextSize="@dimen/minTXTsp"
+            app:layout_constraintBottom_toTopOf="@+id/guidelinecolumn2"
+            app:layout_constraintDimensionRatio="h,2:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/guidelinerow4"
+            app:layout_constraintTop_toTopOf="@id/guidelinecolumn1" />
+
+        <TextView
+            android:id="@+id/textView11"
+            style="@style/ConstrainStyleText"
+            android:autoSizeMinTextSize="@dimen/minTXTsp"
+            app:layout_constraintBottom_toTopOf="@+id/guidelinecolumn3"
+            app:layout_constraintDimensionRatio="h,2:1"
+            app:layout_constraintEnd_toStartOf="@id/guidelinerow1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/guidelinecolumn2" />
+
+        <TextView
+            android:id="@+id/textView12"
+            style="@style/ConstrainStyleText"
+            android:autoSizeMinTextSize="@dimen/minTXTsp"
+            app:layout_constraintBottom_toTopOf="@+id/guidelinecolumn3"
+            app:layout_constraintDimensionRatio="h,2:1"
+            app:layout_constraintEnd_toStartOf="@id/guidelinerow2"
+            app:layout_constraintStart_toEndOf="@id/guidelinerow1"
+            app:layout_constraintTop_toTopOf="@id/guidelinecolumn2" />
+
+        <ImageView
+            android:id="@+id/imageView5x5"
+            style="@style/ConstrainStyleText"
+            android:autoSizeMinTextSize="@dimen/minTXTsp"
+            app:layout_constraintBottom_toTopOf="@+id/guidelinecolumn3"
+            app:layout_constraintDimensionRatio="h,2:1"
+            app:layout_constraintEnd_toStartOf="@id/guidelinerow3"
+            app:layout_constraintStart_toStartOf="@id/guidelinerow2"
+            app:layout_constraintTop_toTopOf="@id/guidelinecolumn2" />
+
+        <TextView
+            android:id="@+id/textView13"
+            style="@style/ConstrainStyleText"
+            android:autoSizeMinTextSize="@dimen/minTXTsp"
+            app:layout_constraintBottom_toTopOf="@+id/guidelinecolumn3"
+            app:layout_constraintDimensionRatio="h,2:1"
+            app:layout_constraintEnd_toStartOf="@id/guidelinerow4"
+            app:layout_constraintStart_toEndOf="@id/guidelinerow3"
+            app:layout_constraintTop_toTopOf="@id/guidelinecolumn2" />
+
+        <TextView
+            android:id="@+id/textView14"
+            style="@style/ConstrainStyleText"
+            android:autoSizeMinTextSize="@dimen/minTXTsp"
+            app:layout_constraintBottom_toTopOf="@+id/guidelinecolumn3"
+            app:layout_constraintDimensionRatio="h,2:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/guidelinerow4"
+            app:layout_constraintTop_toTopOf="@id/guidelinecolumn2" />
+        <TextView
+            android:id="@+id/textView15"
+            style="@style/ConstrainStyleText"
+            android:autoSizeMinTextSize="@dimen/minTXTsp"
+            app:layout_constraintBottom_toTopOf="@+id/guidelinecolumn5"
+            app:layout_constraintDimensionRatio="h,2:1"
+            app:layout_constraintEnd_toStartOf="@id/guidelinerow1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/guidelinecolumn4" />
+        <TextView
+            android:id="@+id/textView16"
+            style="@style/ConstrainStyleText"
+            android:autoSizeMinTextSize="@dimen/minTXTsp"
+            app:layout_constraintBottom_toTopOf="@+id/guidelinecolumn5"
+            app:layout_constraintDimensionRatio="h,2:1"
+            app:layout_constraintEnd_toStartOf="@id/guidelinerow2"
+            app:layout_constraintStart_toStartOf="@id/guidelinerow1"
+            app:layout_constraintTop_toTopOf="@id/guidelinecolumn4" />
+        <TextView
+            android:id="@+id/textView17"
+            style="@style/ConstrainStyleText"
+            android:autoSizeMinTextSize="@dimen/minTXTsp"
+            app:layout_constraintBottom_toTopOf="@+id/guidelinecolumn5"
+            app:layout_constraintDimensionRatio="h,2:1"
+            app:layout_constraintEnd_toStartOf="@id/guidelinerow3"
+            app:layout_constraintStart_toStartOf="@id/guidelinerow2"
+            app:layout_constraintTop_toTopOf="@id/guidelinecolumn4" />
+        <TextView
+            android:id="@+id/textView18"
+            style="@style/ConstrainStyleText"
+            android:autoSizeMinTextSize="@dimen/minTXTsp"
+            app:layout_constraintBottom_toTopOf="@+id/guidelinecolumn5"
+            app:layout_constraintDimensionRatio="h,2:1"
+            app:layout_constraintEnd_toStartOf="@id/guidelinerow4"
+            app:layout_constraintStart_toStartOf="@id/guidelinerow3"
+            app:layout_constraintTop_toTopOf="@id/guidelinecolumn4" />
+        <TextView
+            android:id="@+id/textView19"
+            style="@style/ConstrainStyleText"
+            android:autoSizeMinTextSize="@dimen/minTXTsp"
+            app:layout_constraintBottom_toTopOf="@+id/guidelinecolumn5"
+            app:layout_constraintDimensionRatio="h,2:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/guidelinerow4"
+            app:layout_constraintTop_toTopOf="@id/guidelinecolumn4" />
+
+        <TextView
+            android:id="@+id/textView20"
+            style="@style/ConstrainStyleText"
+            android:autoSizeMinTextSize="@dimen/minTXTsp"
+            app:layout_constraintBottom_toBottomOf="@id/guidelinecolumn6"
+            app:layout_constraintDimensionRatio="h,2:1"
+            app:layout_constraintEnd_toEndOf="@id/guidelinerow1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/guidelinecolumn5" />
+        <TextView
+            android:id="@+id/textView21"
+            style="@style/ConstrainStyleText"
+            android:autoSizeMinTextSize="@dimen/minTXTsp"
+            app:layout_constraintBottom_toBottomOf="@id/guidelinecolumn6"
+            app:layout_constraintDimensionRatio="h,2:1"
+            app:layout_constraintEnd_toEndOf="@id/guidelinerow2"
+            app:layout_constraintStart_toStartOf="@id/guidelinerow1"
+            app:layout_constraintTop_toBottomOf="@id/guidelinecolumn5" />
+        <TextView
+            android:id="@+id/textView22"
+            style="@style/ConstrainStyleText"
+            android:autoSizeMinTextSize="@dimen/minTXTsp"
+            app:autoSizeTextType="uniform"
+            app:layout_constrainedHeight="true"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintBottom_toBottomOf="@id/guidelinecolumn6"
+            app:layout_constraintDimensionRatio="h,2:1"
+            app:layout_constraintEnd_toEndOf="@id/guidelinerow3"
+            app:layout_constraintStart_toStartOf="@id/guidelinerow2"
+            app:layout_constraintTop_toBottomOf="@id/guidelinecolumn5" />
+        <TextView
+            android:id="@+id/textView23"
+            style="@style/ConstrainStyleText"
+            android:autoSizeMinTextSize="@dimen/minTXTsp"
+            app:autoSizeTextType="uniform"
+            app:layout_constrainedHeight="true"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintBottom_toBottomOf="@id/guidelinecolumn6"
+            app:layout_constraintDimensionRatio="h,2:1"
+            app:layout_constraintEnd_toEndOf="@id/guidelinerow4"
+            app:layout_constraintStart_toStartOf="@id/guidelinerow3"
+            app:layout_constraintTop_toBottomOf="@id/guidelinecolumn5" />
+        <TextView
+            android:id="@+id/textView24"
+            style="@style/ConstrainStyleText"
+            android:autoSizeMinTextSize="@dimen/minTXTsp"
+            app:autoSizeTextType="uniform"
+            app:layout_constrainedHeight="true"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintBottom_toBottomOf="@id/guidelinecolumn6"
+            app:layout_constraintDimensionRatio="h,2:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/guidelinerow4"
+            app:layout_constraintTop_toBottomOf="@id/guidelinecolumn5" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

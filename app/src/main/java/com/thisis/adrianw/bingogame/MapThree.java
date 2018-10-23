@@ -127,8 +127,12 @@ public class MapThree extends Fragment implements View.OnLongClickListener {
     @Override
     public void onPrepareOptionsMenu(Menu menu) {
         super.onPrepareOptionsMenu(menu);
-        MenuItem item= menu.findItem(R.id.clearBoard);
-        item.setVisible(true);
+        MenuItem clearItem= menu.findItem(R.id.clearBoard);
+        MenuItem changeItem = menu.findItem(R.id.changeBoard);
+        clearItem.setVisible(true);
+        if (tempList.size()>15) {
+            changeItem.setVisible(true);
+        }
     }
 
     @Override
@@ -147,7 +151,6 @@ public class MapThree extends Fragment implements View.OnLongClickListener {
         } else {
             textToDisplay = "Unknown error";
         }
-        Log.v("UiHellpler", "text is : " + textToDisplay);
         builder.setTitle("Text in this field is:")
                 .setMessage(textToDisplay)
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {

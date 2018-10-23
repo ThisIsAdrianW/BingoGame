@@ -36,8 +36,10 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
-        MenuItem item=menu.findItem(R.id.clearBoard);
-        item.setVisible(false);
+        MenuItem clearItem=menu.findItem(R.id.clearBoard);
+        MenuItem changeItem=menu.findItem(R.id.changeBoard);
+        clearItem.setVisible(false);
+        changeItem.setVisible(false);
         return true;
     }
 
@@ -53,16 +55,26 @@ public class MainActivity extends AppCompatActivity {
             case R.id.clearBoard:
                 gameViewModel.cleanBingoBoard();
                 return true;
+            case R.id.changeBoard:
+                changeBoards();
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
 
-    public void gotoThree() {
+    public void changeBoards() {
         // Create new fragment and transaction
-        Fragment mapThree = new MapThree();
+        Fragment fragment;
+        //Fragment currentFragment = getSupportFragmentManager().findFragmentById(R.id.fragmentThree);
+        if (gameViewModel.getCurrentBoardModel()==9) {
+            fragment = new MapFive();
+        }
+        else {
+            fragment = new MapThree();
+        }
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.frameLayout, mapThree);
+        transaction.replace(R.id.frameLayout, fragment);
         transaction.addToBackStack(null);
         transaction.commit();
     }
