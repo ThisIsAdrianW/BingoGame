@@ -21,10 +21,11 @@ public class BingoBoard {
     }
 
     //Clearing board one cell at the time
-    private void clearBingoBoard(int size) {
+    public void clearBingoBoard(int size) {
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
                 cells[i][j] = new BingoCell();
+                Log.v("BingoBoard", "Value of this is ... " + cells[i][j].getValue());
             }
         }
     }

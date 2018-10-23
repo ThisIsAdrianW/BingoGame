@@ -136,4 +136,10 @@ public class GameViewModel extends AndroidViewModel{
     public void setBingoScore(Bingo bingo) {
         this.bingoScore.postValue(bingo);
     }
+
+    public void cleanBingoBoard() {
+        model.clearBingoBoard(boardSize);
+        clearCells();
+        bingoScore.postValue(Bingo.notBingo);
+    }
 }

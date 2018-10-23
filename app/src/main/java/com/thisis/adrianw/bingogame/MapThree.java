@@ -12,6 +12,8 @@ import androidx.lifecycle.ViewModelProviders;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -80,6 +82,8 @@ public class MapThree extends Fragment implements View.OnLongClickListener {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+        setHasOptionsMenu(true);
+
 
     }
 
@@ -126,6 +130,13 @@ public class MapThree extends Fragment implements View.OnLongClickListener {
     }
 
     @Override
+    public void onPrepareOptionsMenu(Menu menu) {
+        super.onPrepareOptionsMenu(menu);
+        MenuItem item= menu.findItem(R.id.clearBoard);
+        item.setVisible(true);
+    }
+
+    @Override
     public boolean onLongClick(View view) {
         Context context = view.getContext();
         AlertDialog.Builder builder;
@@ -151,5 +162,6 @@ public class MapThree extends Fragment implements View.OnLongClickListener {
                 .show();
         return false;
     }
+
 
 }

@@ -4,18 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
-import androidx.recyclerview.widget.LinearLayoutManager;
+
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import com.thisis.adrianw.bingogame.Bingodata.IndexWord;
-import com.thisis.adrianw.bingogame.Helpers.BingoListAdapter;
+
 import com.thisis.adrianw.bingogame.databinding.ActivityMainBinding;
-import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -40,6 +35,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        MenuItem item=menu.findItem(R.id.clearBoard);
+        item.setVisible(false);
+        return true;
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.new_words:
@@ -48,8 +50,8 @@ public class MainActivity extends AppCompatActivity {
             case R.id.chooseList:
                 listFragment();
                 return true;
-            case R.id.changeBoard:
-                gotoThree();
+            case R.id.clearBoard:
+                gameViewModel.cleanBingoBoard();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
