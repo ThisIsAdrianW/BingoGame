@@ -11,6 +11,7 @@
 <FrameLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/bingoNavy"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".MapFive">
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -101,10 +102,12 @@
         <TextView
             android:id="@+id/textV51"
             android:text='@{String.valueOf(viewModel.cells["00"]).equals("Bingo") ? String.valueOf(viewModel.cells["00"]) : list[0]}'
+            android:background='@{String.valueOf(viewModel.cells["00"]).equals("Bingo") ? @color/bingoLightBlue : @color/bingoDarkBlue}'
+            android:onClick="@{() -> viewModel.markBingo(0,0)}"
+            android:textColor='@{String.valueOf(viewModel.cells["00"]).equals("Bingo") ? @color/textBlack : @color/textWhite}'
             style="@style/ConstrainStyleText"
             android:autoSizeMinTextSize="@dimen/minTXTsp"
             app:layout_constraintBottom_toTopOf="@+id/guidelinecolumn1"
-            app:layout_constraintDimensionRatio="h,2:1"
             app:layout_constraintEnd_toStartOf="@+id/guidelinerow1"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

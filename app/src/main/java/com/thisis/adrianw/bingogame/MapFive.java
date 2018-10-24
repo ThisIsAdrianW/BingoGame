@@ -67,6 +67,7 @@ public class MapFive extends Fragment {
         MenuItem clearItem= menu.findItem(R.id.clearBoard);
         MenuItem changeItem = menu.findItem(R.id.changeBoard);
         clearItem.setVisible(true);
+        changeItem.setTitle(R.string.set3x3);
         changeItem.setVisible(true);
     }
 

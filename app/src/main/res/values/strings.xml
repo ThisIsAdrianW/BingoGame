@@ -7,5 +7,7 @@
     <string name="Toast_saved">Saved Your list</string>
     <string name="Missing_Value">You are missing value for this cell</string>
     <string name="Empty_list">You need to add words for Your bingo games ^_^</string>
+    <string name="set5x5">Change board to: 5x5 </string>
+    <string name="set3x3">Change board to: 3x3 </string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

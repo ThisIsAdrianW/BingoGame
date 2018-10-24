@@ -21,6 +21,8 @@ import java.util.List;
 
 
 public class AddWords extends Fragment {
+    LinearLayout linearLayout;
+    ArrayList<String> wordsForStateSave = new ArrayList<String>();
     private GameViewModel model;
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -61,23 +63,36 @@ public class AddWords extends Fragment {
         binding.setLifecycleOwner(this);
         binding.setActivity(AddWords.this);
         binding.setViewModel(model);
-        LinearLayout linearLayout = binding.linearAddWords;
+        linearLayout = binding.linearAddWords;
+        if (savedInstanceState!=null) {
+            wordsForStateSave = savedInstanceState.getStringArrayList("savedWords");
+            for (int i = 0; i < wordsForStateSave.size(); i++) {
+                createEditText(container, wordsForStateSave.get(i));
+            }
+        }
         return binding.getRoot();
-        //return inflater.inflate(R.layout.fragment_add_words, container, false);
     }
 
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        super.onSaveInstanceState(savedInstanceState);
+        wordsForStateSave.clear();
+        for (int i = 0; i < linearLayout.getChildCount(); i++) {
+            View edit = linearLayout.getChildAt(i);
+            if (edit instanceof EditText) {
+                String textFromEditText = ((EditText) edit).getText().toString().trim();
+                if (!textFromEditText.isEmpty() && edit.getId()!=R.id.wordToAdd) {
+                    wordsForStateSave.add(textFromEditText);
+                    Log.v("AddWords", "SaveItemsForGame now saved word"  + textFromEditText + "and count is " + wordsForStateSave.size());
+                }
+            }
+        }
+        savedInstanceState.putStringArrayList("savedWords", wordsForStateSave);
+    }
+
+
     public void addNewEditText(View view) {
-        LinearLayout linearLayout = view.getRootView().findViewById(R.id.linearAddWords);
-        int x = linearLayout.getChildCount();
-        int nextId = R.id.wordToAdd+x;
-        final EditText editText= new EditText(getContext());
-        final LinearLayout.LayoutParams params =
-                new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
-                        LinearLayout.LayoutParams.WRAP_CONTENT);
-        editText.setLayoutParams(params);
-        editText.setId(nextId);
-        linearLayout.addView(editText);
-        Log.v("AddWords", "New id is" + nextId + " and now count is " + linearLayout.getChildCount());
+       createEditText(view, " ");
     }
 
     public void saveItemsForGame(View view) {
@@ -123,6 +138,26 @@ public class AddWords extends Fragment {
         transaction.replace(R.id.frameLayout, listFragment);
         transaction.addToBackStack(null);
         transaction.commit();
+    }
+    public void createEditText(View view, String currentText) {
+//        LinearLayout linearLayout = view.getRootView().findViewById(R.id.linearAddWords);
+//        int x = linearLayout.getChildCount();
+        int x = linearLayout.getChildCount();
+        final EditText editText= new EditText(getContext());
+        editText.setWidth(LinearLayout.LayoutParams.MATCH_PARENT);
+        editText.setWidth(R.dimen.editTextH);
+        if (!currentText.trim().isEmpty()) {
+            editText.setText(currentText);
+            Log.v("AddWords", "String was not empty");
+        }
+        editText.setHint(R.string.add_words_for_game);
+        if (x%2==0) {
+            editText.setBackgroundColor(getResources().getColor(R.color.bingoDarkBlue));
+        }
+        else {
+            editText.setBackgroundColor(getResources().getColor(R.color.bingoLightBlue));
+        }
+        linearLayout.addView(editText);
     }
 
 }

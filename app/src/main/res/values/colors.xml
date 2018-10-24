@@ -9,4 +9,6 @@
     <color name="bingoLightBrown">#9E7360</color>
     <color name="bingoGray">#ADADAD</color>
     <color name="bingoNavy">#525252</color>
+    <color name="textBlack">#000000</color>
+    <color name="textWhite">#FFFFFF</color>
 </resources>

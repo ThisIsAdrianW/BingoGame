@@ -53,9 +53,9 @@ public class ListFragment extends Fragment {
         final FragmentListBinding binding = FragmentListBinding.inflate(inflater, container, false);
         model = ViewModelProviders.of(getActivity()).get(GameViewModel.class);
         binding.setLifecycleOwner(this);
-        final BingoListAdapter bingoListAdapter = new BingoListAdapter(getActivity(), model);
+        final BingoListAdapter bingoListAdapter = new BingoListAdapter(getContext(), getActivity(), model);
         binding.recycleView.setAdapter(bingoListAdapter);
-        binding.recycleView.setLayoutManager(new LinearLayoutManager(getContext()));
+        binding.recycleView.setLayoutManager(new LinearLayoutManager(getActivity()));
         model.getLiveIndex().observe(getActivity(), new Observer<List<IndexWord>>() {
             @Override
             public void onChanged(List<IndexWord> indexWords) {

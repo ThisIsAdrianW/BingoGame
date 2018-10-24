@@ -71,9 +71,6 @@ public class MapThree extends Fragment implements View.OnLongClickListener {
         Bundle bundle = this.getArguments();
         if (bundle!=null) {
             indexFromBundle = bundle.getString("titleArgument"," ");
-
-        }
-        if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
@@ -132,6 +129,7 @@ public class MapThree extends Fragment implements View.OnLongClickListener {
         clearItem.setVisible(true);
         if (tempList.size()>15) {
             changeItem.setVisible(true);
+            changeItem.setTitle(R.string.set5x5);
         }
     }
 

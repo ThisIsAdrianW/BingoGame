@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.thisis.adrianw.bingogame.Bingodata.IndexWord;
 import com.thisis.adrianw.bingogame.GameViewModel;
@@ -16,18 +17,25 @@ import java.util.List;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatTextView;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class BingoListAdapter extends RecyclerView.Adapter<BingoListAdapter.BingoViewHolder> {
+    FragmentActivity fragmentActivity;
 
     class BingoViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private final AppCompatTextView titleItemView;
         private final ImageView deleteButton;
+        private final LinearLayout linearLayout;
+
 
         private BingoViewHolder(View itemView) {
             super(itemView);
             titleItemView = itemView.findViewById(R.id.textViewCompatItem);
             deleteButton = itemView.findViewById(R.id.deleteIcon);
+            linearLayout = itemView.findViewById(R.id.linearItemLayout);
             titleItemView.setOnClickListener(this);
             deleteButton.setOnClickListener(this);
         }
@@ -37,12 +45,12 @@ public class BingoListAdapter extends RecyclerView.Adapter<BingoListAdapter.Bing
             Log.v("onClickFromAdapter", String.valueOf(view.getId()));
             String title = titleItemView.getText().toString().trim();
             if (view instanceof TextView) {
-                AppCompatActivity activity = (AppCompatActivity) view.getRootView().getContext();
+                FragmentManager fragmentManager = fragmentActivity.getSupportFragmentManager();
                 Fragment defaultFragment3 = new MapThree();
                 Bundle argumentsBundle = new Bundle();
                 argumentsBundle.putString("titleArgument", title);
                 defaultFragment3.setArguments(argumentsBundle);
-                activity.getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, defaultFragment3).addToBackStack(null).commit();
+                fragmentManager.beginTransaction().replace(R.id.frameLayout, defaultFragment3).addToBackStack(null).commit();
             }
             else if (view instanceof ImageView) {
                 IndexWord indexWord = new IndexWord();
@@ -56,9 +64,10 @@ public class BingoListAdapter extends RecyclerView.Adapter<BingoListAdapter.Bing
     private List<IndexWord> titles;
     private final GameViewModel gameViewModel;
 
-    public BingoListAdapter(Context context, GameViewModel viewModel) {
+    public BingoListAdapter(Context context, FragmentActivity fragmentActivity, GameViewModel viewModel) {
         layoutInflater = LayoutInflater.from(context);
         gameViewModel = viewModel;
+        this.fragmentActivity = fragmentActivity;
 
     }
 
@@ -72,6 +81,12 @@ public class BingoListAdapter extends RecyclerView.Adapter<BingoListAdapter.Bing
         if (titles != null) {
             IndexWord current = titles.get(position);
             holder.titleItemView.setText(String.valueOf(current.getIndexforwords()));
+            if (position%2==0) {
+                holder.linearLayout.setBackgroundResource(R.color.bingoDarkBlue);
+            }
+            else {
+                holder.linearLayout.setBackgroundResource(R.color.bingoLightBlue);
+            }
         } else {
             // Covers the case of data not being ready yet.
             holder.titleItemView.setText("No Word");

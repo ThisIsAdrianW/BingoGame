@@ -8,26 +8,30 @@
         <variable name="activity" type="com.thisis.adrianw.bingogame.AddWords"/>
     </data>
 <FrameLayout
+    android:id="@+id/addWordsFrameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/bingoLightBrown"
     tools:context=".AddWords">
     <LinearLayout
+        android:id="@+id/linearAddWordsMain"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <LinearLayout
-            android:padding="@dimen/padding10"
             android:id="@+id/addWordsMainLinear"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <EditText
                 android:id="@+id/titleForList"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/editTextH50"
+                android:background="@color/bingoLightBlue"
                 android:hint="@string/add_title_for_game"
                 android:inputType="text"/>
         </LinearLayout>
         <ScrollView
+            android:id="@+id/scrollViewAdd"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <LinearLayout
@@ -38,7 +42,8 @@
                 <EditText
                     android:id="@+id/wordToAdd"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:background="@color/bingoDarkBlue"
+                    android:layout_height="@dimen/editTextH50"
                     android:hint="@string/add_words_for_game"/>
             </LinearLayout>
         </ScrollView>
@@ -49,7 +54,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
         android:src="@drawable/ic_action_save"
-        android:backgroundTint="@color/bingoLightBlue"
+        android:backgroundTint="@color/bingoNavy"
         android:onClick="@{(view) -> activity.saveItemsForGame(view)}"
         />
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -58,7 +63,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
-        android:backgroundTint="@color/bingoLightBlue"
+        android:backgroundTint="@color/bingoNavy"
         android:src="@drawable/ic_action_add"
         android:onClick="@{(view) -> activity.addNewEditText(view)}"
         />
