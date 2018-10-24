@@ -62,6 +62,10 @@ public class BingoBoard {
         return bingo;
     }
 
+    public Bingo getValue(int x, int y) {
+        return cells[x][y].getValue();
+    }
+
     public boolean isItBingoTable3x3(int currentRow, int currentCol) {
         Bingo bingo = Bingo.Bingo;
         return (cells[currentRow][0].getValue() == bingo
@@ -82,6 +86,7 @@ public class BingoBoard {
     public boolean isItBingoTable5x5(int currentRow, int currentCol) {
         Bingo bingo = Bingo.Bingo;
         return (cells[currentRow][0].getValue() == bingo
+                && cells[currentRow][0].getValue() == bingo
                 && cells[currentRow][1].getValue() == bingo
                 && cells[currentRow][2].getValue() == bingo
                 && cells[currentRow][3].getValue() == bingo
@@ -97,13 +102,11 @@ public class BingoBoard {
                 && cells[2][2].getValue() == bingo
                 && cells[3][3].getValue() == bingo
                 && cells[4][4].getValue() == bingo
-                || currentRow + currentCol == 2    // 3-in-the-opposite-diagonal
-                && cells[0][4].getValue() == bingo
+                ||  // 3-in-the-opposite-diagonal
+                cells[0][4].getValue() == bingo
                 && cells[1][3].getValue() == bingo
                 && cells[2][2].getValue() == bingo
                 && cells[3][1].getValue() == bingo
                 && cells[4][0].getValue() == bingo);
     }
-
-
 }

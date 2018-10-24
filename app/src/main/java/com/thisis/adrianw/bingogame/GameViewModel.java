@@ -1,5 +1,6 @@
 package com.thisis.adrianw.bingogame;
 import android.app.Application;
+import android.net.Uri;
 import android.util.Log;
 
 import com.thisis.adrianw.bingogame.Bingodata.BingoRepository;
@@ -21,6 +22,7 @@ public class GameViewModel extends AndroidViewModel{
     private int boardSize=5;
     private int currentListSize;
     private int currentBoardModel;
+    private Uri imageUri;
     private static final int MIN_REQ_FIELDS = 9;
     private List<IndexWord> myIndexWords;
     private List<Words> words;
@@ -42,11 +44,21 @@ public class GameViewModel extends AndroidViewModel{
         Bingo cell = model.mark(row, col);
         cells.put("" + row + col, cell == null ? null : cell.toString());
         if (currentBoardModel==9) {
-            Boolean winner = model.isItBingoTable3x3(row, col);
-            Log.v("ViewBoard", "This is ... " + winner);
             if (model.isItBingoTable3x3(row, col)) {
                 bingoScore.postValue(Bingo.Bingo);
             }
+        }
+        else if (currentBoardModel==24) {
+            Log.v("GameViewModel", String.valueOf(model.getValue(2,2)));
+            if (model.getValue(2, 2) != Bingo.Bingo) {
+                markBingo(2,2);
+                Log.v("GameViewModel", "Marked Bingo at 2,2");
+            }
+            if (model.isItBingoTable5x5(row, col)) {
+                bingoScore.setValue(Bingo.Bingo);
+                Log.v("GameViewModel", "Bingo bingo bingo bingo");
+            }
+
         }
     }
     public void clearCells() {
@@ -143,5 +155,13 @@ public class GameViewModel extends AndroidViewModel{
         model.clearBingoBoard(boardSize);
         clearCells();
         bingoScore.postValue(Bingo.notBingo);
+    }
+
+    public Uri getImageUri() {
+        return imageUri;
+    }
+
+    public void setImageUri(Uri imageUri) {
+        this.imageUri = imageUri;
     }
 }

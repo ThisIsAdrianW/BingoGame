@@ -1,6 +1,10 @@
 package com.thisis.adrianw.bingogame.Helpers;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffColorFilter;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -16,6 +20,7 @@ import com.thisis.adrianw.bingogame.R;
 import java.util.List;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatTextView;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
@@ -24,11 +29,16 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class BingoListAdapter extends RecyclerView.Adapter<BingoListAdapter.BingoViewHolder> {
     FragmentActivity fragmentActivity;
+    private final Context context;
 
     class BingoViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+
         private final AppCompatTextView titleItemView;
         private final ImageView deleteButton;
         private final LinearLayout linearLayout;
+        private final int blackText;
+        private final int whiteText;
+        private final Drawable binIcon;
 
 
         private BingoViewHolder(View itemView) {
@@ -36,6 +46,9 @@ public class BingoListAdapter extends RecyclerView.Adapter<BingoListAdapter.Bing
             titleItemView = itemView.findViewById(R.id.textViewCompatItem);
             deleteButton = itemView.findViewById(R.id.deleteIcon);
             linearLayout = itemView.findViewById(R.id.linearItemLayout);
+            blackText = ContextCompat.getColor(context, R.color.textBlack);
+            whiteText = ContextCompat.getColor(context, R.color.textWhite);
+            binIcon = ContextCompat.getDrawable(context, R.drawable.ic_delete);
             titleItemView.setOnClickListener(this);
             deleteButton.setOnClickListener(this);
         }
@@ -67,6 +80,7 @@ public class BingoListAdapter extends RecyclerView.Adapter<BingoListAdapter.Bing
     public BingoListAdapter(Context context, FragmentActivity fragmentActivity, GameViewModel viewModel) {
         layoutInflater = LayoutInflater.from(context);
         gameViewModel = viewModel;
+        this.context = context;
         this.fragmentActivity = fragmentActivity;
 
     }
@@ -83,9 +97,11 @@ public class BingoListAdapter extends RecyclerView.Adapter<BingoListAdapter.Bing
             holder.titleItemView.setText(String.valueOf(current.getIndexforwords()));
             if (position%2==0) {
                 holder.linearLayout.setBackgroundResource(R.color.bingoDarkBlue);
+                holder.titleItemView.setTextColor(holder.whiteText);
             }
             else {
                 holder.linearLayout.setBackgroundResource(R.color.bingoLightBlue);
+                holder.titleItemView.setTextColor(holder.blackText);
             }
         } else {
             // Covers the case of data not being ready yet.

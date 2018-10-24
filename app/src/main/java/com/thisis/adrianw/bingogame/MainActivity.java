@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.thisis.adrianw.bingogame.Model.Bingo;
 import com.thisis.adrianw.bingogame.databinding.ActivityMainBinding;
 
 
@@ -69,9 +70,11 @@ public class MainActivity extends AppCompatActivity {
         //Fragment currentFragment = getSupportFragmentManager().findFragmentById(R.id.fragmentThree);
         if (gameViewModel.getCurrentBoardModel()==9) {
             fragment = new MapFive();
+            gameViewModel.setBingoScore(Bingo.notBingo);
         }
         else {
             fragment = new MapThree();
+            gameViewModel.setBingoScore(Bingo.notBingo);
         }
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.frameLayout, fragment);
