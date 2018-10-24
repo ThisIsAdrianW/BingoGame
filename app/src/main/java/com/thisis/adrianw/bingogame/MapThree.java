@@ -127,7 +127,7 @@ public class MapThree extends Fragment implements View.OnLongClickListener {
         MenuItem clearItem= menu.findItem(R.id.clearBoard);
         MenuItem changeItem = menu.findItem(R.id.changeBoard);
         clearItem.setVisible(true);
-        if (tempList.size()>15) {
+        if (tempList.size()>24) {
             changeItem.setVisible(true);
             changeItem.setTitle(R.string.set5x5);
         }
