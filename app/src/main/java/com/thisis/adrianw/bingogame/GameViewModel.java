@@ -109,6 +109,7 @@ public class GameViewModel extends AndroidViewModel{
     }
 
     public void updateStringList(List<String> listOfStrings, List<Words> listOfWords) {
+        listOfStrings.clear();
         for (int i = 0; i < listOfWords.size(); i++) {
             String newValue = listOfWords.get(i).getWordForBingo();
             listOfStrings.add(i, newValue);
