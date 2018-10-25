@@ -87,7 +87,6 @@ public class MapFive extends Fragment implements View.OnLongClickListener {
             @Override
             public void onChanged(Bingo bingo) {
                 if (bingo.equals(Bingo.Bingo)) {
-                    Log.v("MapFive", "This is Bingo");
                     Toast.makeText(getActivity(), String.valueOf(bingo), Toast.LENGTH_SHORT).show();
                     model.setBingoScore(Bingo.notBingo);
                 }

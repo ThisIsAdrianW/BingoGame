@@ -70,7 +70,6 @@ public class ListFragment extends Fragment {
                     binding.emptyTextView.setVisibility(View.GONE);
                     binding.recycleView.setVisibility(View.VISIBLE);
                 }
-                Log.v("MainActivity", "List changed ^_^");
             }
         });
         return binding.getRoot();

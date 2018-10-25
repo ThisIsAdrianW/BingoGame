@@ -55,11 +55,9 @@ public class GameViewModel extends AndroidViewModel {
             Log.v("GameViewModel", String.valueOf(model.getValue(2, 2)));
             if (model.getValue(2, 2) != Bingo.Bingo) {
                 markBingo(2, 2);
-                Log.v("GameViewModel", "Marked Bingo at 2,2");
             }
             if (model.isItBingoTable5x5(row, col)) {
                 bingoScore.setValue(Bingo.Bingo);
-                Log.v("GameViewModel", "Bingo bingo bingo bingo");
             }
         }
     }

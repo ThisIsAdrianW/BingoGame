@@ -84,31 +84,26 @@ public class MapThree extends Fragment implements View.OnLongClickListener {
             if (!indexFromBundle.equals(model.getMutableIndex())) {
                 model.getStringMutableLiveData().setValue(indexFromBundle);
                 model.updateWordList();
-                Log.v("MapThree", "changed index for searching for ... " + indexFromBundle);
             }
         }
         if (model.getStringMutableLiveData().getValue() != null) {
             model.getStringMutableLiveData().observe(this, new Observer<String>() {
                 @Override
                 public void onChanged(String responseString) {
-                    Log.v("MapThree", "Now response is ...." + responseString);
                     tempList = model.returnStringList();
                     binding.setList(tempList);
                 }
             });
-            Log.v("MapThree", "Null value in string");
         }
         model.getBingoScore().observe(this, new Observer<Bingo>() {
             @Override
             public void onChanged(Bingo bingo) {
                 if (bingo.equals(Bingo.Bingo)) {
-                    Log.v("MapThree", "This is Bingo");
                     Toast.makeText(getActivity(), String.valueOf(bingo), Toast.LENGTH_SHORT).show();
                     model.setBingoScore(Bingo.notBingo);
                 }
             }
         });
-        Log.v("MapThree", "Null value in string");
         return binding.getRoot();
     }
 
@@ -119,7 +114,6 @@ public class MapThree extends Fragment implements View.OnLongClickListener {
         MenuItem changeItem = menu.findItem(R.id.changeBoard);
         clearItem.setVisible(true);
         if (tempList.size() >= 24) {
-            Log.v("MapThree", "Current temp list size is ..." + tempList.size());
             changeItem.setVisible(true);
             changeItem.setTitle(R.string.set5x5);
         }
