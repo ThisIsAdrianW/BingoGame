@@ -146,8 +146,6 @@ public class AddWords extends Fragment {
     }
 
     public void createEditText(View view, String currentText) {
-//        LinearLayout linearLayout = view.getRootView().findViewById(R.id.linearAddWords);
-//        int x = linearLayout.getChildCount();
         int x = linearLayout.getChildCount();
         final EditText editText = new EditText(getContext());
         editText.setWidth(LinearLayout.LayoutParams.MATCH_PARENT);

@@ -158,7 +158,6 @@ public class BingoRepository {
 
     public List<IndexWord> getAllIndexWordsAsync() {
         try {
-            Log.v("BingoRepository", "executed");
             return new getAllIndexAsyncTask(bingoDao).execute().get();
         } catch (ExecutionException e) {
             e.printStackTrace();
