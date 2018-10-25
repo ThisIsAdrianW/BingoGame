@@ -86,7 +86,6 @@ public class AddWords extends Fragment {
                 String textFromEditText = ((EditText) edit).getText().toString().trim();
                 if (!textFromEditText.isEmpty() && edit.getId() != R.id.wordToAdd) {
                     wordsForStateSave.add(textFromEditText);
-                    Log.v("AddWords", "SaveItemsForGame now saved word" + textFromEditText + "and count is " + wordsForStateSave.size());
                 }
             }
         }
@@ -130,8 +129,8 @@ public class AddWords extends Fragment {
                 words.setWordForBingo(listOfWords.get(j));
                 model.inserBingoWord(words);
                 Log.v("AddWords", "Now we should save a lot of words");
-                switchToList();
             }
+            switchToList();
             Toast toast = Toast.makeText(view.getRootView().getContext(), R.string.Toast_saved, Toast.LENGTH_SHORT);
             toast.show();
         }
@@ -152,7 +151,6 @@ public class AddWords extends Fragment {
         editText.setWidth(R.dimen.editTextH);
         if (!currentText.trim().isEmpty()) {
             editText.setText(currentText);
-            Log.v("AddWords", "String was not empty");
         }
         editText.setHint(R.string.add_words_for_game);
         if (x % 2 == 0) {
