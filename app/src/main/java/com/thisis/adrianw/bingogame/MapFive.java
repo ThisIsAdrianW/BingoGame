@@ -15,7 +15,6 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -27,9 +26,6 @@ import android.widget.Toast;
 
 import com.thisis.adrianw.bingogame.Model.Bingo;
 import com.thisis.adrianw.bingogame.databinding.FragmentMapFiveBinding;
-import com.thisis.adrianw.bingogame.databinding.FragmentMapThreeBinding;
-
-import java.util.ArrayList;
 
 import static android.app.Activity.RESULT_OK;
 
