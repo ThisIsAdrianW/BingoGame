@@ -74,6 +74,7 @@ public class MapFive extends Fragment implements View.OnLongClickListener {
         final FragmentMapFiveBinding binding = FragmentMapFiveBinding.inflate(inflater, container, false);
         binding.setLifecycleOwner(this);
         model = ViewModelProviders.of(getActivity()).get(GameViewModel.class);
+        model.cleanBingoBoard();
         imageView = binding.imageV1;
         binding.setViewModel(model);
         model.setCurrentBoardModel(24);

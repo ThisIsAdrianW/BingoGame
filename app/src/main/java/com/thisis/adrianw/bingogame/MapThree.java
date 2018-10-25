@@ -76,6 +76,7 @@ public class MapThree extends Fragment implements View.OnLongClickListener {
         model = ViewModelProviders.of(getActivity()).get(GameViewModel.class);
         binding.setTestString(model.testString);
         binding.setViewModel(model);
+        model.cleanBingoBoard();
         model.setCurrentBoardModel(9);
         binding.setActivity(MapThree.this);
         BingoBoard bingoBoard = new BingoBoard(5);

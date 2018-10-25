@@ -69,7 +69,6 @@ public class MainActivity extends AppCompatActivity {
     public void changeBoards() {
         // Create new fragment and transaction
         Fragment fragment;
-        //Fragment currentFragment = getSupportFragmentManager().findFragmentById(R.id.fragmentThree);
         if (gameViewModel.getCurrentBoardModel() == 9) {
             fragment = new MapFive();
             gameViewModel.setBingoScore(Bingo.notBingo);

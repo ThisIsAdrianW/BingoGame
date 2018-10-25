@@ -71,14 +71,14 @@ public class BingoBoard {
         return (cells[currentRow][0].getValue() == bingo
                 && cells[currentRow][1].getValue() == bingo
                 && cells[currentRow][2].getValue() == bingo
-                || cells[0][currentCol].getValue() == bingo      // 3-in-the-column
+                || cells[0][currentCol].getValue() == bingo
                 && cells[1][currentCol].getValue() == bingo
                 && cells[2][currentCol].getValue() == bingo
-                || currentRow == currentCol            // 3-in-the-diagonal
+                || currentRow == currentCol
                 && cells[0][0].getValue() == bingo
                 && cells[1][1].getValue() == bingo
                 && cells[2][2].getValue() == bingo
-                || currentRow + currentCol == 2    // 3-in-the-opposite-diagonal
+                || currentRow + currentCol == 2
                 && cells[0][2].getValue() == bingo
                 && cells[1][1].getValue() == bingo
                 && cells[2][0].getValue() == bingo);
@@ -92,18 +92,18 @@ public class BingoBoard {
                 && cells[currentRow][2].getValue() == bingo
                 && cells[currentRow][3].getValue() == bingo
                 && cells[currentRow][4].getValue() == bingo
-                || cells[0][currentCol].getValue() == bingo      // 3-in-the-column
+                || cells[0][currentCol].getValue() == bingo
                 && cells[1][currentCol].getValue() == bingo
                 && cells[2][currentCol].getValue() == bingo
                 && cells[3][currentCol].getValue() == bingo
                 && cells[4][currentCol].getValue() == bingo
-                || currentRow == currentCol            // 3-in-the-diagonal
+                || currentRow == currentCol
                 && cells[0][0].getValue() == bingo
                 && cells[1][1].getValue() == bingo
                 && cells[2][2].getValue() == bingo
                 && cells[3][3].getValue() == bingo
                 && cells[4][4].getValue() == bingo
-                ||  // 3-in-the-opposite-diagonal
+                ||
                 cells[0][4].getValue() == bingo
                         && cells[1][3].getValue() == bingo
                         && cells[2][2].getValue() == bingo
