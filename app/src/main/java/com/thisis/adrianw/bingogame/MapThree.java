@@ -83,7 +83,6 @@ public class MapThree extends Fragment implements View.OnLongClickListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         final FragmentMapThreeBinding binding = FragmentMapThreeBinding.inflate(inflater, container, false);
-//        final FragmentMapThreeBinding binding = FragmentMapThreeBinding.inflate(inflater, container, false);
         binding.setLifecycleOwner(this);
         model = ViewModelProviders.of(getActivity()).get(GameViewModel.class);
         binding.setTestString(model.testString);
@@ -115,6 +114,7 @@ public class MapThree extends Fragment implements View.OnLongClickListener {
                 if (bingo.equals(Bingo.Bingo)) {
                     Log.v("MapThree", "This is Bingo");
                     Toast.makeText(getActivity(),String.valueOf(bingo),Toast.LENGTH_SHORT).show();
+                    model.setBingoScore(Bingo.notBingo);
                 }
             }
         });
@@ -128,7 +128,8 @@ public class MapThree extends Fragment implements View.OnLongClickListener {
         MenuItem clearItem= menu.findItem(R.id.clearBoard);
         MenuItem changeItem = menu.findItem(R.id.changeBoard);
         clearItem.setVisible(true);
-        if (tempList.size()>24) {
+        if (tempList.size()>=24) {
+            Log.v("MapThree", "Current temp list size is ..." + tempList.size());
             changeItem.setVisible(true);
             changeItem.setTitle(R.string.set5x5);
         }

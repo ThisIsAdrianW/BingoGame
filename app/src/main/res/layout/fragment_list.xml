@@ -10,6 +10,7 @@
     tools:context=".ListFragment">
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycleView"
+        android:background="@color/bingoGray"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
     <TextView
@@ -17,6 +18,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"
+        android:background="@color/bingoLightBrown"
+        android:textColor="@color/textWhite"
         android:gravity="center"
         android:textSize="@dimen/textEmptySize"
         android:text="@string/Empty_list"/>

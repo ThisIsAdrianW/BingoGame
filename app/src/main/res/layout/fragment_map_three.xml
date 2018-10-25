@@ -30,6 +30,7 @@
                 android:autoSizeMinTextSize="@dimen/minTXTsp"
                 android:onLongClick="@{(view) -> activity.onLongClick(view)}"
                 android:onClick="@{() -> viewModel.markBingo(0,0)}"
+                android:textColor='@{String.valueOf(viewModel.cells["00"]).equals("Bingo") ? @color/textBlack : @color/textWhite}'
                 android:background='@{String.valueOf(viewModel.cells["00"]).equals("Bingo") ? @color/bingoLightBlue : @color/bingoDarkBlue}'
                 android:text='@{String.valueOf(viewModel.cells["00"]).equals("Bingo") ? String.valueOf(viewModel.cells["00"]) : list[0]}'/>
             <androidx.appcompat.widget.AppCompatTextView
@@ -38,6 +39,7 @@
                 android:autoSizeMinTextSize="@dimen/minTXTsp"
                 android:onLongClick="@{(view) -> activity.onLongClick(view)}"
                 android:onClick="@{() -> viewModel.markBingo(0,1)}"
+                android:textColor='@{String.valueOf(viewModel.cells["01"]).equals("Bingo") ? @color/textBlack : @color/textWhite}'
                 android:background='@{String.valueOf(viewModel.cells["01"]).equals("Bingo") ? @color/bingoLightBlue : @color/bingoDarkBlue}'
                 android:text='@{String.valueOf(viewModel.cells["01"]).equals("Bingo") ? String.valueOf(viewModel.cells["01"]) : list[1]}'/>
             <androidx.appcompat.widget.AppCompatTextView
@@ -46,6 +48,7 @@
                 android:autoSizeMinTextSize="@dimen/minTXTsp"
                 android:onLongClick="@{(view) -> activity.onLongClick(view)}"
                 android:onClick="@{() -> viewModel.markBingo(0,2)}"
+                android:textColor='@{String.valueOf(viewModel.cells["02"]).equals("Bingo") ? @color/textBlack : @color/textWhite}'
                 android:background='@{String.valueOf(viewModel.cells["02"]).equals("Bingo") ? @color/bingoLightBlue : @color/bingoDarkBlue}'
                 android:text='@{String.valueOf(viewModel.cells["02"]).equals("Bingo") ? String.valueOf(viewModel.cells["02"]) : list[2]}'/>
         </LinearLayout>
@@ -60,6 +63,7 @@
                 android:autoSizeMinTextSize="@dimen/minTXTsp"
                 android:onLongClick="@{(view) -> activity.onLongClick(view)}"
                 android:onClick="@{() -> viewModel.markBingo(1,0)}"
+                android:textColor='@{String.valueOf(viewModel.cells["10"]).equals("Bingo") ? @color/textBlack : @color/textWhite}'
                 android:background='@{String.valueOf(viewModel.cells["10"]).equals("Bingo") ? @color/bingoLightBlue : @color/bingoDarkBlue}'
                 android:text='@{String.valueOf(viewModel.cells["10"]).equals("Bingo") ? String.valueOf(viewModel.cells["10"]) : list[3]}'/>
             <androidx.appcompat.widget.AppCompatTextView
@@ -68,6 +72,7 @@
                 android:autoSizeMinTextSize="@dimen/minTXTsp"
                 android:onLongClick="@{(view) -> activity.onLongClick(view)}"
                 android:onClick="@{() -> viewModel.markBingo(1,1)}"
+                android:textColor='@{String.valueOf(viewModel.cells["11"]).equals("Bingo") ? @color/textBlack : @color/textWhite}'
                 android:background='@{String.valueOf(viewModel.cells["11"]).equals("Bingo") ? @color/bingoLightBlue : @color/bingoDarkBlue}'
                 android:text='@{String.valueOf(viewModel.cells["11"]).equals("Bingo") ? String.valueOf(viewModel.cells["11"]) : list[4]}'/>
             <androidx.appcompat.widget.AppCompatTextView
@@ -76,6 +81,7 @@
                 android:autoSizeMinTextSize="@dimen/minTXTsp"
                 android:onLongClick="@{(view) -> activity.onLongClick(view)}"
                 android:onClick="@{() -> viewModel.markBingo(1,2)}"
+                android:textColor='@{String.valueOf(viewModel.cells["12"]).equals("Bingo") ? @color/textBlack : @color/textWhite}'
                 android:background='@{String.valueOf(viewModel.cells["12"]).equals("Bingo") ? @color/bingoLightBlue : @color/bingoDarkBlue}'
                 android:text='@{String.valueOf(viewModel.cells["12"]).equals("Bingo") ? String.valueOf(viewModel.cells["12"]) : list[5]}'/>
         </LinearLayout>
@@ -90,6 +96,7 @@
                 android:autoSizeMinTextSize="@dimen/minTXTsp"
                 android:onLongClick="@{(view) -> activity.onLongClick(view)}"
                 android:onClick="@{() -> viewModel.markBingo(2,0)}"
+                android:textColor='@{String.valueOf(viewModel.cells["20"]).equals("Bingo") ? @color/textBlack : @color/textWhite}'
                 android:background='@{String.valueOf(viewModel.cells["20"]).equals("Bingo") ? @color/bingoLightBlue : @color/bingoDarkBlue}'
                 android:text='@{String.valueOf(viewModel.cells["20"]).equals("Bingo") ? String.valueOf(viewModel.cells["20"]) : list[6]}'/>
             <androidx.appcompat.widget.AppCompatTextView
@@ -98,6 +105,7 @@
                 android:autoSizeMinTextSize="@dimen/minTXTsp"
                 android:onLongClick="@{(view) -> activity.onLongClick(view)}"
                 android:onClick="@{() -> viewModel.markBingo(2,1)}"
+                android:textColor='@{String.valueOf(viewModel.cells["21"]).equals("Bingo") ? @color/textBlack : @color/textWhite}'
                 android:background='@{String.valueOf(viewModel.cells["21"]).equals("Bingo") ? @color/bingoLightBlue : @color/bingoDarkBlue}'
                 android:text='@{String.valueOf(viewModel.cells["21"]).equals("Bingo") ? String.valueOf(viewModel.cells["21"]) : list[7]}'/>
             <androidx.appcompat.widget.AppCompatTextView
@@ -106,6 +114,7 @@
                 android:autoSizeMinTextSize="@dimen/minTXTsp"
                 android:onLongClick="@{(view) -> activity.onLongClick(view)}"
                 android:onClick="@{() -> viewModel.markBingo(2,2)}"
+                android:textColor='@{String.valueOf(viewModel.cells["22"]).equals("Bingo") ? @color/textBlack : @color/textWhite}'
                 android:background='@{String.valueOf(viewModel.cells["22"]).equals("Bingo") ? @color/bingoLightBlue : @color/bingoDarkBlue}'
                 android:text='@{String.valueOf(viewModel.cells["22"]).equals("Bingo") ? String.valueOf(viewModel.cells["22"]) : list[8]}'/>
         </LinearLayout>

@@ -58,7 +58,6 @@ public class GameViewModel extends AndroidViewModel{
                 bingoScore.setValue(Bingo.Bingo);
                 Log.v("GameViewModel", "Bingo bingo bingo bingo");
             }
-
         }
     }
     public void clearCells() {

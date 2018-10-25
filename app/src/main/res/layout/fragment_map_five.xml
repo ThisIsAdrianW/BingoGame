@@ -271,6 +271,7 @@
             android:id="@+id/imageV1"
             style="@style/ConstrainStyleText"
             android:scaleType="centerCrop"
+            android:background="@color/bingoBrown"
             android:onClick='@{(view) -> activity.selectImage(view)}'
             app:layout_constraintBottom_toTopOf="@+id/guidelinecolumn3"
             app:layout_constraintEnd_toStartOf="@id/guidelinerow3"
