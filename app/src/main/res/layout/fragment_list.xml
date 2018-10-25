@@ -1,28 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+
     <data>
+
         <import type="android.view.View" />
     </data>
-<FrameLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ListFragment">
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycleView"
-        android:background="@color/bingoGray"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-    <TextView
-        android:id="@+id/emptyTextView"
+
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:background="@color/bingoLightBrown"
-        android:textColor="@color/textWhite"
-        android:gravity="center"
-        android:textSize="@dimen/textEmptySize"
-        android:text="@string/Empty_list"/>
+        tools:context=".ListFragment">
 
-</FrameLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycleView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/bingoGray" />
+
+        <TextView
+            android:id="@+id/emptyTextView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:background="@color/bingoLightBrown"
+            android:gravity="center"
+            android:text="@string/Empty_list"
+            android:textColor="@color/textWhite"
+            android:textSize="@dimen/textEmptySize" />
+
+    </FrameLayout>
 </layout>

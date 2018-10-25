@@ -1,71 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+
     <data>
+
         <import type="android.view.View" />
-        <variable name="testString" type="String"/>
-        <variable name="viewModel" type="com.thisis.adrianw.bingogame.GameViewModel"/>
-        <variable name="activity" type="com.thisis.adrianw.bingogame.AddWords"/>
+
+        <variable
+            name="testString"
+            type="String" />
+
+        <variable
+            name="viewModel"
+            type="com.thisis.adrianw.bingogame.GameViewModel" />
+
+        <variable
+            name="activity"
+            type="com.thisis.adrianw.bingogame.AddWords" />
     </data>
-<FrameLayout
-    android:id="@+id/addWordsFrameLayout"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/bingoLightBrown"
-    tools:context=".AddWords">
-    <LinearLayout
-        android:id="@+id/linearAddWordsMain"
-        android:orientation="vertical"
+
+    <FrameLayout
+        android:id="@+id/addWordsFrameLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/bingoLightBrown"
+        tools:context=".AddWords">
+
         <LinearLayout
-            android:id="@+id/addWordsMainLinear"
+            android:id="@+id/linearAddWordsMain"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <EditText
-                android:id="@+id/titleForList"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/editTextH50"
-                android:background="@color/bingoLightBlue"
-                android:hint="@string/add_title_for_game"
-                android:inputType="text"/>
-        </LinearLayout>
-        <ScrollView
-            android:id="@+id/scrollViewAdd"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
             <LinearLayout
-                android:id="@+id/linearAddWords"
-                android:orientation="vertical"
+                android:id="@+id/addWordsMainLinear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/titleForList"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/editTextH50"
+                    android:background="@color/bingoLightBlue"
+                    android:hint="@string/add_title_for_game"
+                    android:inputType="text" />
+            </LinearLayout>
+
+            <ScrollView
+                android:id="@+id/scrollViewAdd"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
-                <EditText
-                    android:id="@+id/wordToAdd"
+
+                <LinearLayout
+                    android:id="@+id/linearAddWords"
                     android:layout_width="match_parent"
-                    android:background="@color/bingoDarkBlue"
-                    android:layout_height="@dimen/editTextH50"
-                    android:hint="@string/add_words_for_game"/>
-            </LinearLayout>
-        </ScrollView>
-    </LinearLayout>
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabAdd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end|bottom"
-        android:src="@drawable/ic_action_save"
-        android:backgroundTint="@color/bingoNavy"
-        android:onClick="@{(view) -> activity.saveItemsForGame(view)}"
-        />
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabSave"
-        android:layout_marginRight="@dimen/paddingForFab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end|bottom"
-        android:backgroundTint="@color/bingoNavy"
-        android:src="@drawable/ic_action_add"
-        android:onClick="@{(view) -> activity.addNewEditText(view)}"
-        />
-</FrameLayout>
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <EditText
+                        android:id="@+id/wordToAdd"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/editTextH50"
+                        android:background="@color/bingoDarkBlue"
+                        android:hint="@string/add_words_for_game" />
+                </LinearLayout>
+            </ScrollView>
+        </LinearLayout>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabAdd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
+            android:backgroundTint="@color/bingoNavy"
+            android:onClick="@{(view) -> activity.saveItemsForGame(view)}"
+            android:src="@drawable/ic_action_save" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabSave"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
+            android:layout_marginRight="@dimen/paddingForFab"
+            android:backgroundTint="@color/bingoNavy"
+            android:onClick="@{(view) -> activity.addNewEditText(view)}"
+            android:src="@drawable/ic_action_add" />
+    </FrameLayout>
 </layout>

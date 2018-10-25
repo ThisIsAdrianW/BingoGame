@@ -2,9 +2,11 @@ package com.thisis.adrianw.bingogame;
 
 
 import android.os.Bundle;
+
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProviders;
+
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,12 +14,13 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
+
 import com.thisis.adrianw.bingogame.Bingodata.IndexWord;
 import com.thisis.adrianw.bingogame.Bingodata.Words;
 import com.thisis.adrianw.bingogame.databinding.FragmentAddWordsBinding;
+
 import java.util.ArrayList;
 import java.util.List;
-
 
 
 public class AddWords extends Fragment {
@@ -64,7 +67,7 @@ public class AddWords extends Fragment {
         binding.setActivity(AddWords.this);
         binding.setViewModel(model);
         linearLayout = binding.linearAddWords;
-        if (savedInstanceState!=null) {
+        if (savedInstanceState != null) {
             wordsForStateSave = savedInstanceState.getStringArrayList("savedWords");
             for (int i = 0; i < wordsForStateSave.size(); i++) {
                 createEditText(container, wordsForStateSave.get(i));
@@ -81,9 +84,9 @@ public class AddWords extends Fragment {
             View edit = linearLayout.getChildAt(i);
             if (edit instanceof EditText) {
                 String textFromEditText = ((EditText) edit).getText().toString().trim();
-                if (!textFromEditText.isEmpty() && edit.getId()!=R.id.wordToAdd) {
+                if (!textFromEditText.isEmpty() && edit.getId() != R.id.wordToAdd) {
                     wordsForStateSave.add(textFromEditText);
-                    Log.v("AddWords", "SaveItemsForGame now saved word"  + textFromEditText + "and count is " + wordsForStateSave.size());
+                    Log.v("AddWords", "SaveItemsForGame now saved word" + textFromEditText + "and count is " + wordsForStateSave.size());
                 }
             }
         }
@@ -92,7 +95,7 @@ public class AddWords extends Fragment {
 
 
     public void addNewEditText(View view) {
-       createEditText(view, " ");
+        createEditText(view, " ");
     }
 
     public void saveItemsForGame(View view) {
@@ -106,18 +109,18 @@ public class AddWords extends Fragment {
                 String textFromEditText = ((EditText) edit).getText().toString().trim();
                 if (!textFromEditText.isEmpty()) {
                     listOfWords.add(textFromEditText);
-                    Log.v("AddWords", "SaveItemsForGame now saved word"  + textFromEditText + "and count is " + listOfWords.size());
+                    Log.v("AddWords", "SaveItemsForGame now saved word" + textFromEditText + "and count is " + listOfWords.size());
                 }
             }
         }
         String keyWord = editTitle.getText().toString().trim();
         if (keyWord.isEmpty()) {
-            Toast toast = Toast.makeText(view.getRootView().getContext(), R.string.Toast_error_title, Toast.LENGTH_SHORT); toast.show();
-        }
-        else if (linearLayout.getChildCount() < MIN_BOARD_SIZE || listOfWords.size() < MIN_BOARD_SIZE) {
-            Toast toast = Toast.makeText(view.getRootView().getContext(), R.string.Toast_error_count, Toast.LENGTH_SHORT); toast.show();
-        }
-        else {
+            Toast toast = Toast.makeText(view.getRootView().getContext(), R.string.Toast_error_title, Toast.LENGTH_SHORT);
+            toast.show();
+        } else if (linearLayout.getChildCount() < MIN_BOARD_SIZE || listOfWords.size() < MIN_BOARD_SIZE) {
+            Toast toast = Toast.makeText(view.getRootView().getContext(), R.string.Toast_error_count, Toast.LENGTH_SHORT);
+            toast.show();
+        } else {
             IndexWord indexWord = new IndexWord();
             indexWord.setIndexforwords(keyWord);
             model.insertBingoIndex(indexWord);
@@ -129,9 +132,11 @@ public class AddWords extends Fragment {
                 Log.v("AddWords", "Now we should save a lot of words");
                 switchToList();
             }
-            Toast toast = Toast.makeText(view.getRootView().getContext(), R.string.Toast_saved, Toast.LENGTH_SHORT); toast.show();
+            Toast toast = Toast.makeText(view.getRootView().getContext(), R.string.Toast_saved, Toast.LENGTH_SHORT);
+            toast.show();
         }
     }
+
     private void switchToList() {
         Fragment listFragment = new ListFragment();
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
@@ -139,11 +144,12 @@ public class AddWords extends Fragment {
         transaction.addToBackStack(null);
         transaction.commit();
     }
+
     public void createEditText(View view, String currentText) {
 //        LinearLayout linearLayout = view.getRootView().findViewById(R.id.linearAddWords);
 //        int x = linearLayout.getChildCount();
         int x = linearLayout.getChildCount();
-        final EditText editText= new EditText(getContext());
+        final EditText editText = new EditText(getContext());
         editText.setWidth(LinearLayout.LayoutParams.MATCH_PARENT);
         editText.setWidth(R.dimen.editTextH);
         if (!currentText.trim().isEmpty()) {
@@ -151,10 +157,9 @@ public class AddWords extends Fragment {
             Log.v("AddWords", "String was not empty");
         }
         editText.setHint(R.string.add_words_for_game);
-        if (x%2==0) {
+        if (x % 2 == 0) {
             editText.setBackgroundColor(getResources().getColor(R.color.bingoDarkBlue));
-        }
-        else {
+        } else {
             editText.setBackgroundColor(getResources().getColor(R.color.bingoLightBlue));
         }
         linearLayout.addView(editText);

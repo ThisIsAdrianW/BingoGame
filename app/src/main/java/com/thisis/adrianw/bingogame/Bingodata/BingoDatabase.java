@@ -9,7 +9,9 @@ import androidx.room.RoomDatabase;
 @Database(entities = {Words.class, IndexWord.class}, version = 1, exportSchema = false)
 public abstract class BingoDatabase extends RoomDatabase {
     private static volatile BingoDatabase INSTANCE;
+
     public abstract BingoDao bingoDao();
+
     static BingoDatabase getDatabase(final Context context) {
         if (INSTANCE == null) {
             synchronized (BingoDatabase.class) {

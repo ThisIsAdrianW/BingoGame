@@ -83,6 +83,7 @@ public class BingoBoard {
                 && cells[1][1].getValue() == bingo
                 && cells[2][0].getValue() == bingo);
     }
+
     public boolean isItBingoTable5x5(int currentRow, int currentCol) {
         Bingo bingo = Bingo.Bingo;
         return (cells[currentRow][0].getValue() == bingo
@@ -104,9 +105,9 @@ public class BingoBoard {
                 && cells[4][4].getValue() == bingo
                 ||  // 3-in-the-opposite-diagonal
                 cells[0][4].getValue() == bingo
-                && cells[1][3].getValue() == bingo
-                && cells[2][2].getValue() == bingo
-                && cells[3][1].getValue() == bingo
-                && cells[4][0].getValue() == bingo);
+                        && cells[1][3].getValue() == bingo
+                        && cells[2][2].getValue() == bingo
+                        && cells[3][1].getValue() == bingo
+                        && cells[4][0].getValue() == bingo);
     }
 }

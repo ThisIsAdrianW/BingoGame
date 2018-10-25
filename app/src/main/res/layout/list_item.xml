@@ -1,22 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal" android:layout_width="match_parent"
+    android:id="@+id/linearItemLayout"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:id="@+id/linearItemLayout">
+    android:orientation="horizontal">
+
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textViewCompatItem"
         style="@style/ListItemStyle"
-        android:layout_height="@dimen/listViewSize"
-        android:gravity="center"
-        android:layout_weight="1"
-        android:layout_gravity="center"
         android:layout_width="match_parent"
-        />
-    <ImageView
+        android:layout_height="@dimen/listViewSize"
+        android:layout_gravity="center"
         android:layout_weight="1"
+        android:gravity="center" />
+
+    <ImageView
         android:id="@+id/deleteIcon"
         android:layout_width="@dimen/binW"
-        android:layout_gravity="center"
         android:layout_height="@dimen/binH"
-        android:background="@drawable/ic_delete"/>
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:background="@drawable/ic_delete" />
 </LinearLayout>

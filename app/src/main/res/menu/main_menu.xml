@@ -6,14 +6,16 @@
     <item
         android:id="@+id/new_words"
         android:title="Add new words" />
-    <item android:id="@+id/chooseList"
-        android:title="Choose words for game"/>
-    <item android:id="@+id/changeBoard"
-        android:title="Change board size"/>
+    <item
+        android:id="@+id/chooseList"
+        android:title="Choose words for game" />
+    <item
+        android:id="@+id/changeBoard"
+        android:title="Change board size" />
     <item
         android:id="@+id/clearBoard"
         android:title="Clear game board" />
     <item
         android:id="@+id/helpandAbout"
-        android:title="@string/help_and_about"/>
+        android:title="@string/help_and_about" />
 </menu>

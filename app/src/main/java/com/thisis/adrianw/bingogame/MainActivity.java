@@ -16,6 +16,7 @@ import com.thisis.adrianw.bingogame.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
     GameViewModel gameViewModel;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,8 +38,8 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
-        MenuItem clearItem=menu.findItem(R.id.clearBoard);
-        MenuItem changeItem=menu.findItem(R.id.changeBoard);
+        MenuItem clearItem = menu.findItem(R.id.clearBoard);
+        MenuItem changeItem = menu.findItem(R.id.changeBoard);
         clearItem.setVisible(false);
         changeItem.setVisible(false);
         return true;
@@ -71,11 +72,10 @@ public class MainActivity extends AppCompatActivity {
         // Create new fragment and transaction
         Fragment fragment;
         //Fragment currentFragment = getSupportFragmentManager().findFragmentById(R.id.fragmentThree);
-        if (gameViewModel.getCurrentBoardModel()==9) {
+        if (gameViewModel.getCurrentBoardModel() == 9) {
             fragment = new MapFive();
             gameViewModel.setBingoScore(Bingo.notBingo);
-        }
-        else {
+        } else {
             fragment = new MapThree();
             gameViewModel.setBingoScore(Bingo.notBingo);
         }
@@ -84,6 +84,7 @@ public class MainActivity extends AppCompatActivity {
         transaction.addToBackStack(null);
         transaction.commit();
     }
+
     public void addWords() {
         // Create new fragment and transaction
         Fragment addWords = new AddWords();

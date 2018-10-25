@@ -1,443 +1,466 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+
     <data>
+
         <import type="android.view.View" />
-        <import type="java.util.List"/>
-        <variable name="viewModel" type="com.thisis.adrianw.bingogame.GameViewModel"/>
-        <variable name="activity" type="com.thisis.adrianw.bingogame.MapFive"/>
-        <variable name="list" type="java.util.List&lt;String&gt;"/>
+
+        <import type="java.util.List" />
+
+        <variable
+            name="viewModel"
+            type="com.thisis.adrianw.bingogame.GameViewModel" />
+
+        <variable
+            name="activity"
+            type="com.thisis.adrianw.bingogame.MapFive" />
+
+        <variable
+            name="list"
+            type="java.util.List&lt;String&gt;" />
     </data>
-<FrameLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/bingoNavy"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".MapFive">
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constrainLayoutFive"
+
+    <FrameLayout xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="10dp">
+        android:background="@color/bingoNavy"
+        tools:context=".MapFive">
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guidelinerow1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintGuide_percent="0.2" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constrainLayoutFive"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="10dp">
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guidelinecolumn1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintGuide_percent="0.2" />
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guidelinerow1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintGuide_percent="0.2" />
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guidelinerow2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintGuide_percent="0.4" />
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guidelinecolumn1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintGuide_percent="0.2" />
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guidelinerow3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintGuide_percent="0.6" />
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guidelinerow2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintGuide_percent="0.4" />
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guidelinerow4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintGuide_percent="0.8" />
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guidelinerow3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintGuide_percent="0.6" />
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guidelinecolumn2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintGuide_percent="0.4" />
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guidelinerow4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintGuide_percent="0.8" />
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guidelinecolumn3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintGuide_percent="0.6" />
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guidelinecolumn2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintGuide_percent="0.4" />
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guidelinecolumn4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintGuide_percent="0.6" />
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guidelinecolumn3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintGuide_percent="0.6" />
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guidelinecolumn5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintGuide_percent="0.8" />
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guidelinecolumn6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintGuide_percent="1.0" />
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guidelinecolumn4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintGuide_percent="0.6" />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/textV51"
-            android:text='@{String.valueOf(viewModel.cells["00"]).equals("Bingo") ? String.valueOf(viewModel.cells["00"]) : list[0]}'
-            android:background='@{String.valueOf(viewModel.cells["00"]).equals("Bingo") ? @color/bingoLightBlue : @color/bingoDarkBlue}'
-            android:onClick="@{() -> viewModel.markBingo(0,0)}"
-            android:textColor='@{String.valueOf(viewModel.cells["00"]).equals("Bingo") ? @color/textBlack : @color/textWhite}'
-            android:autoSizeMinTextSize="@dimen/minTXTsp5x5"
-            android:onLongClick="@{(view) -> activity.onLongClick(view)}"
-            style="@style/ConstrainStyleText"
-            app:layout_constraintBottom_toTopOf="@+id/guidelinecolumn1"
-            app:layout_constraintEnd_toStartOf="@+id/guidelinerow1"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guidelinecolumn5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintGuide_percent="0.8" />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/textV52"
-            android:text='@{String.valueOf(viewModel.cells["01"]).equals("Bingo") ? String.valueOf(viewModel.cells["01"]) : list[1]}'
-            android:background='@{String.valueOf(viewModel.cells["01"]).equals("Bingo") ? @color/bingoLightBlue : @color/bingoDarkBlue}'
-            android:onClick="@{() -> viewModel.markBingo(0,1)}"
-            android:textColor='@{String.valueOf(viewModel.cells["01"]).equals("Bingo") ? @color/textBlack : @color/textWhite}'
-            android:autoSizeMinTextSize="@dimen/minTXTsp5x5"
-            android:onLongClick="@{(view) -> activity.onLongClick(view)}"
-            style="@style/ConstrainStyleText"
-            app:layout_constraintBottom_toTopOf="@+id/guidelinecolumn1"
-            app:layout_constraintEnd_toStartOf="@+id/guidelinerow2"
-            app:layout_constraintStart_toStartOf="@id/guidelinerow1"
-            app:layout_constraintTop_toTopOf="parent" />
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guidelinecolumn6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintGuide_percent="1.0" />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/textV53"
-            style="@style/ConstrainStyleText"
-            android:text='@{String.valueOf(viewModel.cells["02"]).equals("Bingo") ? String.valueOf(viewModel.cells["02"]) : list[2]}'
-            android:background='@{String.valueOf(viewModel.cells["02"]).equals("Bingo") ? @color/bingoLightBlue : @color/bingoDarkBlue}'
-            android:onClick="@{() -> viewModel.markBingo(0,2)}"
-            android:textColor='@{String.valueOf(viewModel.cells["02"]).equals("Bingo") ? @color/textBlack : @color/textWhite}'
-            android:autoSizeMinTextSize="@dimen/minTXTsp5x5"
-            android:onLongClick="@{(view) -> activity.onLongClick(view)}"
-            app:layout_constraintBottom_toTopOf="@+id/guidelinecolumn1"
-            app:layout_constraintEnd_toStartOf="@+id/guidelinerow3"
-            app:layout_constraintStart_toStartOf="@id/guidelinerow2"
-            app:layout_constraintTop_toTopOf="parent" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/textV51"
+                style="@style/ConstrainStyleText"
+                android:autoSizeMinTextSize="@dimen/minTXTsp5x5"
+                android:background='@{String.valueOf(viewModel.cells["00"]).equals("Bingo") ? @color/bingoLightBlue : @color/bingoDarkBlue}'
+                android:onClick="@{() -> viewModel.markBingo(0,0)}"
+                android:onLongClick="@{(view) -> activity.onLongClick(view)}"
+                android:text='@{String.valueOf(viewModel.cells["00"]).equals("Bingo") ? String.valueOf(viewModel.cells["00"]) : list[0]}'
+                android:textColor='@{String.valueOf(viewModel.cells["00"]).equals("Bingo") ? @color/textBlack : @color/textWhite}'
+                app:layout_constraintBottom_toTopOf="@+id/guidelinecolumn1"
+                app:layout_constraintEnd_toStartOf="@+id/guidelinerow1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/textV54"
-            style="@style/ConstrainStyleText"
-            android:text='@{String.valueOf(viewModel.cells["03"]).equals("Bingo") ? String.valueOf(viewModel.cells["03"]) : list[3]}'
-            android:background='@{String.valueOf(viewModel.cells["03"]).equals("Bingo") ? @color/bingoLightBlue : @color/bingoDarkBlue}'
-            android:onClick="@{() -> viewModel.markBingo(0,3)}"
-            android:textColor='@{String.valueOf(viewModel.cells["03"]).equals("Bingo") ? @color/textBlack : @color/textWhite}'
-            android:autoSizeMinTextSize="@dimen/minTXTsp5x5"
-            android:onLongClick="@{(view) -> activity.onLongClick(view)}"
-            app:layout_constraintBottom_toTopOf="@+id/guidelinecolumn1"
-            app:layout_constraintEnd_toStartOf="@+id/guidelinerow4"
-            app:layout_constraintStart_toStartOf="@id/guidelinerow3"
-            app:layout_constraintTop_toTopOf="parent" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/textV52"
+                style="@style/ConstrainStyleText"
+                android:autoSizeMinTextSize="@dimen/minTXTsp5x5"
+                android:background='@{String.valueOf(viewModel.cells["01"]).equals("Bingo") ? @color/bingoLightBlue : @color/bingoDarkBlue}'
+                android:onClick="@{() -> viewModel.markBingo(0,1)}"
+                android:onLongClick="@{(view) -> activity.onLongClick(view)}"
+                android:text='@{String.valueOf(viewModel.cells["01"]).equals("Bingo") ? String.valueOf(viewModel.cells["01"]) : list[1]}'
+                android:textColor='@{String.valueOf(viewModel.cells["01"]).equals("Bingo") ? @color/textBlack : @color/textWhite}'
+                app:layout_constraintBottom_toTopOf="@+id/guidelinecolumn1"
+                app:layout_constraintEnd_toStartOf="@+id/guidelinerow2"
+                app:layout_constraintStart_toStartOf="@id/guidelinerow1"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/textV55"
-            style="@style/ConstrainStyleText"
-            android:text='@{String.valueOf(viewModel.cells["04"]).equals("Bingo") ? String.valueOf(viewModel.cells["04"]) : list[4]}'
-            android:background='@{String.valueOf(viewModel.cells["04"]).equals("Bingo") ? @color/bingoLightBlue : @color/bingoDarkBlue}'
-            android:onClick="@{() -> viewModel.markBingo(0,4)}"
-            android:textColor='@{String.valueOf(viewModel.cells["04"]).equals("Bingo") ? @color/textBlack : @color/textWhite}'
-            android:autoSizeMinTextSize="@dimen/minTXTsp5x5"
-            android:onLongClick="@{(view) -> activity.onLongClick(view)}"
-            app:layout_constraintBottom_toTopOf="@+id/guidelinecolumn1"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@id/guidelinerow4"
-            app:layout_constraintTop_toTopOf="parent" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/textV53"
+                style="@style/ConstrainStyleText"
+                android:autoSizeMinTextSize="@dimen/minTXTsp5x5"
+                android:background='@{String.valueOf(viewModel.cells["02"]).equals("Bingo") ? @color/bingoLightBlue : @color/bingoDarkBlue}'
+                android:onClick="@{() -> viewModel.markBingo(0,2)}"
+                android:onLongClick="@{(view) -> activity.onLongClick(view)}"
+                android:text='@{String.valueOf(viewModel.cells["02"]).equals("Bingo") ? String.valueOf(viewModel.cells["02"]) : list[2]}'
+                android:textColor='@{String.valueOf(viewModel.cells["02"]).equals("Bingo") ? @color/textBlack : @color/textWhite}'
+                app:layout_constraintBottom_toTopOf="@+id/guidelinecolumn1"
+                app:layout_constraintEnd_toStartOf="@+id/guidelinerow3"
+                app:layout_constraintStart_toStartOf="@id/guidelinerow2"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/textV56"
-            android:text='@{String.valueOf(viewModel.cells["10"]).equals("Bingo") ? String.valueOf(viewModel.cells["10"]) : list[5]}'
-            android:background='@{String.valueOf(viewModel.cells["10"]).equals("Bingo") ? @color/bingoLightBlue : @color/bingoDarkBlue}'
-            android:onClick="@{() -> viewModel.markBingo(1,0)}"
-            android:textColor='@{String.valueOf(viewModel.cells["10"]).equals("Bingo") ? @color/textBlack : @color/textWhite}'
-            android:autoSizeMinTextSize="@dimen/minTXTsp5x5"
-            android:onLongClick="@{(view) -> activity.onLongClick(view)}"
-            style="@style/ConstrainStyleText"
-            app:layout_constraintBottom_toTopOf="@+id/guidelinecolumn2"
-            app:layout_constraintEnd_toEndOf="@id/guidelinerow1"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/guidelinecolumn1" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/textV54"
+                style="@style/ConstrainStyleText"
+                android:autoSizeMinTextSize="@dimen/minTXTsp5x5"
+                android:background='@{String.valueOf(viewModel.cells["03"]).equals("Bingo") ? @color/bingoLightBlue : @color/bingoDarkBlue}'
+                android:onClick="@{() -> viewModel.markBingo(0,3)}"
+                android:onLongClick="@{(view) -> activity.onLongClick(view)}"
+                android:text='@{String.valueOf(viewModel.cells["03"]).equals("Bingo") ? String.valueOf(viewModel.cells["03"]) : list[3]}'
+                android:textColor='@{String.valueOf(viewModel.cells["03"]).equals("Bingo") ? @color/textBlack : @color/textWhite}'
+                app:layout_constraintBottom_toTopOf="@+id/guidelinecolumn1"
+                app:layout_constraintEnd_toStartOf="@+id/guidelinerow4"
+                app:layout_constraintStart_toStartOf="@id/guidelinerow3"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/textV57"
-            style="@style/ConstrainStyleText"
-            android:text='@{String.valueOf(viewModel.cells["11"]).equals("Bingo") ? String.valueOf(viewModel.cells["11"]) : list[6]}'
-            android:background='@{String.valueOf(viewModel.cells["11"]).equals("Bingo") ? @color/bingoLightBlue : @color/bingoDarkBlue}'
-            android:onClick="@{() -> viewModel.markBingo(1,1)}"
-            android:textColor='@{String.valueOf(viewModel.cells["11"]).equals("Bingo") ? @color/textBlack : @color/textWhite}'
-            android:autoSizeMinTextSize="@dimen/minTXTsp5x5"
-            android:onLongClick="@{(view) -> activity.onLongClick(view)}"
-            app:layout_constraintBottom_toTopOf="@+id/guidelinecolumn2"
-            app:layout_constraintEnd_toStartOf="@id/guidelinerow2"
-            app:layout_constraintStart_toStartOf="@id/guidelinerow1"
-            app:layout_constraintTop_toTopOf="@id/guidelinecolumn1" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/textV55"
+                style="@style/ConstrainStyleText"
+                android:autoSizeMinTextSize="@dimen/minTXTsp5x5"
+                android:background='@{String.valueOf(viewModel.cells["04"]).equals("Bingo") ? @color/bingoLightBlue : @color/bingoDarkBlue}'
+                android:onClick="@{() -> viewModel.markBingo(0,4)}"
+                android:onLongClick="@{(view) -> activity.onLongClick(view)}"
+                android:text='@{String.valueOf(viewModel.cells["04"]).equals("Bingo") ? String.valueOf(viewModel.cells["04"]) : list[4]}'
+                android:textColor='@{String.valueOf(viewModel.cells["04"]).equals("Bingo") ? @color/textBlack : @color/textWhite}'
+                app:layout_constraintBottom_toTopOf="@+id/guidelinecolumn1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/guidelinerow4"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/textV58"
-            style="@style/ConstrainStyleText"
-            android:text='@{String.valueOf(viewModel.cells["12"]).equals("Bingo") ? String.valueOf(viewModel.cells["12"]) : list[7]}'
-            android:background='@{String.valueOf(viewModel.cells["12"]).equals("Bingo") ? @color/bingoLightBlue : @color/bingoDarkBlue}'
-            android:onClick="@{() -> viewModel.markBingo(1,2)}"
-            android:textColor='@{String.valueOf(viewModel.cells["12"]).equals("Bingo") ? @color/textBlack : @color/textWhite}'
-            android:autoSizeMinTextSize="@dimen/minTXTsp5x5"
-            android:onLongClick="@{(view) -> activity.onLongClick(view)}"
-            app:layout_constraintBottom_toTopOf="@+id/guidelinecolumn2"
-            app:layout_constraintEnd_toStartOf="@id/guidelinerow3"
-            app:layout_constraintStart_toStartOf="@id/guidelinerow2"
-            app:layout_constraintTop_toTopOf="@id/guidelinecolumn1" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/textV56"
+                style="@style/ConstrainStyleText"
+                android:autoSizeMinTextSize="@dimen/minTXTsp5x5"
+                android:background='@{String.valueOf(viewModel.cells["10"]).equals("Bingo") ? @color/bingoLightBlue : @color/bingoDarkBlue}'
+                android:onClick="@{() -> viewModel.markBingo(1,0)}"
+                android:onLongClick="@{(view) -> activity.onLongClick(view)}"
+                android:text='@{String.valueOf(viewModel.cells["10"]).equals("Bingo") ? String.valueOf(viewModel.cells["10"]) : list[5]}'
+                android:textColor='@{String.valueOf(viewModel.cells["10"]).equals("Bingo") ? @color/textBlack : @color/textWhite}'
+                app:layout_constraintBottom_toTopOf="@+id/guidelinecolumn2"
+                app:layout_constraintEnd_toEndOf="@id/guidelinerow1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/guidelinecolumn1" />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/textV59"
-            style="@style/ConstrainStyleText"
-            android:text='@{String.valueOf(viewModel.cells["13"]).equals("Bingo") ? String.valueOf(viewModel.cells["13"]) : list[8]}'
-            android:background='@{String.valueOf(viewModel.cells["13"]).equals("Bingo") ? @color/bingoLightBlue : @color/bingoDarkBlue}'
-            android:onClick="@{() -> viewModel.markBingo(1,3)}"
-            android:textColor='@{String.valueOf(viewModel.cells["13"]).equals("Bingo") ? @color/textBlack : @color/textWhite}'
-            android:autoSizeMinTextSize="@dimen/minTXTsp5x5"
-            android:onLongClick="@{(view) -> activity.onLongClick(view)}"
-            app:layout_constraintBottom_toTopOf="@+id/guidelinecolumn2"
-            app:layout_constraintEnd_toStartOf="@id/guidelinerow4"
-            app:layout_constraintStart_toStartOf="@id/guidelinerow3"
-            app:layout_constraintTop_toTopOf="@id/guidelinecolumn1" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/textV57"
+                style="@style/ConstrainStyleText"
+                android:autoSizeMinTextSize="@dimen/minTXTsp5x5"
+                android:background='@{String.valueOf(viewModel.cells["11"]).equals("Bingo") ? @color/bingoLightBlue : @color/bingoDarkBlue}'
+                android:onClick="@{() -> viewModel.markBingo(1,1)}"
+                android:onLongClick="@{(view) -> activity.onLongClick(view)}"
+                android:text='@{String.valueOf(viewModel.cells["11"]).equals("Bingo") ? String.valueOf(viewModel.cells["11"]) : list[6]}'
+                android:textColor='@{String.valueOf(viewModel.cells["11"]).equals("Bingo") ? @color/textBlack : @color/textWhite}'
+                app:layout_constraintBottom_toTopOf="@+id/guidelinecolumn2"
+                app:layout_constraintEnd_toStartOf="@id/guidelinerow2"
+                app:layout_constraintStart_toStartOf="@id/guidelinerow1"
+                app:layout_constraintTop_toTopOf="@id/guidelinecolumn1" />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/textV510"
-            android:text='@{String.valueOf(viewModel.cells["14"]).equals("Bingo") ? String.valueOf(viewModel.cells["14"]) : list[9]}'
-            android:background='@{String.valueOf(viewModel.cells["14"]).equals("Bingo") ? @color/bingoLightBlue : @color/bingoDarkBlue}'
-            android:onClick="@{() -> viewModel.markBingo(1,4)}"
-            android:textColor='@{String.valueOf(viewModel.cells["14"]).equals("Bingo") ? @color/textBlack : @color/textWhite}'
-            android:autoSizeMinTextSize="@dimen/minTXTsp5x5"
-            android:onLongClick="@{(view) -> activity.onLongClick(view)}"
-            style="@style/ConstrainStyleText"
-            app:layout_constraintBottom_toTopOf="@+id/guidelinecolumn2"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@id/guidelinerow4"
-            app:layout_constraintTop_toTopOf="@id/guidelinecolumn1" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/textV58"
+                style="@style/ConstrainStyleText"
+                android:autoSizeMinTextSize="@dimen/minTXTsp5x5"
+                android:background='@{String.valueOf(viewModel.cells["12"]).equals("Bingo") ? @color/bingoLightBlue : @color/bingoDarkBlue}'
+                android:onClick="@{() -> viewModel.markBingo(1,2)}"
+                android:onLongClick="@{(view) -> activity.onLongClick(view)}"
+                android:text='@{String.valueOf(viewModel.cells["12"]).equals("Bingo") ? String.valueOf(viewModel.cells["12"]) : list[7]}'
+                android:textColor='@{String.valueOf(viewModel.cells["12"]).equals("Bingo") ? @color/textBlack : @color/textWhite}'
+                app:layout_constraintBottom_toTopOf="@+id/guidelinecolumn2"
+                app:layout_constraintEnd_toStartOf="@id/guidelinerow3"
+                app:layout_constraintStart_toStartOf="@id/guidelinerow2"
+                app:layout_constraintTop_toTopOf="@id/guidelinecolumn1" />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/textV511"
-            android:text='@{String.valueOf(viewModel.cells["20"]).equals("Bingo") ? String.valueOf(viewModel.cells["20"]) : list[10]}'
-            android:background='@{String.valueOf(viewModel.cells["20"]).equals("Bingo") ? @color/bingoLightBlue : @color/bingoDarkBlue}'
-            android:onClick="@{() -> viewModel.markBingo(2,0)}"
-            android:textColor='@{String.valueOf(viewModel.cells["20"]).equals("Bingo") ? @color/textBlack : @color/textWhite}'
-            android:autoSizeMinTextSize="@dimen/minTXTsp5x5"
-            android:onLongClick="@{(view) -> activity.onLongClick(view)}"
-            style="@style/ConstrainStyleText"
-            app:layout_constraintBottom_toTopOf="@+id/guidelinecolumn3"
-            app:layout_constraintEnd_toStartOf="@id/guidelinerow1"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/guidelinecolumn2" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/textV59"
+                style="@style/ConstrainStyleText"
+                android:autoSizeMinTextSize="@dimen/minTXTsp5x5"
+                android:background='@{String.valueOf(viewModel.cells["13"]).equals("Bingo") ? @color/bingoLightBlue : @color/bingoDarkBlue}'
+                android:onClick="@{() -> viewModel.markBingo(1,3)}"
+                android:onLongClick="@{(view) -> activity.onLongClick(view)}"
+                android:text='@{String.valueOf(viewModel.cells["13"]).equals("Bingo") ? String.valueOf(viewModel.cells["13"]) : list[8]}'
+                android:textColor='@{String.valueOf(viewModel.cells["13"]).equals("Bingo") ? @color/textBlack : @color/textWhite}'
+                app:layout_constraintBottom_toTopOf="@+id/guidelinecolumn2"
+                app:layout_constraintEnd_toStartOf="@id/guidelinerow4"
+                app:layout_constraintStart_toStartOf="@id/guidelinerow3"
+                app:layout_constraintTop_toTopOf="@id/guidelinecolumn1" />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/textV512"
-            style="@style/ConstrainStyleText"
-            android:text='@{String.valueOf(viewModel.cells["21"]).equals("Bingo") ? String.valueOf(viewModel.cells["21"]) : list[11]}'
-            android:background='@{String.valueOf(viewModel.cells["21"]).equals("Bingo") ? @color/bingoLightBlue : @color/bingoDarkBlue}'
-            android:onClick="@{() -> viewModel.markBingo(2,1)}"
-            android:textColor='@{String.valueOf(viewModel.cells["21"]).equals("Bingo") ? @color/textBlack : @color/textWhite}'
-            android:autoSizeMinTextSize="@dimen/minTXTsp5x5"
-            android:onLongClick="@{(view) -> activity.onLongClick(view)}"
-            app:layout_constraintBottom_toTopOf="@+id/guidelinecolumn3"
-            app:layout_constraintEnd_toStartOf="@id/guidelinerow2"
-            app:layout_constraintStart_toEndOf="@id/guidelinerow1"
-            app:layout_constraintTop_toTopOf="@id/guidelinecolumn2" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/textV510"
+                style="@style/ConstrainStyleText"
+                android:autoSizeMinTextSize="@dimen/minTXTsp5x5"
+                android:background='@{String.valueOf(viewModel.cells["14"]).equals("Bingo") ? @color/bingoLightBlue : @color/bingoDarkBlue}'
+                android:onClick="@{() -> viewModel.markBingo(1,4)}"
+                android:onLongClick="@{(view) -> activity.onLongClick(view)}"
+                android:text='@{String.valueOf(viewModel.cells["14"]).equals("Bingo") ? String.valueOf(viewModel.cells["14"]) : list[9]}'
+                android:textColor='@{String.valueOf(viewModel.cells["14"]).equals("Bingo") ? @color/textBlack : @color/textWhite}'
+                app:layout_constraintBottom_toTopOf="@+id/guidelinecolumn2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/guidelinerow4"
+                app:layout_constraintTop_toTopOf="@id/guidelinecolumn1" />
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/imageV1"
-            style="@style/ConstrainStyleText"
-            android:scaleType="centerCrop"
-            android:background="@color/bingoBrown"
-            android:onClick='@{(view) -> activity.selectImage(view)}'
-            app:layout_constraintBottom_toTopOf="@+id/guidelinecolumn3"
-            app:layout_constraintEnd_toStartOf="@id/guidelinerow3"
-            app:layout_constraintStart_toStartOf="@id/guidelinerow2"
-            app:layout_constraintTop_toTopOf="@id/guidelinecolumn2" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/textV511"
+                style="@style/ConstrainStyleText"
+                android:autoSizeMinTextSize="@dimen/minTXTsp5x5"
+                android:background='@{String.valueOf(viewModel.cells["20"]).equals("Bingo") ? @color/bingoLightBlue : @color/bingoDarkBlue}'
+                android:onClick="@{() -> viewModel.markBingo(2,0)}"
+                android:onLongClick="@{(view) -> activity.onLongClick(view)}"
+                android:text='@{String.valueOf(viewModel.cells["20"]).equals("Bingo") ? String.valueOf(viewModel.cells["20"]) : list[10]}'
+                android:textColor='@{String.valueOf(viewModel.cells["20"]).equals("Bingo") ? @color/textBlack : @color/textWhite}'
+                app:layout_constraintBottom_toTopOf="@+id/guidelinecolumn3"
+                app:layout_constraintEnd_toStartOf="@id/guidelinerow1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/guidelinecolumn2" />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/textV513"
-            style="@style/ConstrainStyleText"
-            android:text='@{String.valueOf(viewModel.cells["23"]).equals("Bingo") ? String.valueOf(viewModel.cells["23"]) : list[12]}'
-            android:background='@{String.valueOf(viewModel.cells["23"]).equals("Bingo") ? @color/bingoLightBlue : @color/bingoDarkBlue}'
-            android:onClick="@{() -> viewModel.markBingo(2,3)}"
-            android:textColor='@{String.valueOf(viewModel.cells["23"]).equals("Bingo") ? @color/textBlack : @color/textWhite}'
-            android:autoSizeMinTextSize="@dimen/minTXTsp5x5"
-            android:onLongClick="@{(view) -> activity.onLongClick(view)}"
-            app:layout_constraintBottom_toTopOf="@+id/guidelinecolumn3"
-            app:layout_constraintEnd_toStartOf="@id/guidelinerow4"
-            app:layout_constraintStart_toEndOf="@id/guidelinerow3"
-            app:layout_constraintTop_toTopOf="@id/guidelinecolumn2" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/textV512"
+                style="@style/ConstrainStyleText"
+                android:autoSizeMinTextSize="@dimen/minTXTsp5x5"
+                android:background='@{String.valueOf(viewModel.cells["21"]).equals("Bingo") ? @color/bingoLightBlue : @color/bingoDarkBlue}'
+                android:onClick="@{() -> viewModel.markBingo(2,1)}"
+                android:onLongClick="@{(view) -> activity.onLongClick(view)}"
+                android:text='@{String.valueOf(viewModel.cells["21"]).equals("Bingo") ? String.valueOf(viewModel.cells["21"]) : list[11]}'
+                android:textColor='@{String.valueOf(viewModel.cells["21"]).equals("Bingo") ? @color/textBlack : @color/textWhite}'
+                app:layout_constraintBottom_toTopOf="@+id/guidelinecolumn3"
+                app:layout_constraintEnd_toStartOf="@id/guidelinerow2"
+                app:layout_constraintStart_toEndOf="@id/guidelinerow1"
+                app:layout_constraintTop_toTopOf="@id/guidelinecolumn2" />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/textV514"
-            android:text='@{String.valueOf(viewModel.cells["24"]).equals("Bingo") ? String.valueOf(viewModel.cells["24"]) : list[13]}'
-            android:background='@{String.valueOf(viewModel.cells["24"]).equals("Bingo") ? @color/bingoLightBlue : @color/bingoDarkBlue}'
-            android:onClick="@{() -> viewModel.markBingo(2,4)}"
-            android:textColor='@{String.valueOf(viewModel.cells["24"]).equals("Bingo") ? @color/textBlack : @color/textWhite}'
-            android:autoSizeMinTextSize="@dimen/minTXTsp5x5"
-            android:onLongClick="@{(view) -> activity.onLongClick(view)}"
-            style="@style/ConstrainStyleText"
-            app:layout_constraintBottom_toTopOf="@+id/guidelinecolumn3"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/guidelinerow4"
-            app:layout_constraintTop_toTopOf="@id/guidelinecolumn2" />
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/textV515"
-            style="@style/ConstrainStyleText"
-            android:text='@{String.valueOf(viewModel.cells["30"]).equals("Bingo") ? String.valueOf(viewModel.cells["30"]) : list[14]}'
-            android:background='@{String.valueOf(viewModel.cells["30"]).equals("Bingo") ? @color/bingoLightBlue : @color/bingoDarkBlue}'
-            android:onClick="@{() -> viewModel.markBingo(3,0)}"
-            android:textColor='@{String.valueOf(viewModel.cells["30"]).equals("Bingo") ? @color/textBlack : @color/textWhite}'
-            android:autoSizeMinTextSize="@dimen/minTXTsp5x5"
-            android:onLongClick="@{(view) -> activity.onLongClick(view)}"
-            app:layout_constraintBottom_toTopOf="@+id/guidelinecolumn5"
-            app:layout_constraintEnd_toStartOf="@id/guidelinerow1"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/guidelinecolumn4" />
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/textV516"
-            style="@style/ConstrainStyleText"
-            android:text='@{String.valueOf(viewModel.cells["31"]).equals("Bingo") ? String.valueOf(viewModel.cells["31"]) : list[15]}'
-            android:background='@{String.valueOf(viewModel.cells["31"]).equals("Bingo") ? @color/bingoLightBlue : @color/bingoDarkBlue}'
-            android:onClick="@{() -> viewModel.markBingo(3,1)}"
-            android:textColor='@{String.valueOf(viewModel.cells["31"]).equals("Bingo") ? @color/textBlack : @color/textWhite}'
-            android:autoSizeMinTextSize="@dimen/minTXTsp5x5"
-            android:onLongClick="@{(view) -> activity.onLongClick(view)}"
-            app:layout_constraintBottom_toTopOf="@+id/guidelinecolumn5"
-            app:layout_constraintEnd_toStartOf="@id/guidelinerow2"
-            app:layout_constraintStart_toStartOf="@id/guidelinerow1"
-            app:layout_constraintTop_toTopOf="@id/guidelinecolumn4" />
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/textV517"
-            style="@style/ConstrainStyleText"
-            android:text='@{String.valueOf(viewModel.cells["32"]).equals("Bingo") ? String.valueOf(viewModel.cells["32"]) : list[16]}'
-            android:background='@{String.valueOf(viewModel.cells["32"]).equals("Bingo") ? @color/bingoLightBlue : @color/bingoDarkBlue}'
-            android:onClick="@{() -> viewModel.markBingo(3,2)}"
-            android:textColor='@{String.valueOf(viewModel.cells["32"]).equals("Bingo") ? @color/textBlack : @color/textWhite}'
-            android:autoSizeMinTextSize="@dimen/minTXTsp5x5"
-            android:onLongClick="@{(view) -> activity.onLongClick(view)}"
-            app:layout_constraintBottom_toTopOf="@+id/guidelinecolumn5"
-            app:layout_constraintEnd_toStartOf="@id/guidelinerow3"
-            app:layout_constraintStart_toStartOf="@id/guidelinerow2"
-            app:layout_constraintTop_toTopOf="@id/guidelinecolumn4" />
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/textV518"
-            style="@style/ConstrainStyleText"
-            android:text='@{String.valueOf(viewModel.cells["33"]).equals("Bingo") ? String.valueOf(viewModel.cells["33"]) : list[17]}'
-            android:background='@{String.valueOf(viewModel.cells["33"]).equals("Bingo") ? @color/bingoLightBlue : @color/bingoDarkBlue}'
-            android:onClick="@{() -> viewModel.markBingo(3,3)}"
-            android:textColor='@{String.valueOf(viewModel.cells["33"]).equals("Bingo") ? @color/textBlack : @color/textWhite}'
-            android:autoSizeMinTextSize="@dimen/minTXTsp5x5"
-            android:onLongClick="@{(view) -> activity.onLongClick(view)}"
-            app:layout_constraintBottom_toTopOf="@+id/guidelinecolumn5"
-            app:layout_constraintEnd_toStartOf="@id/guidelinerow4"
-            app:layout_constraintStart_toStartOf="@id/guidelinerow3"
-            app:layout_constraintTop_toTopOf="@id/guidelinecolumn4" />
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/textV519"
-            style="@style/ConstrainStyleText"
-            android:text='@{String.valueOf(viewModel.cells["34"]).equals("Bingo") ? String.valueOf(viewModel.cells["34"]) : list[18]}'
-            android:background='@{String.valueOf(viewModel.cells["34"]).equals("Bingo") ? @color/bingoLightBlue : @color/bingoDarkBlue}'
-            android:onClick="@{() -> viewModel.markBingo(3,4)}"
-            android:textColor='@{String.valueOf(viewModel.cells["34"]).equals("Bingo") ? @color/textBlack : @color/textWhite}'
-            android:autoSizeMinTextSize="@dimen/minTXTsp5x5"
-            android:onLongClick="@{(view) -> activity.onLongClick(view)}"
-            app:layout_constraintBottom_toTopOf="@+id/guidelinecolumn5"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@id/guidelinerow4"
-            app:layout_constraintTop_toTopOf="@id/guidelinecolumn4" />
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imageV1"
+                style="@style/ConstrainStyleText"
+                android:background="@color/bingoBrown"
+                android:onClick='@{(view) -> activity.selectImage(view)}'
+                android:scaleType="centerCrop"
+                app:layout_constraintBottom_toTopOf="@+id/guidelinecolumn3"
+                app:layout_constraintEnd_toStartOf="@id/guidelinerow3"
+                app:layout_constraintStart_toStartOf="@id/guidelinerow2"
+                app:layout_constraintTop_toTopOf="@id/guidelinecolumn2" />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/textV520"
-            style="@style/ConstrainStyleText"
-            android:text='@{String.valueOf(viewModel.cells["40"]).equals("Bingo") ? String.valueOf(viewModel.cells["40"]) : list[19]}'
-            android:background='@{String.valueOf(viewModel.cells["40"]).equals("Bingo") ? @color/bingoLightBlue : @color/bingoDarkBlue}'
-            android:onClick="@{() -> viewModel.markBingo(4,0)}"
-            android:textColor='@{String.valueOf(viewModel.cells["40"]).equals("Bingo") ? @color/textBlack : @color/textWhite}'
-            android:autoSizeMinTextSize="@dimen/minTXTsp5x5"
-            android:onLongClick="@{(view) -> activity.onLongClick(view)}"
-            app:layout_constraintBottom_toBottomOf="@id/guidelinecolumn6"
-            app:layout_constraintEnd_toEndOf="@id/guidelinerow1"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/guidelinecolumn5" />
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/textV521"
-            style="@style/ConstrainStyleText"
-            android:text='@{String.valueOf(viewModel.cells["41"]).equals("Bingo") ? String.valueOf(viewModel.cells["41"]) : list[20]}'
-            android:background='@{String.valueOf(viewModel.cells["41"]).equals("Bingo") ? @color/bingoLightBlue : @color/bingoDarkBlue}'
-            android:onClick="@{() -> viewModel.markBingo(4,1)}"
-            android:textColor='@{String.valueOf(viewModel.cells["41"]).equals("Bingo") ? @color/textBlack : @color/textWhite}'
-            android:autoSizeMinTextSize="@dimen/minTXTsp5x5"
-            android:onLongClick="@{(view) -> activity.onLongClick(view)}"
-            app:layout_constraintBottom_toBottomOf="@id/guidelinecolumn6"
-            app:layout_constraintEnd_toEndOf="@id/guidelinerow2"
-            app:layout_constraintStart_toStartOf="@id/guidelinerow1"
-            app:layout_constraintTop_toBottomOf="@id/guidelinecolumn5" />
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/textV522"
-            style="@style/ConstrainStyleText"
-            android:text='@{String.valueOf(viewModel.cells["42"]).equals("Bingo") ? String.valueOf(viewModel.cells["42"]) : list[21]}'
-            android:background='@{String.valueOf(viewModel.cells["42"]).equals("Bingo") ? @color/bingoLightBlue : @color/bingoDarkBlue}'
-            android:onClick="@{() -> viewModel.markBingo(4,2)}"
-            android:textColor='@{String.valueOf(viewModel.cells["42"]).equals("Bingo") ? @color/textBlack : @color/textWhite}'
-            android:autoSizeMinTextSize="@dimen/minTXTsp5x5"
-            android:onLongClick="@{(view) -> activity.onLongClick(view)}"
-            app:layout_constraintBottom_toBottomOf="@id/guidelinecolumn6"
-            app:layout_constraintEnd_toEndOf="@id/guidelinerow3"
-            app:layout_constraintStart_toStartOf="@id/guidelinerow2"
-            app:layout_constraintTop_toBottomOf="@id/guidelinecolumn5" />
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/textV523"
-            style="@style/ConstrainStyleText"
-            android:text='@{String.valueOf(viewModel.cells["43"]).equals("Bingo") ? String.valueOf(viewModel.cells["43"]) : list[22]}'
-            android:background='@{String.valueOf(viewModel.cells["43"]).equals("Bingo") ? @color/bingoLightBlue : @color/bingoDarkBlue}'
-            android:onClick="@{() -> viewModel.markBingo(4,3)}"
-            android:textColor='@{String.valueOf(viewModel.cells["43"]).equals("Bingo") ? @color/textBlack : @color/textWhite}'
-            android:autoSizeMinTextSize="@dimen/minTXTsp5x5"
-            android:onLongClick="@{(view) -> activity.onLongClick(view)}"
-            app:layout_constraintBottom_toBottomOf="@id/guidelinecolumn6"
-            app:layout_constraintEnd_toEndOf="@id/guidelinerow4"
-            app:layout_constraintStart_toStartOf="@id/guidelinerow3"
-            app:layout_constraintTop_toBottomOf="@id/guidelinecolumn5" />
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/textV524"
-            style="@style/ConstrainStyleText"
-            android:text='@{String.valueOf(viewModel.cells["44"]).equals("Bingo") ? String.valueOf(viewModel.cells["44"]) : list[23]}'
-            android:background='@{String.valueOf(viewModel.cells["44"]).equals("Bingo") ? @color/bingoLightBlue : @color/bingoDarkBlue}'
-            android:onClick="@{() -> viewModel.markBingo(4,4)}"
-            android:onLongClick="@{(view) -> activity.onLongClick(view)}"
-            android:textColor='@{String.valueOf(viewModel.cells["44"]).equals("Bingo") ? @color/textBlack : @color/textWhite}'
-            android:autoSizeMinTextSize="@dimen/minTXTsp5x5"
-            app:layout_constraintBottom_toBottomOf="@id/guidelinecolumn6"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@id/guidelinerow4"
-            app:layout_constraintTop_toBottomOf="@id/guidelinecolumn5" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/textV513"
+                style="@style/ConstrainStyleText"
+                android:autoSizeMinTextSize="@dimen/minTXTsp5x5"
+                android:background='@{String.valueOf(viewModel.cells["23"]).equals("Bingo") ? @color/bingoLightBlue : @color/bingoDarkBlue}'
+                android:onClick="@{() -> viewModel.markBingo(2,3)}"
+                android:onLongClick="@{(view) -> activity.onLongClick(view)}"
+                android:text='@{String.valueOf(viewModel.cells["23"]).equals("Bingo") ? String.valueOf(viewModel.cells["23"]) : list[12]}'
+                android:textColor='@{String.valueOf(viewModel.cells["23"]).equals("Bingo") ? @color/textBlack : @color/textWhite}'
+                app:layout_constraintBottom_toTopOf="@+id/guidelinecolumn3"
+                app:layout_constraintEnd_toStartOf="@id/guidelinerow4"
+                app:layout_constraintStart_toEndOf="@id/guidelinerow3"
+                app:layout_constraintTop_toTopOf="@id/guidelinecolumn2" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/textV514"
+                style="@style/ConstrainStyleText"
+                android:autoSizeMinTextSize="@dimen/minTXTsp5x5"
+                android:background='@{String.valueOf(viewModel.cells["24"]).equals("Bingo") ? @color/bingoLightBlue : @color/bingoDarkBlue}'
+                android:onClick="@{() -> viewModel.markBingo(2,4)}"
+                android:onLongClick="@{(view) -> activity.onLongClick(view)}"
+                android:text='@{String.valueOf(viewModel.cells["24"]).equals("Bingo") ? String.valueOf(viewModel.cells["24"]) : list[13]}'
+                android:textColor='@{String.valueOf(viewModel.cells["24"]).equals("Bingo") ? @color/textBlack : @color/textWhite}'
+                app:layout_constraintBottom_toTopOf="@+id/guidelinecolumn3"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/guidelinerow4"
+                app:layout_constraintTop_toTopOf="@id/guidelinecolumn2" />
 
-</FrameLayout>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/textV515"
+                style="@style/ConstrainStyleText"
+                android:autoSizeMinTextSize="@dimen/minTXTsp5x5"
+                android:background='@{String.valueOf(viewModel.cells["30"]).equals("Bingo") ? @color/bingoLightBlue : @color/bingoDarkBlue}'
+                android:onClick="@{() -> viewModel.markBingo(3,0)}"
+                android:onLongClick="@{(view) -> activity.onLongClick(view)}"
+                android:text='@{String.valueOf(viewModel.cells["30"]).equals("Bingo") ? String.valueOf(viewModel.cells["30"]) : list[14]}'
+                android:textColor='@{String.valueOf(viewModel.cells["30"]).equals("Bingo") ? @color/textBlack : @color/textWhite}'
+                app:layout_constraintBottom_toTopOf="@+id/guidelinecolumn5"
+                app:layout_constraintEnd_toStartOf="@id/guidelinerow1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/guidelinecolumn4" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/textV516"
+                style="@style/ConstrainStyleText"
+                android:autoSizeMinTextSize="@dimen/minTXTsp5x5"
+                android:background='@{String.valueOf(viewModel.cells["31"]).equals("Bingo") ? @color/bingoLightBlue : @color/bingoDarkBlue}'
+                android:onClick="@{() -> viewModel.markBingo(3,1)}"
+                android:onLongClick="@{(view) -> activity.onLongClick(view)}"
+                android:text='@{String.valueOf(viewModel.cells["31"]).equals("Bingo") ? String.valueOf(viewModel.cells["31"]) : list[15]}'
+                android:textColor='@{String.valueOf(viewModel.cells["31"]).equals("Bingo") ? @color/textBlack : @color/textWhite}'
+                app:layout_constraintBottom_toTopOf="@+id/guidelinecolumn5"
+                app:layout_constraintEnd_toStartOf="@id/guidelinerow2"
+                app:layout_constraintStart_toStartOf="@id/guidelinerow1"
+                app:layout_constraintTop_toTopOf="@id/guidelinecolumn4" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/textV517"
+                style="@style/ConstrainStyleText"
+                android:autoSizeMinTextSize="@dimen/minTXTsp5x5"
+                android:background='@{String.valueOf(viewModel.cells["32"]).equals("Bingo") ? @color/bingoLightBlue : @color/bingoDarkBlue}'
+                android:onClick="@{() -> viewModel.markBingo(3,2)}"
+                android:onLongClick="@{(view) -> activity.onLongClick(view)}"
+                android:text='@{String.valueOf(viewModel.cells["32"]).equals("Bingo") ? String.valueOf(viewModel.cells["32"]) : list[16]}'
+                android:textColor='@{String.valueOf(viewModel.cells["32"]).equals("Bingo") ? @color/textBlack : @color/textWhite}'
+                app:layout_constraintBottom_toTopOf="@+id/guidelinecolumn5"
+                app:layout_constraintEnd_toStartOf="@id/guidelinerow3"
+                app:layout_constraintStart_toStartOf="@id/guidelinerow2"
+                app:layout_constraintTop_toTopOf="@id/guidelinecolumn4" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/textV518"
+                style="@style/ConstrainStyleText"
+                android:autoSizeMinTextSize="@dimen/minTXTsp5x5"
+                android:background='@{String.valueOf(viewModel.cells["33"]).equals("Bingo") ? @color/bingoLightBlue : @color/bingoDarkBlue}'
+                android:onClick="@{() -> viewModel.markBingo(3,3)}"
+                android:onLongClick="@{(view) -> activity.onLongClick(view)}"
+                android:text='@{String.valueOf(viewModel.cells["33"]).equals("Bingo") ? String.valueOf(viewModel.cells["33"]) : list[17]}'
+                android:textColor='@{String.valueOf(viewModel.cells["33"]).equals("Bingo") ? @color/textBlack : @color/textWhite}'
+                app:layout_constraintBottom_toTopOf="@+id/guidelinecolumn5"
+                app:layout_constraintEnd_toStartOf="@id/guidelinerow4"
+                app:layout_constraintStart_toStartOf="@id/guidelinerow3"
+                app:layout_constraintTop_toTopOf="@id/guidelinecolumn4" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/textV519"
+                style="@style/ConstrainStyleText"
+                android:autoSizeMinTextSize="@dimen/minTXTsp5x5"
+                android:background='@{String.valueOf(viewModel.cells["34"]).equals("Bingo") ? @color/bingoLightBlue : @color/bingoDarkBlue}'
+                android:onClick="@{() -> viewModel.markBingo(3,4)}"
+                android:onLongClick="@{(view) -> activity.onLongClick(view)}"
+                android:text='@{String.valueOf(viewModel.cells["34"]).equals("Bingo") ? String.valueOf(viewModel.cells["34"]) : list[18]}'
+                android:textColor='@{String.valueOf(viewModel.cells["34"]).equals("Bingo") ? @color/textBlack : @color/textWhite}'
+                app:layout_constraintBottom_toTopOf="@+id/guidelinecolumn5"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/guidelinerow4"
+                app:layout_constraintTop_toTopOf="@id/guidelinecolumn4" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/textV520"
+                style="@style/ConstrainStyleText"
+                android:autoSizeMinTextSize="@dimen/minTXTsp5x5"
+                android:background='@{String.valueOf(viewModel.cells["40"]).equals("Bingo") ? @color/bingoLightBlue : @color/bingoDarkBlue}'
+                android:onClick="@{() -> viewModel.markBingo(4,0)}"
+                android:onLongClick="@{(view) -> activity.onLongClick(view)}"
+                android:text='@{String.valueOf(viewModel.cells["40"]).equals("Bingo") ? String.valueOf(viewModel.cells["40"]) : list[19]}'
+                android:textColor='@{String.valueOf(viewModel.cells["40"]).equals("Bingo") ? @color/textBlack : @color/textWhite}'
+                app:layout_constraintBottom_toBottomOf="@id/guidelinecolumn6"
+                app:layout_constraintEnd_toEndOf="@id/guidelinerow1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/guidelinecolumn5" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/textV521"
+                style="@style/ConstrainStyleText"
+                android:autoSizeMinTextSize="@dimen/minTXTsp5x5"
+                android:background='@{String.valueOf(viewModel.cells["41"]).equals("Bingo") ? @color/bingoLightBlue : @color/bingoDarkBlue}'
+                android:onClick="@{() -> viewModel.markBingo(4,1)}"
+                android:onLongClick="@{(view) -> activity.onLongClick(view)}"
+                android:text='@{String.valueOf(viewModel.cells["41"]).equals("Bingo") ? String.valueOf(viewModel.cells["41"]) : list[20]}'
+                android:textColor='@{String.valueOf(viewModel.cells["41"]).equals("Bingo") ? @color/textBlack : @color/textWhite}'
+                app:layout_constraintBottom_toBottomOf="@id/guidelinecolumn6"
+                app:layout_constraintEnd_toEndOf="@id/guidelinerow2"
+                app:layout_constraintStart_toStartOf="@id/guidelinerow1"
+                app:layout_constraintTop_toBottomOf="@id/guidelinecolumn5" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/textV522"
+                style="@style/ConstrainStyleText"
+                android:autoSizeMinTextSize="@dimen/minTXTsp5x5"
+                android:background='@{String.valueOf(viewModel.cells["42"]).equals("Bingo") ? @color/bingoLightBlue : @color/bingoDarkBlue}'
+                android:onClick="@{() -> viewModel.markBingo(4,2)}"
+                android:onLongClick="@{(view) -> activity.onLongClick(view)}"
+                android:text='@{String.valueOf(viewModel.cells["42"]).equals("Bingo") ? String.valueOf(viewModel.cells["42"]) : list[21]}'
+                android:textColor='@{String.valueOf(viewModel.cells["42"]).equals("Bingo") ? @color/textBlack : @color/textWhite}'
+                app:layout_constraintBottom_toBottomOf="@id/guidelinecolumn6"
+                app:layout_constraintEnd_toEndOf="@id/guidelinerow3"
+                app:layout_constraintStart_toStartOf="@id/guidelinerow2"
+                app:layout_constraintTop_toBottomOf="@id/guidelinecolumn5" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/textV523"
+                style="@style/ConstrainStyleText"
+                android:autoSizeMinTextSize="@dimen/minTXTsp5x5"
+                android:background='@{String.valueOf(viewModel.cells["43"]).equals("Bingo") ? @color/bingoLightBlue : @color/bingoDarkBlue}'
+                android:onClick="@{() -> viewModel.markBingo(4,3)}"
+                android:onLongClick="@{(view) -> activity.onLongClick(view)}"
+                android:text='@{String.valueOf(viewModel.cells["43"]).equals("Bingo") ? String.valueOf(viewModel.cells["43"]) : list[22]}'
+                android:textColor='@{String.valueOf(viewModel.cells["43"]).equals("Bingo") ? @color/textBlack : @color/textWhite}'
+                app:layout_constraintBottom_toBottomOf="@id/guidelinecolumn6"
+                app:layout_constraintEnd_toEndOf="@id/guidelinerow4"
+                app:layout_constraintStart_toStartOf="@id/guidelinerow3"
+                app:layout_constraintTop_toBottomOf="@id/guidelinecolumn5" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/textV524"
+                style="@style/ConstrainStyleText"
+                android:autoSizeMinTextSize="@dimen/minTXTsp5x5"
+                android:background='@{String.valueOf(viewModel.cells["44"]).equals("Bingo") ? @color/bingoLightBlue : @color/bingoDarkBlue}'
+                android:onClick="@{() -> viewModel.markBingo(4,4)}"
+                android:onLongClick="@{(view) -> activity.onLongClick(view)}"
+                android:text='@{String.valueOf(viewModel.cells["44"]).equals("Bingo") ? String.valueOf(viewModel.cells["44"]) : list[23]}'
+                android:textColor='@{String.valueOf(viewModel.cells["44"]).equals("Bingo") ? @color/textBlack : @color/textWhite}'
+                app:layout_constraintBottom_toBottomOf="@id/guidelinecolumn6"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/guidelinerow4"
+                app:layout_constraintTop_toBottomOf="@id/guidelinecolumn5" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </FrameLayout>
 </layout>

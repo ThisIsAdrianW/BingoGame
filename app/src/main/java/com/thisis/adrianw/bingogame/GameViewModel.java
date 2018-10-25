@@ -1,4 +1,5 @@
 package com.thisis.adrianw.bingogame;
+
 import android.app.Application;
 import android.net.Uri;
 import android.util.Log;
@@ -8,18 +9,20 @@ import com.thisis.adrianw.bingogame.Bingodata.IndexWord;
 import com.thisis.adrianw.bingogame.Bingodata.Words;
 import com.thisis.adrianw.bingogame.Model.Bingo;
 import com.thisis.adrianw.bingogame.Model.BingoBoard;
+
 import java.util.ArrayList;
 import java.util.List;
+
 import androidx.databinding.ObservableArrayMap;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
-public class GameViewModel extends AndroidViewModel{
+public class GameViewModel extends AndroidViewModel {
     String testString = "Default text for tests";
     public final ObservableArrayMap<String, String> cells = new ObservableArrayMap<>();
     private BingoBoard model;
-    private int boardSize=5;
+    private int boardSize = 5;
     private int currentListSize;
     private int currentBoardModel;
     private Uri imageUri;
@@ -32,7 +35,7 @@ public class GameViewModel extends AndroidViewModel{
     private MutableLiveData<String> stringMutableLiveData = new MutableLiveData<String>();
     private MutableLiveData<Bingo> bingoScore = new MutableLiveData<Bingo>();
 
-    public GameViewModel (Application application) {
+    public GameViewModel(Application application) {
         super(application);
         bingoRepository = new BingoRepository(application);
         model = new BingoBoard(boardSize);
@@ -40,18 +43,18 @@ public class GameViewModel extends AndroidViewModel{
         liveIndex = bingoRepository.returnLiveIndex();
 
     }
+
     public void markBingo(int row, int col) {
         Bingo cell = model.mark(row, col);
         cells.put("" + row + col, cell == null ? null : cell.toString());
-        if (currentBoardModel==9) {
+        if (currentBoardModel == 9) {
             if (model.isItBingoTable3x3(row, col)) {
                 bingoScore.postValue(Bingo.Bingo);
             }
-        }
-        else if (currentBoardModel==24) {
-            Log.v("GameViewModel", String.valueOf(model.getValue(2,2)));
+        } else if (currentBoardModel == 24) {
+            Log.v("GameViewModel", String.valueOf(model.getValue(2, 2)));
             if (model.getValue(2, 2) != Bingo.Bingo) {
-                markBingo(2,2);
+                markBingo(2, 2);
                 Log.v("GameViewModel", "Marked Bingo at 2,2");
             }
             if (model.isItBingoTable5x5(row, col)) {
@@ -60,16 +63,17 @@ public class GameViewModel extends AndroidViewModel{
             }
         }
     }
+
     public void clearCells() {
         cells.clear();
         cells.size();
     }
 
-    public void inserBingoWord (Words word) {
+    public void inserBingoWord(Words word) {
         bingoRepository.insertBingoWord(word);
     }
 
-    public void insertBingoIndex (IndexWord indexWord) {
+    public void insertBingoIndex(IndexWord indexWord) {
         bingoRepository.insertIndex(indexWord);
     }
 
@@ -82,7 +86,7 @@ public class GameViewModel extends AndroidViewModel{
     }
 
     public List<Words> returnBingoWords(String indexWord) {
-            return bingoRepository.getAllWords(indexWord);
+        return bingoRepository.getAllWords(indexWord);
     }
 
     public LiveData<List<IndexWord>> getLiveIndex() {
@@ -108,9 +112,9 @@ public class GameViewModel extends AndroidViewModel{
     public int wordListSize(String string) {
         return bingoRepository.indexNumber(string);
     }
+
     public void updateWordList() {
-        if (stringMutableLiveData.getValue()!=null && !stringMutableLiveData.getValue().isEmpty())
-        {
+        if (stringMutableLiveData.getValue() != null && !stringMutableLiveData.getValue().isEmpty()) {
             words = getBingoWords(stringMutableLiveData.getValue());
             currentListSize = wordListSize(stringMutableLiveData.getValue());
             if (currentListSize >= MIN_REQ_FIELDS) {
@@ -127,10 +131,11 @@ public class GameViewModel extends AndroidViewModel{
         }
     }
 
-    public List<String> returnStringList () {
+    public List<String> returnStringList() {
         return stringList;
     }
-    public void deleteIndex (IndexWord indexWord) {
+
+    public void deleteIndex(IndexWord indexWord) {
         bingoRepository.deleteIndex(indexWord);
     }
 

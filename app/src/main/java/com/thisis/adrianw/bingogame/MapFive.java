@@ -34,7 +34,7 @@ import java.util.ArrayList;
 import static android.app.Activity.RESULT_OK;
 
 
-public class MapFive extends Fragment implements View.OnLongClickListener{
+public class MapFive extends Fragment implements View.OnLongClickListener {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     private String mParam1;
@@ -78,7 +78,7 @@ public class MapFive extends Fragment implements View.OnLongClickListener{
         binding.setViewModel(model);
         model.setCurrentBoardModel(24);
         binding.setActivity(MapFive.this);
-        if (model.getImageUri()!=null) {
+        if (model.getImageUri() != null) {
             imageView.setImageURI(model.getImageUri());
         }
         binding.setList(model.returnStringList());
@@ -87,7 +87,7 @@ public class MapFive extends Fragment implements View.OnLongClickListener{
             public void onChanged(Bingo bingo) {
                 if (bingo.equals(Bingo.Bingo)) {
                     Log.v("MapFive", "This is Bingo");
-                    Toast.makeText(getActivity(),String.valueOf(bingo),Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), String.valueOf(bingo), Toast.LENGTH_SHORT).show();
                     model.setBingoScore(Bingo.notBingo);
                 }
             }
@@ -98,12 +98,13 @@ public class MapFive extends Fragment implements View.OnLongClickListener{
     @Override
     public void onPrepareOptionsMenu(Menu menu) {
         super.onPrepareOptionsMenu(menu);
-        MenuItem clearItem= menu.findItem(R.id.clearBoard);
+        MenuItem clearItem = menu.findItem(R.id.clearBoard);
         MenuItem changeItem = menu.findItem(R.id.changeBoard);
         clearItem.setVisible(true);
         changeItem.setTitle(R.string.set3x3);
         changeItem.setVisible(true);
     }
+
     @Override
     public boolean onLongClick(View view) {
         Context context = view.getContext();
@@ -130,6 +131,7 @@ public class MapFive extends Fragment implements View.OnLongClickListener{
                 .show();
         return false;
     }
+
     public void selectImage(View view) {
         Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
         intent.setType("image/*");
@@ -137,10 +139,11 @@ public class MapFive extends Fragment implements View.OnLongClickListener{
             startActivityForResult(intent, REQUEST_FOR_IMAGE);
         }
     }
+
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == REQUEST_FOR_IMAGE && resultCode == RESULT_OK){
+        if (requestCode == REQUEST_FOR_IMAGE && resultCode == RESULT_OK) {
             Uri uri = data.getData();
             imageView.setImageURI(uri);
             model.setImageUri(uri);

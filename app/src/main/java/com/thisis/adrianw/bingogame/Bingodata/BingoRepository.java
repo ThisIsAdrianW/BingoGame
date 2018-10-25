@@ -6,6 +6,7 @@ import android.util.Log;
 
 import java.util.List;
 import java.util.concurrent.ExecutionException;
+
 import androidx.lifecycle.LiveData;
 
 public class BingoRepository {
@@ -151,7 +152,7 @@ public class BingoRepository {
 
         @Override
         protected List<Words> doInBackground(final String... params) {
-             return AsyncTaskDao.getWordsList(params[0]);
+            return AsyncTaskDao.getWordsList(params[0]);
         }
     }
 

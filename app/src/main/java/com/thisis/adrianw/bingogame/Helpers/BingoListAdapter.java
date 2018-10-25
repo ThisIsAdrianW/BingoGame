@@ -13,11 +13,14 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
 import com.thisis.adrianw.bingogame.Bingodata.IndexWord;
 import com.thisis.adrianw.bingogame.GameViewModel;
 import com.thisis.adrianw.bingogame.MapThree;
 import com.thisis.adrianw.bingogame.R;
+
 import java.util.List;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatTextView;
 import androidx.core.content.ContextCompat;
@@ -64,8 +67,7 @@ public class BingoListAdapter extends RecyclerView.Adapter<BingoListAdapter.Bing
                 argumentsBundle.putString("titleArgument", title);
                 defaultFragment3.setArguments(argumentsBundle);
                 fragmentManager.beginTransaction().replace(R.id.frameLayout, defaultFragment3).addToBackStack(null).commit();
-            }
-            else if (view instanceof ImageView) {
+            } else if (view instanceof ImageView) {
                 IndexWord indexWord = new IndexWord();
                 indexWord.setIndexforwords(title);
                 gameViewModel.deleteIndex(indexWord);
@@ -90,16 +92,16 @@ public class BingoListAdapter extends RecyclerView.Adapter<BingoListAdapter.Bing
         View itemView = layoutInflater.inflate(R.layout.list_item, parent, false);
         return new BingoViewHolder(itemView);
     }
+
     @Override
     public void onBindViewHolder(BingoViewHolder holder, int position) {
         if (titles != null) {
             IndexWord current = titles.get(position);
             holder.titleItemView.setText(String.valueOf(current.getIndexforwords()));
-            if (position%2==0) {
+            if (position % 2 == 0) {
                 holder.linearLayout.setBackgroundResource(R.color.bingoDarkBlue);
                 holder.titleItemView.setTextColor(holder.whiteText);
-            }
-            else {
+            } else {
                 holder.linearLayout.setBackgroundResource(R.color.bingoLightBlue);
                 holder.titleItemView.setTextColor(holder.blackText);
             }
@@ -108,7 +110,8 @@ public class BingoListAdapter extends RecyclerView.Adapter<BingoListAdapter.Bing
             holder.titleItemView.setText("No Word");
         }
     }
-    public void setIndexWords(List<IndexWord> words){
+
+    public void setIndexWords(List<IndexWord> words) {
         titles = words;
         notifyDataSetChanged();
     }
