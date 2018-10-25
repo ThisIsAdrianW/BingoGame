@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+<FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bingoNavy"
+    tools:context=".HelpAndAbout">
+        <LinearLayout
+            android:padding="@dimen/padding10"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:paddingHorizontal="@dimen/padding10"
+                android:id="@+id/helpTextView"
+                style="@style/helpTextStyle"
+                android:autoSizeMinTextSize="@dimen/helpTextSize"
+                android:text="@string/help"
+                android:layout_weight="1"/>
+            <TextView
+                android:id="@+id/aboutTextView"
+                style="@style/helpTextStyle"
+                android:autoSizeMinTextSize="@dimen/helpTextSize"
+                android:text="@string/about" />
+        </LinearLayout>
+</FrameLayout>
+</layout>

@@ -59,6 +59,9 @@ public class MainActivity extends AppCompatActivity {
             case R.id.changeBoard:
                 changeBoards();
                 return true;
+            case R.id.helpandAbout:
+                helpAndAbout();
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -94,6 +97,14 @@ public class MainActivity extends AppCompatActivity {
         Fragment listFragment = new ListFragment();
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.frameLayout, listFragment);
+        transaction.addToBackStack(null);
+        transaction.commit();
+    }
+
+    public void helpAndAbout() {
+        Fragment helpAndAbout = new HelpAndAbout();
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.frameLayout, helpAndAbout);
         transaction.addToBackStack(null);
         transaction.commit();
     }

@@ -42,5 +42,15 @@
         <item name="layout_constrainedWidth">true</item>
         <item name="layout_constrainedHeight">true</item>
     </style>
+    <style name="helpTextStyle">
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+        <item name="autoSizeTextType">uniform</item>
+        <item name="autoSizeMaxTextSize">25sp</item>
+        <item name="android:textColor">@color/textWhite</item>
+        <item name="autoSizeStepGranularity">1sp</item>
+    </style>
 
 </resources>

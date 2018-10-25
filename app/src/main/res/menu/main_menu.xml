@@ -13,4 +13,7 @@
     <item
         android:id="@+id/clearBoard"
         android:title="Clear game board" />
+    <item
+        android:id="@+id/helpandAbout"
+        android:title="@string/help_and_about"/>
 </menu>
