@@ -21,8 +21,8 @@ import java.util.List;
 
 
 public class AddWords extends Fragment {
-    LinearLayout linearLayout;
-    ArrayList<String> wordsForStateSave = new ArrayList<String>();
+    private LinearLayout linearLayout;
+    private ArrayList<String> wordsForStateSave = new ArrayList<String>();
     private GameViewModel model;
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
