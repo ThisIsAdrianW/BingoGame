@@ -3,6 +3,7 @@ package com.thisis.adrianw.bingogame;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProviders;
 import android.os.Bundle;
@@ -14,17 +15,26 @@ import com.thisis.adrianw.bingogame.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
     GameViewModel gameViewModel;
+    Fragment fragment;
+    FragmentManager fragmentManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        fragmentManager = getSupportFragmentManager();
         final ActivityMainBinding binding = DataBindingUtil.setContentView(MainActivity.this, R.layout.activity_main);
         binding.setLifecycleOwner(MainActivity.this);
         gameViewModel = ViewModelProviders.of(MainActivity.this).get(GameViewModel.class);
         if (savedInstanceState == null) {
             listFragment();
         }
+        fragmentManager.addOnBackStackChangedListener(new FragmentManager.OnBackStackChangedListener() {
+            @Override
+            public void onBackStackChanged() {
+                if(fragmentManager.getBackStackEntryCount() == 0) finish();
+            }
+        });
     }
 
     @Override
@@ -67,7 +77,6 @@ public class MainActivity extends AppCompatActivity {
 
     public void changeBoards() {
         // Create new fragment and transaction
-        Fragment fragment;
         if (gameViewModel.getCurrentBoardModel() == 9) {
             fragment = new MapFive();
             gameViewModel.setBingoScore(Bingo.notBingo);
@@ -75,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
             fragment = new MapThree();
             gameViewModel.setBingoScore(Bingo.notBingo);
         }
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
         transaction.replace(R.id.frameLayout, fragment);
         transaction.addToBackStack(null);
         transaction.commit();
@@ -84,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
     public void addWords() {
         // Create new fragment and transaction
         Fragment addWords = new AddWords();
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
         transaction.replace(R.id.frameLayout, addWords);
         transaction.addToBackStack(null);
         transaction.commit();
@@ -92,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void listFragment() {
         Fragment listFragment = new ListFragment();
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
         transaction.replace(R.id.frameLayout, listFragment);
         transaction.addToBackStack(null);
         transaction.commit();
@@ -106,9 +115,9 @@ public class MainActivity extends AppCompatActivity {
         transaction.commit();
     }
 
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        listFragment();
-    }
+//    @Override
+//    public void onBackPressed() {
+//        super.onBackPressed();
+//        listFragment();
+//    }
 }
