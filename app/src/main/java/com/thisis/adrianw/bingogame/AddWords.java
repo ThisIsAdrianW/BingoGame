@@ -155,6 +155,7 @@ public class AddWords extends Fragment {
         } else {
             editText.setBackgroundColor(getResources().getColor(R.color.bingoLightBlue));
         }
+        editText.requestFocus();
         linearLayout.addView(editText);
     }
 

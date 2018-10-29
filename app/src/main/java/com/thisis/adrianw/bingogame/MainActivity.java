@@ -25,7 +25,6 @@ public class MainActivity extends AppCompatActivity {
         if (savedInstanceState == null) {
             listFragment();
         }
-
     }
 
     @Override

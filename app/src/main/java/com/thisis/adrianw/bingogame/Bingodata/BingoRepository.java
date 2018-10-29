@@ -181,4 +181,37 @@ public class BingoRepository {
         }
     }
 
+    public void updateWord(Words words) {
+        new updateWordAsyncTask(bingoDao).execute(words);
+    }
+    private static class updateWordAsyncTask extends AsyncTask<Words, Void, Void> {
+        private BingoDao AsyncTaskDao;
+
+        updateWordAsyncTask(BingoDao dao) {
+            AsyncTaskDao = dao;
+        }
+        @Override
+        protected Void doInBackground(final Words... words) {
+            AsyncTaskDao.updateWord(words[0]);
+            return null;
+        }
+    }
+
+    public void updateIndexWord(IndexWord indexWord) {
+        new updateIndexWordAsyncTask(bingoDao).execute(indexWord);
+    }
+    private static class updateIndexWordAsyncTask extends AsyncTask<IndexWord, Void, Void> {
+        private BingoDao AsyncTaskDao;
+
+        updateIndexWordAsyncTask(BingoDao dao) {
+            AsyncTaskDao = dao;
+        }
+        @Override
+        protected Void doInBackground(final IndexWord... indexWords) {
+            AsyncTaskDao.updateIndexWord(indexWords[0]);
+            return null;
+        }
+    }
+
+
 }

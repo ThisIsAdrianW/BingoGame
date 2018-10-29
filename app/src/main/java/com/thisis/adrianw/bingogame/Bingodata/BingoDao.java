@@ -8,6 +8,7 @@ import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
+import androidx.room.Update;
 
 @Dao
 public interface BingoDao {
@@ -37,6 +38,12 @@ public interface BingoDao {
 
     @Query("SELECT * FROM indexword ORDER BY indexforwords COLLATE UNICODE")
     LiveData<List<IndexWord>> liveIndex();
+
+    @Update
+    void updateWord(Words words);
+
+    @Update
+    void updateIndexWord(IndexWord indexWord);
 
 
 }

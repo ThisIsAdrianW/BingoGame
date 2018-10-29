@@ -30,6 +30,7 @@
             android:id="@+id/linearAddWordsMain"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:paddingHorizontal="@dimen/padding10"
             android:orientation="vertical">
 
             <LinearLayout

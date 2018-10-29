@@ -125,6 +125,7 @@ public class GameViewModel extends AndroidViewModel {
         listOfStrings.clear();
         for (int i = 0; i < listOfWords.size(); i++) {
             String newValue = listOfWords.get(i).getWordForBingo();
+            Log.v("GameViewModel", "Now we have Word " + listOfWords.get(i).getWordForBingo());
             listOfStrings.add(i, newValue);
         }
     }
