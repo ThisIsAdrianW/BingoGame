@@ -11,7 +11,7 @@ import static androidx.room.ForeignKey.CASCADE;
 @Entity(foreignKeys = @ForeignKey(entity = IndexWord.class,
         parentColumns = "indexforwords",
         childColumns = "indexforword",
-        onDelete = CASCADE), indices = @Index(value = {"indexforword"}))
+        onDelete = CASCADE, onUpdate = CASCADE), indices = @Index(value = {"indexforword"}))
 public class Words {
     @PrimaryKey(autoGenerate = true)
     private long id;
