@@ -84,6 +84,7 @@
             android:layout_gravity="end|bottom"
             android:layout_marginRight="@dimen/paddingForFab"
             android:backgroundTint="@color/bingoNavy"
+            android:shadowColor="@color/bingoLightBlue"
             android:onClick="@{(view) -> activity.addNewEditText(view)}"
             android:src="@drawable/ic_action_add" />
     </FrameLayout>

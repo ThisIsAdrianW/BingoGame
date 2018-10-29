@@ -9,6 +9,8 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -47,6 +49,7 @@ public class ListFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+        setHasOptionsMenu(true);
     }
 
     @Override
@@ -73,6 +76,12 @@ public class ListFragment extends Fragment {
         });
         return binding.getRoot();
 
+    }
+    @Override
+    public void onPrepareOptionsMenu(Menu menu) {
+        super.onPrepareOptionsMenu(menu);
+        MenuItem listItemMenu = menu.findItem(R.id.chooseList);
+        listItemMenu.setVisible(false);
     }
 
 }
