@@ -13,20 +13,33 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:padding="@dimen/padding10">
-
-            <TextView
-                android:id="@+id/helpTextView"
-                style="@style/helpTextStyle"
+            <ScrollView
                 android:layout_weight="1"
-                android:autoSizeMinTextSize="@dimen/helpTextSize"
-                android:paddingHorizontal="@dimen/padding10"
-                android:text="@string/help" />
-
-            <TextView
-                android:id="@+id/aboutTextView"
-                style="@style/helpTextStyle"
-                android:autoSizeMinTextSize="@dimen/helpTextSize"
-                android:text="@string/about" />
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="0dp">
+                <TextView
+                    android:id="@+id/helpTextView"
+                    style="@style/helpTextStyle"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:autoSizeMinTextSize="@dimen/helpTextSize"
+                    android:paddingHorizontal="@dimen/padding10"
+                    android:text="@string/help" />
+            </ScrollView>
+            <ScrollView
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="0dp">
+                <TextView
+                    android:id="@+id/aboutTextView"
+                    style="@style/helpTextStyle"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:autoSizeMinTextSize="@dimen/helpTextSize"
+                    android:text="@string/about" />
+            </ScrollView>
         </LinearLayout>
     </FrameLayout>
 </layout>

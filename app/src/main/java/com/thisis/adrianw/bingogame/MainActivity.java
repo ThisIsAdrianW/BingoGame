@@ -9,8 +9,13 @@ import androidx.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import com.thisis.adrianw.bingogame.Bingodata.IndexWord;
+import com.thisis.adrianw.bingogame.Bingodata.Words;
 import com.thisis.adrianw.bingogame.Model.Bingo;
 import com.thisis.adrianw.bingogame.databinding.ActivityMainBinding;
+
+import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity {

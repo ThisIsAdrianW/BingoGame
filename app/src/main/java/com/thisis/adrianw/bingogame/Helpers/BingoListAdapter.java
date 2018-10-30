@@ -38,6 +38,7 @@ public class BingoListAdapter extends RecyclerView.Adapter<BingoListAdapter.Bing
 
         private final AppCompatTextView titleItemView;
         private final ImageView deleteButton;
+        private final ImageView editButton;
         private final LinearLayout linearLayout;
         private final int blackText;
         private final int whiteText;
@@ -49,11 +50,13 @@ public class BingoListAdapter extends RecyclerView.Adapter<BingoListAdapter.Bing
             titleItemView = itemView.findViewById(R.id.textViewCompatItem);
             deleteButton = itemView.findViewById(R.id.deleteIcon);
             linearLayout = itemView.findViewById(R.id.linearItemLayout);
+            editButton = itemView.findViewById(R.id.editIcon);
             blackText = ContextCompat.getColor(context, R.color.textBlack);
             whiteText = ContextCompat.getColor(context, R.color.textWhite);
             binIcon = ContextCompat.getDrawable(context, R.drawable.ic_delete);
             titleItemView.setOnClickListener(this);
             deleteButton.setOnClickListener(this);
+            editButton.setOnClickListener(this);
         }
 
         @Override
@@ -68,9 +71,14 @@ public class BingoListAdapter extends RecyclerView.Adapter<BingoListAdapter.Bing
                 defaultFragment3.setArguments(argumentsBundle);
                 fragmentManager.beginTransaction().replace(R.id.frameLayout, defaultFragment3).addToBackStack(null).commit();
             } else if (view instanceof ImageView) {
-                IndexWord indexWord = new IndexWord();
-                indexWord.setIndexforwords(title);
-                gameViewModel.deleteIndex(indexWord);
+                if (view.getId() == R.id.deleteIcon) {
+                    IndexWord indexWord = new IndexWord();
+                    indexWord.setIndexforwords(title);
+                    gameViewModel.deleteIndex(indexWord);
+                }
+                else if (view.getId() == R.id.editIcon) {
+                    Log.v("BingoListAdapter", "Clicked on Edit, wow");
+                }
             }
         }
     }

@@ -167,4 +167,12 @@ public class GameViewModel extends AndroidViewModel {
     public void setImageUri(Uri imageUri) {
         this.imageUri = imageUri;
     }
+
+    public void updateIndexWord(String indexWord, String newTitle) {
+        bingoRepository.updateIndexWord(indexWord, newTitle);
+    }
+
+    public void updateWord(Words words) {
+        bingoRepository.updateWord(words);
+    }
 }

@@ -197,18 +197,20 @@ public class BingoRepository {
         }
     }
 
-    public void updateIndexWord(IndexWord indexWord) {
-        new updateIndexWordAsyncTask(bingoDao).execute(indexWord);
+    public void updateIndexWord(String indexWord, String newIndex) {
+        new updateIndexWordAsyncTask(bingoDao).execute(indexWord, newIndex);
     }
-    private static class updateIndexWordAsyncTask extends AsyncTask<IndexWord, Void, Void> {
+    private static class updateIndexWordAsyncTask extends AsyncTask<String, Void, Void> {
         private BingoDao AsyncTaskDao;
 
         updateIndexWordAsyncTask(BingoDao dao) {
             AsyncTaskDao = dao;
         }
         @Override
-        protected Void doInBackground(final IndexWord... indexWords) {
-            AsyncTaskDao.updateIndexWord(indexWords[0]);
+        protected Void doInBackground(final String... strings) {
+            String indexWord = (String) strings[0];
+            String string = (String) strings[1];
+            AsyncTaskDao.updateIndexWords(indexWord, string);
             return null;
         }
     }

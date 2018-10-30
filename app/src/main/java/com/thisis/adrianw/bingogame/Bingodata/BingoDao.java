@@ -15,13 +15,13 @@ public interface BingoDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertIndex(IndexWord indexWord);
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     void inserWord(Words words);
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertWords(Words words);
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertList(List<Words> listOfWords);
 
     @Delete
@@ -39,11 +39,14 @@ public interface BingoDao {
     @Query("SELECT * FROM indexword ORDER BY indexforwords COLLATE UNICODE")
     LiveData<List<IndexWord>> liveIndex();
 
-    @Update
+    @Update(onConflict = OnConflictStrategy.REPLACE)
     void updateWord(Words words);
 
-    @Update
+    @Update(onConflict = OnConflictStrategy.REPLACE)
     void updateIndexWord(IndexWord indexWord);
+
+    @Query("UPDATE IndexWord SET indexforwords = :newIndex WHERE indexforwords = :indexWordGET")
+    void updateIndexWords(String indexWordGET, String newIndex);
 
 
 }

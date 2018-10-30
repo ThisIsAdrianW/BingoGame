@@ -8,16 +8,28 @@
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textViewCompatItem"
         style="@style/ListItemStyle"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
+        android:paddingLeft="@dimen/padding10"
         android:layout_height="@dimen/listViewSize"
         android:layout_gravity="center"
-        android:layout_weight="1"
+        android:layout_weight="11"
         android:gravity="center" />
+    <ImageView
+        android:id="@+id/editIcon"
+        android:layout_weight="1"
+        android:paddingLeft="@dimen/padding10"
+       android:paddingRight="@dimen/padding10"
+        android:layout_gravity="center"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_edit"/>
 
     <ImageView
         android:id="@+id/deleteIcon"
-        android:layout_width="@dimen/binW"
-        android:layout_height="@dimen/binH"
+        android:paddingLeft="@dimen/padding10"
+        android:paddingRight="@dimen/padding10"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_weight="1"
         android:background="@drawable/ic_delete" />
