@@ -27,8 +27,14 @@ public interface BingoDao {
     @Delete
     void delete(IndexWord indexWord);
 
+    @Delete
+    void deleteWord(Words words);
+
     @Query("SELECT * FROM words WHERE indexforword=:indexWord ORDER BY RANDOM() LIMIT 24")
     List<Words> getWordsList(final String indexWord);
+
+    @Query("SELECT * FROM words WHERE indexforword=:indexWord ORDER BY wordForBingo COLLATE UNICODE")
+    List<Words> getWordsListStandard(final String indexWord);
 
     @Query("SELECT count(*) from words WHERE indexforword=:numOfWords")
     int numberOfWordsForIndex(final String numOfWords);

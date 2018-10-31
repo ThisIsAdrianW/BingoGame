@@ -141,6 +141,8 @@ public class AddWords extends Fragment {
         transaction.commit();
     }
 
+
+
     public void createEditText(View view, String currentText) {
         int x = linearLayout.getChildCount();
         final EditText editText = new EditText(getContext());

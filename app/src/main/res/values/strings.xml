@@ -2,8 +2,10 @@
     <string name="app_name">Bingo Game</string>
     <string name="add_title_for_game">Add title for Your word list</string>
     <string name="add_words_for_game">Add words for Your game</string>
-    <string name="Toast_error_title">You need title for Your words list</string>t
+    <string name="Toast_error_title">You need title for Your words list</string>
     <string name="Toast_error_count">You need at least 9 words for list</string>
+    <string name="Toast_error_empty">You need to write Your word inside field</string>
+    <string name="Toast_saved_word">Your word was saved</string>
     <string name="Toast_saved">Saved Your list</string>
     <string name="Missing_Value">You are missing value for this cell</string>
     <string name="Empty_list">You need to add words for Your bingo games ^_^</string>

@@ -175,4 +175,12 @@ public class GameViewModel extends AndroidViewModel {
     public void updateWord(Words words) {
         bingoRepository.updateWord(words);
     }
+
+    public void deleteWord(Words words) {
+        bingoRepository.deleteWord(words);
+    }
+
+    public List<Words> returnAllWordsStandard(String strring) {
+        return bingoRepository.getAllWordsStandard(strring);
+    }
 }

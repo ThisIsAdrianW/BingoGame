@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View" />
+        <variable
+            name="viewModel"
+            type="com.thisis.adrianw.bingogame.GameViewModel" />
+
+        <variable
+            name="activity"
+            type="com.thisis.adrianw.bingogame.EditFragment" />
+    </data>
+<FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/padding10"
+    android:paddingRight="@dimen/padding10"
+    tools:context=".EditFragment">
+   <androidx.recyclerview.widget.RecyclerView
+       android:id="@+id/editRecycleView"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       />
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabAddNewWord"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:backgroundTint="@color/bingoNavy"
+        android:onClick="@{(view) -> activity.addNewItem(view)}"
+        android:src="@drawable/ic_action_save" />
+</FrameLayout>
+</layout>

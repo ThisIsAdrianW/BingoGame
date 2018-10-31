@@ -23,6 +23,7 @@
                     style="@style/helpTextStyle"
                     android:layout_weight="1"
                     android:gravity="center"
+                    android:layout_gravity="center"
                     android:autoSizeMinTextSize="@dimen/helpTextSize"
                     android:paddingHorizontal="@dimen/padding10"
                     android:text="@string/help" />

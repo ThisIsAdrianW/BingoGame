@@ -214,6 +214,48 @@ public class BingoRepository {
             return null;
         }
     }
+    public void deleteWord(Words words) {
+        new deleteWordAsyncTask(bingoDao).execute(words);
+    }
+
+    private static class deleteWordAsyncTask extends AsyncTask<Words, Void, Void> {
+        private BingoDao AsyncTaskDao;
+
+        deleteWordAsyncTask(BingoDao dao) {
+            AsyncTaskDao = dao;
+        }
+
+        @Override
+        protected Void doInBackground(Words... words) {
+            AsyncTaskDao.deleteWord(words[0]);
+            return null;
+        }
+    }
+
+    public List<Words> getAllWordsStandard(String indexword) {
+        try {
+            return new getAllWordsStandardAsyncTask(bingoDao).execute(indexword).get();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    private static class getAllWordsStandardAsyncTask extends AsyncTask<String, Void, List<Words>> {
+        private BingoDao AsyncTaskDao;
+
+        getAllWordsStandardAsyncTask(BingoDao dao) {
+            AsyncTaskDao = dao;
+        }
+
+        @Override
+        protected List<Words> doInBackground(final String... params) {
+            return AsyncTaskDao.getWordsListStandard(params[0]);
+        }
+    }
+
 
 
 }
