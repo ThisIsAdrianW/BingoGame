@@ -11,4 +11,7 @@
     <dimen name="editTextH">30dp</dimen>
     <dimen name="editTextH50">50dp</dimen>
     <dimen name="helpTextSize">12sp</dimen>
+    <dimen name="h30dp">30dp</dimen>
+    <dimen name="iconH40">40dp</dimen>
+    <dimen name="iconW15">10dp</dimen>
 </resources>

@@ -8,9 +8,9 @@
     </style>
 
     <style name="ToolbarTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <item name="android:textColorPrimary">@color/bingoBrown</item>
-        <item name="android:textColorSecondary">@color/bingoDarkBlue</item>
-        <item name="android:textColor">@color/bingoLightBlue</item>
+        <item name="android:textColorPrimary">@color/colorPrimary</item>
+        <item name="android:textColorSecondary">@color/secondaryTextColor</item>
+        <item name="android:textColor">@color/primaryTextColor</item>
     </style>
 
     <style name="TextView3Style">
@@ -57,7 +57,7 @@
         <item name="android:gravity">center</item>
         <item name="autoSizeTextType">uniform</item>
         <item name="autoSizeMaxTextSize">25sp</item>
-        <item name="android:textColor">@color/textWhite</item>
+        <item name="android:textColor">@color/primaryTextColor</item>
         <item name="autoSizeStepGranularity">1sp</item>
     </style>
 

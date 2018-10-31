@@ -16,17 +16,17 @@
             android:id="@+id/recycleView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/bingoGray" />
+            android:background="@color/colorPrimary" />
 
         <TextView
             android:id="@+id/emptyTextView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:background="@color/bingoLightBrown"
+            android:background="@color/primaryLightColor"
             android:gravity="center"
             android:text="@string/Empty_list"
-            android:textColor="@color/textWhite"
+            android:textColor="@color/primaryLightColor"
             android:textSize="@dimen/textEmptySize" />
 
     </FrameLayout>

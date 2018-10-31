@@ -151,11 +151,12 @@ public class AddWords extends Fragment {
         if (!currentText.trim().isEmpty()) {
             editText.setText(currentText);
         }
+        editText.setHintTextColor(getResources().getColor(R.color.secondaryTextColor));
         editText.setHint(getResources().getString(R.string.ThisCanBeWord)+" "+ String.valueOf(x+1));
         if (x % 2 == 0) {
-            editText.setBackgroundColor(getResources().getColor(R.color.bingoDarkBlue));
+            editText.setBackgroundColor(getResources().getColor(R.color.primaryLightColor));
         } else {
-            editText.setBackgroundColor(getResources().getColor(R.color.bingoLightBlue));
+            editText.setBackgroundColor(getResources().getColor(R.color.primaryDarkColor));
         }
         editText.requestFocus();
         linearLayout.addView(editText);

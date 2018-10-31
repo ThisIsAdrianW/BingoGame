@@ -110,10 +110,10 @@ public class BingoListAdapter extends RecyclerView.Adapter<BingoListAdapter.Bing
             IndexWord current = titles.get(position);
             holder.titleItemView.setText(String.valueOf(current.getIndexforwords()));
             if (position % 2 == 0) {
-                holder.linearLayout.setBackgroundResource(R.color.bingoDarkBlue);
-                holder.titleItemView.setTextColor(holder.whiteText);
+                holder.linearLayout.setBackgroundResource(R.color.primaryLightColor);
+                holder.titleItemView.setTextColor(holder.blackText);
             } else {
-                holder.linearLayout.setBackgroundResource(R.color.bingoLightBlue);
+                holder.linearLayout.setBackgroundResource(R.color.primaryDarkColor);
                 holder.titleItemView.setTextColor(holder.blackText);
             }
         } else {

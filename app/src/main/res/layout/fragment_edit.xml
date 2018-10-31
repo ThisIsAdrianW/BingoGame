@@ -17,6 +17,7 @@
     android:layout_height="match_parent"
     android:paddingLeft="@dimen/padding10"
     android:paddingRight="@dimen/padding10"
+    android:background="@color/colorPrimary"
     tools:context=".EditFragment">
    <androidx.recyclerview.widget.RecyclerView
        android:id="@+id/editRecycleView"
@@ -28,7 +29,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
-        android:background="@color/bingoNavy"
+        android:background="@color/primaryLightColor"
         android:onClick="@{(view) -> activity.addNewItem(view)}"
         android:src="@drawable/ic_action_add" />
 </FrameLayout>
