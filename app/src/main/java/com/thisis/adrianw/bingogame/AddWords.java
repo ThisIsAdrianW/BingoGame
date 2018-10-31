@@ -151,7 +151,7 @@ public class AddWords extends Fragment {
         if (!currentText.trim().isEmpty()) {
             editText.setText(currentText);
         }
-        editText.setHint(R.string.add_words_for_game);
+        editText.setHint(getResources().getString(R.string.ThisCanBeWord)+" "+ String.valueOf(x+1));
         if (x % 2 == 0) {
             editText.setBackgroundColor(getResources().getColor(R.color.bingoDarkBlue));
         } else {

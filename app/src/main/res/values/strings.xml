@@ -21,4 +21,5 @@
         Words are always randomly choosed from whole Your list \n \n
         Clicking on tile in middle of 5x5 board will load image into it for extreme game experience ^_^
     </string>
+    <string name="ThisCanBeWord">You can write here word number: </string>
 </resources>

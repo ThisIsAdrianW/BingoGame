@@ -28,8 +28,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
-        android:backgroundTint="@color/bingoNavy"
+        android:background="@color/bingoNavy"
         android:onClick="@{(view) -> activity.addNewItem(view)}"
-        android:src="@drawable/ic_action_save" />
+        android:src="@drawable/ic_action_add" />
 </FrameLayout>
 </layout>
