@@ -11,18 +11,16 @@
         android:layout_height="50dp" />
     <ImageButton
         android:id="@+id/listButtonSave"
-        android:layout_width="@dimen/iconW15"
+        android:layout_width="@dimen/iconH40"
         android:layout_height="@dimen/iconH40"
-        android:layout_weight="1"
         android:scaleType="center"
         android:paddingRight="@dimen/padding10"
         android:layout_gravity="center"
         android:background="@drawable/ic_action_save"/>
     <ImageButton
         android:id="@+id/listButtonDelete"
-        android:layout_width="@dimen/iconW15"
+        android:layout_width="@dimen/iconH40"
         android:layout_height="@dimen/iconH40"
-        android:layout_weight="1"
         android:scaleType="center"
         android:paddingLeft="@dimen/padding10"
         android:layout_gravity="center"

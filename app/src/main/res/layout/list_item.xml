@@ -16,12 +16,11 @@
         android:gravity="center" />
     <ImageView
         android:id="@+id/editIcon"
-        android:layout_weight="1"
         android:paddingLeft="@dimen/padding10"
        android:paddingRight="@dimen/padding10"
         android:scaleType="center"
         android:layout_gravity="center"
-        android:layout_width="@dimen/iconW15"
+        android:layout_width="@dimen/iconH40"
         android:layout_height="@dimen/iconH40"
         android:background="@drawable/ic_edit"/>
 

@@ -8,6 +8,8 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProviders;
 
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
@@ -51,6 +53,7 @@ public class AddWords extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
@@ -160,6 +163,17 @@ public class AddWords extends Fragment {
         }
         editText.requestFocus();
         linearLayout.addView(editText);
+    }
+    @Override
+    public void onPrepareOptionsMenu(Menu menu) {
+        super.onPrepareOptionsMenu(menu);
+        MenuItem clearItem = menu.findItem(R.id.clearBoard);
+        MenuItem changeItem = menu.findItem(R.id.changeBoard);
+        MenuItem addItem = menu.findItem(R.id.new_words);
+        clearItem.setVisible(false);
+        changeItem.setVisible(false);
+        addItem.setVisible(false);
+
     }
 
 }

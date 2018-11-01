@@ -45,18 +45,17 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main_menu, menu);
-        return true;
+        return super.onCreateOptionsMenu(menu);
     }
 
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
         MenuItem clearItem = menu.findItem(R.id.clearBoard);
         MenuItem changeItem = menu.findItem(R.id.changeBoard);
-//        clearItem.setVisible(false);
-//        changeItem.setVisible(false);
-        menu.removeItem(R.id.clearBoard);
-        menu.removeItem(R.id.changeBoard);
-        invalidateOptionsMenu();
+        clearItem.setVisible(false);
+        changeItem.setVisible(false);
+//        menu.removeItem(R.id.clearBoard);
+//        menu.removeItem(R.id.changeBoard);
         return true;
     }
 

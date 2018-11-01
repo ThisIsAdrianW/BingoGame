@@ -6,12 +6,15 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:textColor">@color/primaryTextColor</item>
+        <item name="android:actionBarTabTextStyle">@style/ToolbarTheme</item>
+        <item name="actionBarStyle">@style/ToolbarTheme</item>
     </style>
 
-    <style name="ToolbarTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="ToolbarTheme" parent="Widget.AppCompat.ActionBar">
         <item name="android:textColorPrimary">@color/primaryTextColor</item>
         <item name="android:textColorSecondary">@color/secondaryTextColor</item>
         <item name="android:textColor">@color/primaryTextColor</item>
+        <item name="background">@color/primaryDarkColor</item>
     </style>
 
     <style name="TextView3Style">
