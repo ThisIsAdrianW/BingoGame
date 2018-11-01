@@ -1,6 +1,8 @@
 package com.thisis.adrianw.bingogame;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.view.menu.MenuBuilder;
+import androidx.appcompat.widget.Toolbar;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -9,13 +11,10 @@ import androidx.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
-import com.thisis.adrianw.bingogame.Bingodata.IndexWord;
-import com.thisis.adrianw.bingogame.Bingodata.Words;
 import com.thisis.adrianw.bingogame.Model.Bingo;
 import com.thisis.adrianw.bingogame.databinding.ActivityMainBinding;
-
-import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -40,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
                 if(fragmentManager.getBackStackEntryCount() == 0) finish();
             }
         });
+
     }
 
     @Override
@@ -52,8 +52,11 @@ public class MainActivity extends AppCompatActivity {
     public boolean onPrepareOptionsMenu(Menu menu) {
         MenuItem clearItem = menu.findItem(R.id.clearBoard);
         MenuItem changeItem = menu.findItem(R.id.changeBoard);
-        clearItem.setVisible(false);
-        changeItem.setVisible(false);
+//        clearItem.setVisible(false);
+//        changeItem.setVisible(false);
+        menu.removeItem(R.id.clearBoard);
+        menu.removeItem(R.id.changeBoard);
+        invalidateOptionsMenu();
         return true;
     }
 

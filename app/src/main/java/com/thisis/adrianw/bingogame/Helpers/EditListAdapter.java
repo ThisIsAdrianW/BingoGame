@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.thisis.adrianw.bingogame.Bingodata.Words;
@@ -29,6 +30,7 @@ public class EditListAdapter extends RecyclerView.Adapter<EditListAdapter.EditVi
         private final EditText editText;
         private final ImageButton imageButtonDelete;
         private final ImageButton imageButtonSave;
+        private final LinearLayout linearLayout;
 
 
         private EditViewHolder(View itemView) {
@@ -36,6 +38,7 @@ public class EditListAdapter extends RecyclerView.Adapter<EditListAdapter.EditVi
             editText = itemView.findViewById(R.id.listEditText);
             imageButtonDelete = itemView.findViewById(R.id.listButtonDelete);
             imageButtonSave = itemView.findViewById(R.id.listButtonSave);
+            linearLayout = itemView.findViewById(R.id.linearEditLayout);
             imageButtonSave.setOnClickListener(this);
             imageButtonDelete.setOnClickListener(this);
         }
@@ -62,6 +65,12 @@ public class EditListAdapter extends RecyclerView.Adapter<EditListAdapter.EditVi
     public void onBindViewHolder(final EditViewHolder holder, int position) {
         if (words != null) {
             final Words current = words.get(position);
+            if (position%2==0) {
+                holder.linearLayout.setBackgroundResource(R.color.primaryLightColor);
+            }
+            else {
+                holder.linearLayout.setBackgroundResource(R.color.colorPrimary);
+            }
             holder.editText.setText(current.getWordForBingo());
             holder.imageButtonDelete.setOnClickListener(new View.OnClickListener() {
                 @Override
