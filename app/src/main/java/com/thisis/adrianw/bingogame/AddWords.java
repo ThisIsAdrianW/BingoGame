@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProviders;
 
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -14,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.thisis.adrianw.bingogame.Bingodata.IndexWord;
@@ -115,11 +117,13 @@ public class AddWords extends Fragment {
         }
         String keyWord = editTitle.getText().toString().trim();
         if (keyWord.isEmpty()) {
-            Toast toast = Toast.makeText(view.getRootView().getContext(), R.string.Toast_error_title, Toast.LENGTH_SHORT);
-            toast.show();
+//            Toast toast = Toast.makeText(view.getRootView().getContext(), R.string.Toast_error_title, Toast.LENGTH_SHORT);
+//            toast.show();
+            toastMaker(getResources().getString(R.string.Toast_error_title));
         } else if (linearLayout.getChildCount() < MIN_BOARD_SIZE || listOfWords.size() < MIN_BOARD_SIZE) {
-            Toast toast = Toast.makeText(view.getRootView().getContext(), R.string.Toast_error_count, Toast.LENGTH_SHORT);
-            toast.show();
+//            Toast toast = Toast.makeText(view.getRootView().getContext(), R.string.Toast_error_count, Toast.LENGTH_SHORT);
+//            toast.show();
+            toastMaker(getResources().getString(R.string.Toast_error_count));
         } else {
             IndexWord indexWord = new IndexWord();
             indexWord.setIndexforwords(keyWord);
@@ -131,8 +135,9 @@ public class AddWords extends Fragment {
                 model.inserBingoWord(words);
             }
             switchToList();
-            Toast toast = Toast.makeText(view.getRootView().getContext(), R.string.Toast_saved, Toast.LENGTH_SHORT);
-            toast.show();
+//            Toast toast = Toast.makeText(view.getRootView().getContext(), R.string.Toast_saved, Toast.LENGTH_SHORT);
+//            toast.show();
+            toastMaker(getResources().getString(R.string.Toast_saved));
         }
     }
 
@@ -174,6 +179,18 @@ public class AddWords extends Fragment {
         changeItem.setVisible(false);
         addItem.setVisible(false);
 
+    }
+
+    private void toastMaker(String toastMessage) {
+        LayoutInflater inflater = getActivity().getLayoutInflater();
+        View layout = inflater.inflate(R.layout.toast, (ViewGroup) getActivity().findViewById(R.id.toast_root));
+        TextView text = (TextView) layout.findViewById(R.id.text_for_toast);
+        text.setText(String.valueOf(toastMessage));
+        Toast toast = new Toast(getActivity().getApplicationContext());
+        toast.setGravity(Gravity.BOTTOM, 0, 0);
+        toast.setDuration(Toast.LENGTH_LONG);
+        toast.setView(layout);
+        toast.show();
     }
 
 }

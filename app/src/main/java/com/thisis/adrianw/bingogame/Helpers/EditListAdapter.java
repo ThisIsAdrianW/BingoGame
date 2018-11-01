@@ -1,6 +1,7 @@
 package com.thisis.adrianw.bingogame.Helpers;
 
 import android.content.Context;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +9,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.thisis.adrianw.bingogame.Bingodata.Words;
@@ -98,7 +100,19 @@ public class EditListAdapter extends RecyclerView.Adapter<EditListAdapter.EditVi
                         current.setWordForBingo(newBingoWord);
                         model.updateWord(current);
                         notifyItemChanged(words.indexOf(current));
-                        Toast.makeText(context, context.getResources().getString(R.string.Toast_saved_word), Toast.LENGTH_SHORT).show();
+                        LayoutInflater inflater = fragmentActivity.getLayoutInflater();
+                        View layout = inflater.inflate(R.layout.toast, (ViewGroup) fragmentActivity.findViewById(R.id.toast_root));
+                        layout.setBackgroundColor(fragmentActivity.getResources().getColor(R.color.primaryDarkColor));
+                        ImageView image = layout.findViewById(R.id.image_fot_toast);
+                        image.setImageDrawable(fragmentActivity.getResources().getDrawable(R.drawable.ic_action_save));
+                        TextView text = layout.findViewById(R.id.text_for_toast);
+                        text.setText(String.valueOf(context.getResources().getString(R.string.Toast_saved_word)));
+                        Toast toast = new Toast(fragmentActivity.getApplicationContext());
+                        toast.setGravity(Gravity.BOTTOM, 0, 0);
+                        toast.setDuration(Toast.LENGTH_LONG);
+                        toast.setView(layout);
+                        toast.show();
+                        //Toast.makeText(context, context.getResources().getString(R.string.Toast_saved_word), Toast.LENGTH_SHORT).show();
                     }
                 }
             });

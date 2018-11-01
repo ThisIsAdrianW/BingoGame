@@ -5,6 +5,9 @@
     <data>
 
         <import type="android.view.View" />
+        <variable
+            name="activity"
+            type="com.thisis.adrianw.bingogame.ListFragment" />
     </data>
 
     <FrameLayout
@@ -26,14 +29,16 @@
             android:background="@color/primaryLightColor"
             android:gravity="center"
             android:text="@string/Empty_list"
-            android:textColor="@color/primaryLightColor"
+            android:textColor="@color/primaryTextColor"
             android:textSize="@dimen/textEmptySize" />
         <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/FABgenerate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end|bottom"
             android:scaleType="fitCenter"
+            android:onClick="@{(view) -> activity.generateRandomList(view)}"
             android:background="@color/colorPrimary"
-            android:src="@drawable/ic_note_add" />
+            android:src="@drawable/ic_action_dice6" />
     </FrameLayout>
 </layout>

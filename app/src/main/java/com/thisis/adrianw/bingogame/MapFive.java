@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -68,7 +69,6 @@ public class MapFive extends Fragment implements View.OnLongClickListener {
         final FragmentMapFiveBinding binding = FragmentMapFiveBinding.inflate(inflater, container, false);
         binding.setLifecycleOwner(this);
         model = ViewModelProviders.of(getActivity()).get(GameViewModel.class);
-        model.cleanBingoBoard();
         imageView = binding.imageV1;
         binding.setViewModel(model);
         model.setCurrentBoardModel(24);
@@ -81,7 +81,7 @@ public class MapFive extends Fragment implements View.OnLongClickListener {
             @Override
             public void onChanged(Bingo bingo) {
                 if (bingo.equals(Bingo.Bingo)) {
-                    Toast.makeText(getActivity(), String.valueOf(bingo), Toast.LENGTH_SHORT).show();
+                    toastMaker(String.valueOf(bingo));
                     model.setBingoScore(Bingo.notBingo);
                 }
             }
@@ -142,5 +142,19 @@ public class MapFive extends Fragment implements View.OnLongClickListener {
             imageView.setImageURI(uri);
             model.setImageUri(uri);
         }
+    }
+    private void toastMaker(String toastMessage) {
+        LayoutInflater inflater = getActivity().getLayoutInflater();
+        View layout = inflater.inflate(R.layout.toast, (ViewGroup) getActivity().findViewById(R.id.toast_root));
+        ImageView imageView = layout.findViewById(R.id.image_fot_toast);
+        imageView.setImageDrawable(getResources().getDrawable(R.drawable.ic_action_achievement));
+        TextView text = layout.findViewById(R.id.text_for_toast);
+        text.setTextSize(27);
+        text.setText(String.valueOf(toastMessage));
+        Toast toast = new Toast(getActivity().getApplicationContext());
+        toast.setGravity(Gravity.CENTER, 0, 0);
+        toast.setDuration(Toast.LENGTH_LONG);
+        toast.setView(layout);
+        toast.show();
     }
 }
