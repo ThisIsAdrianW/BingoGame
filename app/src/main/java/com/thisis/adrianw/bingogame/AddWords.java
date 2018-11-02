@@ -150,7 +150,6 @@ public class AddWords extends Fragment {
     }
 
 
-
     public void createEditText(View view, String currentText) {
         int x = linearLayout.getChildCount();
         final EditText editText = new EditText(getContext());
@@ -160,7 +159,7 @@ public class AddWords extends Fragment {
             editText.setText(currentText);
         }
         editText.setHintTextColor(getResources().getColor(R.color.secondaryTextColor));
-        editText.setHint(getResources().getString(R.string.ThisCanBeWord)+" "+ String.valueOf(x+1));
+        editText.setHint(getResources().getString(R.string.ThisCanBeWord) + " " + String.valueOf(x + 1));
         if (x % 2 == 0) {
             editText.setBackgroundColor(getResources().getColor(R.color.primaryLightColor));
         } else {
@@ -169,6 +168,7 @@ public class AddWords extends Fragment {
         editText.requestFocus();
         linearLayout.addView(editText);
     }
+
     @Override
     public void onPrepareOptionsMenu(Menu menu) {
         super.onPrepareOptionsMenu(menu);

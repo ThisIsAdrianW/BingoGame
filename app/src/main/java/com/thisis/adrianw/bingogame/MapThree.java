@@ -145,6 +145,7 @@ public class MapThree extends Fragment implements View.OnLongClickListener {
                 .show();
         return false;
     }
+
     private void toastMaker(String toastMessage) {
         LayoutInflater inflater = getActivity().getLayoutInflater();
         View layout = inflater.inflate(R.layout.toast, (ViewGroup) getActivity().findViewById(R.id.toast_root));

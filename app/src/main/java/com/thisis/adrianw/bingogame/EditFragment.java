@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import com.thisis.adrianw.bingogame.Bingodata.Words;
 import com.thisis.adrianw.bingogame.Helpers.EditListAdapter;
 import com.thisis.adrianw.bingogame.databinding.FragmentEditBinding;
@@ -25,7 +26,6 @@ public class EditFragment extends Fragment {
     private EditListAdapter editListAdapter;
     List<Words> currentList;
 
-    // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
 
@@ -66,7 +66,7 @@ public class EditFragment extends Fragment {
         editListAdapter = new EditListAdapter(getContext(), getActivity(), model);
         binding.editRecycleView.setAdapter(editListAdapter);
         binding.editRecycleView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        if (indexForEdit!=null && !indexForEdit.trim().isEmpty()) {
+        if (indexForEdit != null && !indexForEdit.trim().isEmpty()) {
             currentList = model.returnAllWordsStandard(indexForEdit);
             editListAdapter.setWords(currentList);
 
@@ -75,7 +75,7 @@ public class EditFragment extends Fragment {
     }
 
     public void addNewItem(View view) {
-        if (currentList!=null && indexForEdit!=null) {
+        if (currentList != null && indexForEdit != null) {
             Words words = new Words();
             words.setIndexforword(indexForEdit);
             words.setWordForBingo("0. You should change this");

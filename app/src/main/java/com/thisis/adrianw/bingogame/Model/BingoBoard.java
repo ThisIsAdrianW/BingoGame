@@ -1,6 +1,5 @@
 package com.thisis.adrianw.bingogame.Model;
 
-import android.util.Log;
 
 public class BingoBoard {
     //Current max board size
@@ -13,7 +12,7 @@ public class BingoBoard {
     //Public constructor taking param that will determine size of board (default is 5)
     public BingoBoard(int boardSize) {
         if (!checkForValidBordSize(boardSize)) {
-            Log.e("BingoBoard", "Out of bound board size " + boardSize);
+            this.boardSize = MAX_BOARD_SIZE;
         } else {
             this.boardSize = boardSize;
             clearBingoBoard(boardSize);
@@ -25,7 +24,6 @@ public class BingoBoard {
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
                 cells[i][j] = new BingoCell();
-                Log.v("BingoBoard", "Value of this is ... " + cells[i][j].getValue());
             }
         }
     }
@@ -58,7 +56,6 @@ public class BingoBoard {
             cells[x][y].setValue(Bingo.Bingo);
             bingo = Bingo.Bingo;
         }
-        Log.v("BingoBoard", "Current value of bingo is ... " + String.valueOf(bingo));
         return bingo;
     }
 

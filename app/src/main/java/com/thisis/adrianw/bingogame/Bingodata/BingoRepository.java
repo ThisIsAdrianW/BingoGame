@@ -2,11 +2,8 @@ package com.thisis.adrianw.bingogame.Bingodata;
 
 import android.app.Application;
 import android.os.AsyncTask;
-import android.util.Log;
-
 import java.util.List;
 import java.util.concurrent.ExecutionException;
-
 import androidx.lifecycle.LiveData;
 
 public class BingoRepository {
@@ -184,12 +181,14 @@ public class BingoRepository {
     public void updateWord(Words words) {
         new updateWordAsyncTask(bingoDao).execute(words);
     }
+
     private static class updateWordAsyncTask extends AsyncTask<Words, Void, Void> {
         private BingoDao AsyncTaskDao;
 
         updateWordAsyncTask(BingoDao dao) {
             AsyncTaskDao = dao;
         }
+
         @Override
         protected Void doInBackground(final Words... words) {
             AsyncTaskDao.updateWord(words[0]);
@@ -200,12 +199,14 @@ public class BingoRepository {
     public void updateIndexWord(String indexWord, String newIndex) {
         new updateIndexWordAsyncTask(bingoDao).execute(indexWord, newIndex);
     }
+
     private static class updateIndexWordAsyncTask extends AsyncTask<String, Void, Void> {
         private BingoDao AsyncTaskDao;
 
         updateIndexWordAsyncTask(BingoDao dao) {
             AsyncTaskDao = dao;
         }
+
         @Override
         protected Void doInBackground(final String... strings) {
             String indexWord = (String) strings[0];
@@ -214,6 +215,7 @@ public class BingoRepository {
             return null;
         }
     }
+
     public void deleteWord(Words words) {
         new deleteWordAsyncTask(bingoDao).execute(words);
     }
@@ -255,7 +257,6 @@ public class BingoRepository {
             return AsyncTaskDao.getWordsListStandard(params[0]);
         }
     }
-
 
 
 }

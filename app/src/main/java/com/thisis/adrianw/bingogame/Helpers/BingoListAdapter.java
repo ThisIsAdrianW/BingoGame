@@ -3,13 +3,13 @@ package com.thisis.adrianw.bingogame.Helpers;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
 import com.thisis.adrianw.bingogame.Bingodata.IndexWord;
 import com.thisis.adrianw.bingogame.EditFragment;
 import com.thisis.adrianw.bingogame.GameViewModel;
@@ -18,13 +18,11 @@ import com.thisis.adrianw.bingogame.R;
 
 import java.util.List;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatTextView;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class BingoListAdapter extends RecyclerView.Adapter<BingoListAdapter.BingoViewHolder> {
@@ -58,7 +56,6 @@ public class BingoListAdapter extends RecyclerView.Adapter<BingoListAdapter.Bing
 
         @Override
         public void onClick(View view) {
-            Log.v("onClickFromAdapter", String.valueOf(view.getId()));
             String title = titleItemView.getText().toString().trim();
             if (view instanceof TextView) {
                 FragmentManager fragmentManager = fragmentActivity.getSupportFragmentManager();
@@ -72,15 +69,13 @@ public class BingoListAdapter extends RecyclerView.Adapter<BingoListAdapter.Bing
                     IndexWord indexWord = new IndexWord();
                     indexWord.setIndexforwords(title);
                     gameViewModel.deleteIndex(indexWord);
-                }
-                else if (view.getId() == R.id.editIcon) {
+                } else if (view.getId() == R.id.editIcon) {
                     FragmentManager fragmentManager = fragmentActivity.getSupportFragmentManager();
                     Bundle argumentsBundle = new Bundle();
                     argumentsBundle.putString("titleArgument", title);
                     Fragment newEditFragment = new EditFragment();
                     newEditFragment.setArguments(argumentsBundle);
                     fragmentManager.beginTransaction().replace(R.id.frameLayout, newEditFragment).addToBackStack(null).commit();
-                    Log.v("BingoListAdapter", "Clicked on Edit, wow" + title);
                 }
             }
         }

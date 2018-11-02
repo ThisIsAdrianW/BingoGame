@@ -28,7 +28,8 @@ public class EditListAdapter extends RecyclerView.Adapter<EditListAdapter.EditVi
     private final LayoutInflater inflater;
     private List<Words> words; // Cached copy of words
     private final int MIN_LIST_SIZE = 9;
-    class EditViewHolder extends RecyclerView.ViewHolder  implements View.OnClickListener {
+
+    class EditViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private final EditText editText;
         private final ImageButton imageButtonDelete;
         private final ImageButton imageButtonSave;
@@ -51,26 +52,26 @@ public class EditListAdapter extends RecyclerView.Adapter<EditListAdapter.EditVi
     }
 
 
-
     public EditListAdapter(Context context, FragmentActivity fragmentActivity, GameViewModel viewModel) {
         this.context = context;
         this.model = viewModel;
         this.fragmentActivity = fragmentActivity;
         this.inflater = LayoutInflater.from(context);
     }
+
     @Override
     public EditViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = inflater.inflate(R.layout.edit_item, parent, false);
         return new EditViewHolder(itemView);
     }
+
     @Override
     public void onBindViewHolder(final EditViewHolder holder, int position) {
         if (words != null) {
             final Words current = words.get(position);
-            if (position%2==0) {
+            if (position % 2 == 0) {
                 holder.linearLayout.setBackgroundResource(R.color.primaryLightColor);
-            }
-            else {
+            } else {
                 holder.linearLayout.setBackgroundResource(R.color.colorPrimary);
             }
             holder.editText.setText(current.getWordForBingo());
@@ -78,13 +79,12 @@ public class EditListAdapter extends RecyclerView.Adapter<EditListAdapter.EditVi
                 @Override
                 public void onClick(View v) {
                     int wordPlace = words.indexOf(current);
-                    if (words.size()>MIN_LIST_SIZE) {
+                    if (words.size() > MIN_LIST_SIZE) {
                         model.deleteWord(current);
                         words.remove(current);
                         notifyItemRemoved(wordPlace);
-                        notifyItemRangeChanged(wordPlace,words.size());
-                    }
-                    else {
+                        notifyItemRangeChanged(wordPlace, words.size());
+                    } else {
                         Toast.makeText(context, context.getResources().getString(R.string.Toast_error_count), Toast.LENGTH_SHORT).show();
                     }
                 }
@@ -93,10 +93,9 @@ public class EditListAdapter extends RecyclerView.Adapter<EditListAdapter.EditVi
                 @Override
                 public void onClick(View view) {
                     String newBingoWord = holder.editText.getText().toString().trim();
-                    if (newBingoWord==null || newBingoWord.isEmpty()) {
+                    if (newBingoWord == null || newBingoWord.isEmpty()) {
                         Toast.makeText(context, context.getResources().getString(R.string.Toast_error_empty), Toast.LENGTH_SHORT).show();
-                    }
-                    else {
+                    } else {
                         current.setWordForBingo(newBingoWord);
                         model.updateWord(current);
                         notifyItemChanged(words.indexOf(current));
@@ -120,10 +119,12 @@ public class EditListAdapter extends RecyclerView.Adapter<EditListAdapter.EditVi
             holder.editText.setText("No Word");
         }
     }
-    public void setWords(List<Words> wordsList){
+
+    public void setWords(List<Words> wordsList) {
         this.words = wordsList;
         notifyDataSetChanged();
     }
+
     @Override
     public int getItemCount() {
         if (words != null)

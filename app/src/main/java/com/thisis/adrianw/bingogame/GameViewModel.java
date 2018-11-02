@@ -2,7 +2,6 @@ package com.thisis.adrianw.bingogame;
 
 import android.app.Application;
 import android.net.Uri;
-import android.util.Log;
 
 import com.thisis.adrianw.bingogame.Bingodata.BingoRepository;
 import com.thisis.adrianw.bingogame.Bingodata.IndexWord;
@@ -52,7 +51,6 @@ public class GameViewModel extends AndroidViewModel {
                 bingoScore.postValue(Bingo.Bingo);
             }
         } else if (currentBoardModel == 24) {
-            Log.v("GameViewModel", String.valueOf(model.getValue(2, 2)));
             if (model.getValue(2, 2) != Bingo.Bingo) {
                 markBingo(2, 2);
             }
@@ -125,7 +123,6 @@ public class GameViewModel extends AndroidViewModel {
         listOfStrings.clear();
         for (int i = 0; i < listOfWords.size(); i++) {
             String newValue = listOfWords.get(i).getWordForBingo();
-            Log.v("GameViewModel", "Now we have Word " + listOfWords.get(i).getWordForBingo());
             listOfStrings.add(i, newValue);
         }
     }

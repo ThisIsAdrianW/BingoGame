@@ -8,7 +8,6 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
-import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -19,7 +18,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.Toolbar;
 
 import com.thisis.adrianw.bingogame.Bingodata.IndexWord;
 import com.thisis.adrianw.bingogame.Bingodata.Words;
@@ -87,6 +85,7 @@ public class ListFragment extends Fragment {
         return binding.getRoot();
 
     }
+
     @Override
     public void onPrepareOptionsMenu(Menu menu) {
         super.onPrepareOptionsMenu(menu);
@@ -98,13 +97,14 @@ public class ListFragment extends Fragment {
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
     }
+
     private int generateRandomNumber() {
         final int min = 1;
         final int max = 100;
         final int random = new Random().nextInt((max - min) + 1) + min;
-        Log.v("ListFragment", String.valueOf(random));
         return random;
     }
+
     public void generateRandomList(View view) {
         int numberOfIndex = generateRandomNumber();
         IndexWord indexWord = new IndexWord();
@@ -120,6 +120,7 @@ public class ListFragment extends Fragment {
         }
         toastMaker(getResources().getString(R.string.savedRandom));
     }
+
     private void toastMaker(String toastMessage) {
         LayoutInflater inflater = getActivity().getLayoutInflater();
         View layout = inflater.inflate(R.layout.toast, (ViewGroup) getActivity().findViewById(R.id.toast_root));
