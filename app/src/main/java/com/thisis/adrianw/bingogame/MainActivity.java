@@ -12,7 +12,6 @@ import androidx.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
 import com.thisis.adrianw.bingogame.Model.Bingo;
 import com.thisis.adrianw.bingogame.databinding.ActivityMainBinding;
@@ -55,8 +54,6 @@ public class MainActivity extends AppCompatActivity {
         MenuItem changeItem = menu.findItem(R.id.changeBoard);
         clearItem.setVisible(false);
         changeItem.setVisible(false);
-//        menu.removeItem(R.id.clearBoard);
-//        menu.removeItem(R.id.changeBoard);
         return true;
     }
 
@@ -74,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             case R.id.changeBoard:
                 changeBoards();
+                gameViewModel.cleanBingoBoard();
                 return true;
             case R.id.helpandAbout:
                 helpAndAbout();
@@ -84,7 +82,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void changeBoards() {
-        // Create new fragment and transaction
         if (gameViewModel.getCurrentBoardModel() == 9) {
             fragment = new MapFive();
             gameViewModel.setBingoScore(Bingo.notBingo);
@@ -99,7 +96,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void addWords() {
-        // Create new fragment and transaction
         Fragment addWords = new AddWords();
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         transaction.replace(R.id.frameLayout, addWords);
@@ -123,9 +119,4 @@ public class MainActivity extends AppCompatActivity {
         transaction.commit();
     }
 
-//    @Override
-//    public void onBackPressed() {
-//        super.onBackPressed();
-//        listFragment();
-//    }
 }

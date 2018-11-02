@@ -25,7 +25,7 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     def lifecycle_version = "2.0.0"
-    def room_version = "2.0.0"
+    def room_version = "2.1.0-alpha02"
     implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     annotationProcessor "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
