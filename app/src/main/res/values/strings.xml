@@ -28,4 +28,8 @@
     <string name="changeThis">0. You should change this</string>
     <string name="unknownError">Unknown error</string>
     <string name="textToDisplay">Text in this field is:</string>
+    <string name="menuClean">Clear game board</string>
+    <string name="boardSize">Change board size</string>
+    <string name="menuChoose">Choose words for game</string>
+    <string name="menuAdd">Add new words</string>
 </resources>

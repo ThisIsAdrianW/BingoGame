@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Bingo Game</string>
+    <string name="add_title_for_game" translatable="true">Dodaj tytuł do swojej listy słów</string>
+    <string name="add_words_for_game" translatable="true">Dodaj słowa do swojej gry</string>
+    <string name="Toast_error_title">Lista słów musi mieć tytuł</string>
+    <string name="Toast_error_count">Potrzebujesz co najmniej 9 słów</string>
+    <string name="Toast_error_empty" translatable="true">Musisz zapisać słowo w polu</string>
+    <string name="Toast_saved_word" translatable="true">Słowo zostało zapisane</string>
+    <string name="Toast_saved" translatable="true">Zapisano Twoją listę</string>
+    <string name="Missing_Value" translatable="true">Brakuje wartości w komórce</string>
+    <string name="Empty_list" translatable="true">Musisz dodać słowa do swoich rozgrywek bingo ^_^</string>
+    <string name="set5x5" translatable="true">Zmień planszę na: 5x5</string>
+    <string name="set3x3" translatable="true">Zmień planszę na: 3x3</string>
+    <string name="hello_blank_fragment" translatable="true">Witaj pusty fragmencie</string>
+    <string name="help_and_about" translatable="true">Pomoc i informacje</string>
+    <string name="randomList" translatable="true">Przypadkowe liczby numer</string>
+    <string name="savedRandom" translatable="true">Zapisano twoją listę liczb losowych</string>
+    <string name="ThisCanBeWord" translatable="true">Zapisz tu słowo numer:</string>
+    <string name="changeThis" translatable="true">0. Powinieneś to zmienić</string>
+    <string name="unknownError" translatable="true">Nieznany błąd</string>
+    <string name="textToDisplay" translatable="true">Tekst w tym polu to:</string>
+    <string name="boardSize" translatable="true">Zmień rozmiar planszy</string>
+    <string name="menuChoose" translatable="true">Wybierz słowa</string>
+    <string name="menuAdd" translatable="true">Dodaj słowa</string>
+    <string name="menuClean" translatable="true">Wyczyść planszę</string>
+    <string name="about" translatable="true">Stowrzyłem aplikację w swoim bardzo ograniczonym czasie dla moich przyjaciół.
+        W razie uwag zawesze można zostawić mi komentarz lub skontaktować się poprzez e-mail. Udanej zabawy ;-)</string>
+    <string name="help" translatable="true"> \n\n
+        Długie naciśnięcie pola powoduje wyświetlenie tekstu z niego\n \n
+        Krótkei kliknięcie oznacza pole\n \n
+        Jeżeli chcesz zagrać na planszy 5x5 musisz mieć co najmniej 24 słowa w swojej liście\n \n
+        Słowa są zawsze losowo wybieranie z Twojej listy\n \n
+        Kliknięcie pola pośrodku planszy 5x5 załaduje obrazek dla ekstremalnych wrażeń^_^ \n \n
+        Możesz generować losowe liczby do bingo będąc na liście wyboru wartości do bingo.
+    </string>
+</resources>

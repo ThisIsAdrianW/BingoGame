@@ -3,16 +3,16 @@
     android:theme="@style/ToolbarTheme">
     <item
         android:id="@+id/new_words"
-        android:title="Add new words" />
+        android:title="@string/menuAdd" />
     <item
         android:id="@+id/chooseList"
-        android:title="Choose words for game" />
+        android:title="@string/menuChoose" />
     <item
         android:id="@+id/changeBoard"
-        android:title="Change board size" />
+        android:title="@string/boardSize" />
     <item
         android:id="@+id/clearBoard"
-        android:title="Clear game board" />
+        android:title="@string/menuClean" />
     <item
         android:id="@+id/helpandAbout"
         android:title="@string/help_and_about" />
