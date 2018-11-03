@@ -13,13 +13,14 @@
     <string name="set3x3">Change board to: 3x3 </string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="help_and_about">Help and about</string>
-    <string name="about">This app was created in my very limited free time for my frinds.
+    <string name="about">This app was created in my very limited free time for my friends.
         You can always contact me or leave comment. I hope You have fun ;-)</string>
     <string name="help">Long clicking on tile will display text in it \n \n
         Single click marks tile as bingo \n \n
     If You want to use 5x5 board for game Your word list will need to have at least 24 words or expressions \n \n
-        Words are always randomly choosed from whole Your list \n \n
-        Clicking on tile in middle of 5x5 board will load image into it for extreme game experience ^_^
+        Words are always randomly picked from whole Your list \n \n
+        Clicking on tile in middle of 5x5 board will load image into it for extreme game experience ^_^ \n \n
+        You can generate random numbers in Your saved words list.
     </string>
     <string name="randomList">Random list number</string>
     <string name="savedRandom">Saved new list with random numbers</string>

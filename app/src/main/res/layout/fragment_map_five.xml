@@ -285,7 +285,7 @@
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/imageV1"
                 style="@style/ConstrainStyleText"
-                android:background="@drawable/ic_photo"
+                android:background="@drawable/ic_insert_photo"
                 android:onClick='@{(view) -> activity.selectImage(view)}'
                 android:scaleType="fitXY"
                 app:layout_constraintBottom_toTopOf="@+id/guidelinecolumn3"
