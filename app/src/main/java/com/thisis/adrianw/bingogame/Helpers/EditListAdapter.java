@@ -75,6 +75,7 @@ public class EditListAdapter extends RecyclerView.Adapter<EditListAdapter.EditVi
                 holder.linearLayout.setBackgroundResource(R.color.colorPrimary);
             }
             holder.editText.setText(current.getWordForBingo());
+            holder.editText.requestFocus();
             holder.imageButtonDelete.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

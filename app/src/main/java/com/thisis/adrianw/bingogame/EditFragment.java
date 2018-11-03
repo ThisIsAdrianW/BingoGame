@@ -78,7 +78,8 @@ public class EditFragment extends Fragment {
         if (currentList != null && indexForEdit != null) {
             Words words = new Words();
             words.setIndexforword(indexForEdit);
-            words.setWordForBingo("0. You should change this");
+            String message = view.getRootView().getResources().getString(R.string.changeThis);
+            words.setWordForBingo(message);
             currentList.add(words);
             model.inserBingoWord(words);
             currentList = model.returnAllWordsStandard(indexForEdit);

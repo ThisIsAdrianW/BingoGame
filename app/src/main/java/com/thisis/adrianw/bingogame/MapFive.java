@@ -102,7 +102,7 @@ public class MapFive extends Fragment implements View.OnLongClickListener {
     @Override
     public boolean onLongClick(View view) {
         Context context = view.getContext();
-
+        String message;
         AlertDialog.Builder builder;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             builder = new AlertDialog.Builder(context, android.R.style.Theme_Material_Dialog_Alert);
@@ -113,9 +113,11 @@ public class MapFive extends Fragment implements View.OnLongClickListener {
         if (view instanceof TextView) {
             textToDisplay = (String) ((TextView) view).getText();
         } else {
-            textToDisplay = "Unknown error";
+            message = view.getRootView().getResources().getString(R.string.unknownError);
+            textToDisplay = message;
         }
-        builder.setTitle("Text in this field is:")
+        message = view.getRootView().getResources().getString(R.string.textToDisplay);
+        builder.setTitle(message)
                 .setMessage(textToDisplay)
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {

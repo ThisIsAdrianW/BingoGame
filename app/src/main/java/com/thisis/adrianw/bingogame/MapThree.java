@@ -133,9 +133,9 @@ public class MapThree extends Fragment implements View.OnLongClickListener {
         if (view instanceof TextView) {
             textToDisplay = (String) ((TextView) view).getText();
         } else {
-            textToDisplay = "Unknown error";
+            textToDisplay = context.getResources().getString(R.string.unknownError);
         }
-        builder.setTitle("Text in this field is:")
+        builder.setTitle(context.getResources().getString(R.string.textToDisplay))
                 .setMessage(textToDisplay)
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {

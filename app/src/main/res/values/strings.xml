@@ -25,4 +25,7 @@
     <string name="randomList">Random list number</string>
     <string name="savedRandom">Saved new list with random numbers</string>
     <string name="ThisCanBeWord">You can write here word number: </string>
+    <string name="changeThis">0. You should change this</string>
+    <string name="unknownError">Unknown error</string>
+    <string name="textToDisplay">Text in this field is:</string>
 </resources>

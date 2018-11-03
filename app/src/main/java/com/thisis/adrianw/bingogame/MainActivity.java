@@ -64,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
                 addWords();
                 return true;
             case R.id.chooseList:
+                gameViewModel.cleanBingoBoard();
                 listFragment();
                 return true;
             case R.id.clearBoard:
