@@ -63,7 +63,8 @@ public class BingoListAdapter extends RecyclerView.Adapter<BingoListAdapter.Bing
                 Bundle argumentsBundle = new Bundle();
                 argumentsBundle.putString("titleArgument", title);
                 defaultFragment3.setArguments(argumentsBundle);
-                fragmentManager.beginTransaction().replace(R.id.frameLayout, defaultFragment3).addToBackStack(null).commit();
+                //.addToBackStack(null)
+                fragmentManager.beginTransaction().replace(R.id.frameLayout, defaultFragment3).commit();
             } else if (view instanceof ImageView) {
                 if (view.getId() == R.id.deleteIcon) {
                     IndexWord indexWord = new IndexWord();
@@ -75,7 +76,8 @@ public class BingoListAdapter extends RecyclerView.Adapter<BingoListAdapter.Bing
                     argumentsBundle.putString("titleArgument", title);
                     Fragment newEditFragment = new EditFragment();
                     newEditFragment.setArguments(argumentsBundle);
-                    fragmentManager.beginTransaction().replace(R.id.frameLayout, newEditFragment).addToBackStack(null).commit();
+                    //.addToBackStack(null)
+                    fragmentManager.beginTransaction().replace(R.id.frameLayout, newEditFragment).commit();
                 }
             }
         }

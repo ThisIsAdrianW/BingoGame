@@ -156,7 +156,7 @@ public class MapThree extends Fragment implements View.OnLongClickListener {
         text.setText(String.valueOf(toastMessage));
         Toast toast = new Toast(getActivity().getApplicationContext());
         toast.setGravity(Gravity.CENTER, 0, 0);
-        toast.setDuration(Toast.LENGTH_LONG);
+        toast.setDuration(Toast.LENGTH_SHORT);
         toast.setView(layout);
         toast.show();
     }

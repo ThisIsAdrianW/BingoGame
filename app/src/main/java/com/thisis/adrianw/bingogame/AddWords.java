@@ -158,7 +158,7 @@ public class AddWords extends Fragment {
         if (!currentText.trim().isEmpty()) {
             editText.setText(currentText);
         }
-        editText.setHintTextColor(getResources().getColor(R.color.secondaryTextColor));
+        editText.setHintTextColor(getResources().getColor(R.color.hintTextColor));
         editText.setHint(getResources().getString(R.string.ThisCanBeWord) + " " + String.valueOf(x + 1));
         if (x % 2 == 0) {
             editText.setBackgroundColor(getResources().getColor(R.color.primaryLightColor));
@@ -184,11 +184,11 @@ public class AddWords extends Fragment {
     private void toastMaker(String toastMessage) {
         LayoutInflater inflater = getActivity().getLayoutInflater();
         View layout = inflater.inflate(R.layout.toast, (ViewGroup) getActivity().findViewById(R.id.toast_root));
-        TextView text = (TextView) layout.findViewById(R.id.text_for_toast);
+        TextView text = layout.findViewById(R.id.text_for_toast);
         text.setText(String.valueOf(toastMessage));
         Toast toast = new Toast(getActivity().getApplicationContext());
-        toast.setGravity(Gravity.BOTTOM, 0, 0);
-        toast.setDuration(Toast.LENGTH_LONG);
+        toast.setGravity(Gravity.CENTER, 0, 0);
+        toast.setDuration(Toast.LENGTH_SHORT);
         toast.setView(layout);
         toast.show();
     }

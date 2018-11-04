@@ -129,7 +129,7 @@ public class ListFragment extends Fragment {
         TextView text = (TextView) layout.findViewById(R.id.text_for_toast);
         text.setText(String.valueOf(toastMessage));
         Toast toast = new Toast(getActivity().getApplicationContext());
-        toast.setGravity(Gravity.BOTTOM, 0, 0);
+        toast.setGravity(Gravity.CENTER, 0, 0);
         toast.setDuration(Toast.LENGTH_SHORT);
         toast.setView(layout);
         toast.show();
