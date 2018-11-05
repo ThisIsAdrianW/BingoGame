@@ -86,7 +86,5 @@ public class EditFragment extends Fragment {
             editListAdapter.setWords(currentList);
             editListAdapter.notifyDataSetChanged();
         }
-
-
     }
 }

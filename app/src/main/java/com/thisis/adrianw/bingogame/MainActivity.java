@@ -43,6 +43,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onPause() {
+        super.onPause();
+        gameViewModel = ViewModelProviders.of(MainActivity.this).get(GameViewModel.class);
+        gameViewModel.cancelToast();
+    }
+
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main_menu, menu);
         return super.onCreateOptionsMenu(menu);
@@ -92,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
         }
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         transaction.replace(R.id.frameLayout, fragment);
-        //transaction.addToBackStack(null);
+        transaction.addToBackStack(null);
         transaction.commit();
     }
 
@@ -100,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
         Fragment addWords = new AddWords();
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         transaction.replace(R.id.frameLayout, addWords);
-        //transaction.addToBackStack(null);
+//        transaction.addToBackStack(null);
         transaction.commit();
     }
 
@@ -108,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
         Fragment listFragment = new ListFragment();
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         transaction.replace(R.id.frameLayout, listFragment);
-        //transaction.addToBackStack(null);
+//        transaction.addToBackStack(null);
         transaction.commit();
     }
 
@@ -116,7 +123,7 @@ public class MainActivity extends AppCompatActivity {
         Fragment helpAndAbout = new HelpAndAbout();
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.frameLayout, helpAndAbout);
-        //transaction.addToBackStack(null);
+//        transaction.addToBackStack(null);
         transaction.commit();
     }
 

@@ -118,20 +118,7 @@ public class ListFragment extends Fragment {
             words.setWordForBingo(String.valueOf(currentValue));
             model.inserBingoWord(words);
         }
-        toastMaker(getResources().getString(R.string.savedRandom));
+        model.showToast(getActivity(), getResources().getString(R.string.savedRandom), null);
     }
 
-    private void toastMaker(String toastMessage) {
-        LayoutInflater inflater = getActivity().getLayoutInflater();
-        View layout = inflater.inflate(R.layout.toast, (ViewGroup) getActivity().findViewById(R.id.toast_root));
-        ImageView imageView = layout.findViewById(R.id.image_fot_toast);
-        imageView.setImageDrawable(getResources().getDrawable(R.drawable.ic_action_save));
-        TextView text = (TextView) layout.findViewById(R.id.text_for_toast);
-        text.setText(String.valueOf(toastMessage));
-        Toast toast = new Toast(getActivity().getApplicationContext());
-        toast.setGravity(Gravity.CENTER, 0, 0);
-        toast.setDuration(Toast.LENGTH_SHORT);
-        toast.setView(layout);
-        toast.show();
-    }
 }

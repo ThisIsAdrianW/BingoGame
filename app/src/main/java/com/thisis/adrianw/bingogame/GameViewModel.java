@@ -1,7 +1,16 @@
 package com.thisis.adrianw.bingogame;
 
+import android.app.Activity;
 import android.app.Application;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.thisis.adrianw.bingogame.Bingodata.BingoRepository;
 import com.thisis.adrianw.bingogame.Bingodata.IndexWord;
@@ -33,6 +42,7 @@ public class GameViewModel extends AndroidViewModel {
     private BingoRepository bingoRepository;
     private MutableLiveData<String> stringMutableLiveData = new MutableLiveData<String>();
     private MutableLiveData<Bingo> bingoScore = new MutableLiveData<Bingo>();
+    Toast toast;
 
     public GameViewModel(Application application) {
         super(application);
@@ -40,6 +50,7 @@ public class GameViewModel extends AndroidViewModel {
         model = new BingoBoard(boardSize);
         myIndexWords = bingoRepository.getAllIndexWords();
         liveIndex = bingoRepository.returnLiveIndex();
+        toast = null;
 
     }
 
@@ -179,5 +190,39 @@ public class GameViewModel extends AndroidViewModel {
 
     public List<Words> returnAllWordsStandard(String strring) {
         return bingoRepository.getAllWordsStandard(strring);
+    }
+
+    public void showToast(Activity activity, String message, Drawable drawable) {
+        if (message.equals(String.valueOf(Bingo.Bingo))) {
+            toast=null;
+        }
+        if (toast!=null) {
+            toast.cancel();
+            toast=null;
+        }
+        else {
+            LayoutInflater inflater = activity.getLayoutInflater();
+            View layout = inflater.inflate(R.layout.toast, (ViewGroup) activity.findViewById(R.id.toast_root));
+            ImageView imageView = layout.findViewById(R.id.image_fot_toast);
+            if (drawable==null) {
+                imageView.setImageDrawable(activity.getResources().getDrawable(R.drawable.ic_action_save));
+            }
+            else {
+                imageView.setImageDrawable(drawable);
+            }
+            toast = new Toast(activity.getApplicationContext());
+            toast.setGravity(Gravity.CENTER, 0, 0);
+            toast.setDuration(Toast.LENGTH_SHORT);
+            toast.setView(layout);
+            TextView text = (TextView) layout.findViewById(R.id.text_for_toast);
+            text.setText(String.valueOf(message));
+            toast.show();
+        }
+    }
+    public void cancelToast() {
+        if (toast!=null) {
+            toast.cancel();
+            toast=null;
+        }
     }
 }

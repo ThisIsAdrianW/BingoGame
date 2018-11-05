@@ -69,6 +69,7 @@ public class MapFive extends Fragment implements View.OnLongClickListener {
         final FragmentMapFiveBinding binding = FragmentMapFiveBinding.inflate(inflater, container, false);
         binding.setLifecycleOwner(this);
         model = ViewModelProviders.of(getActivity()).get(GameViewModel.class);
+        model.cancelToast();
         imageView = binding.imageV1;
         binding.setViewModel(model);
         model.setCurrentBoardModel(24);
@@ -81,7 +82,7 @@ public class MapFive extends Fragment implements View.OnLongClickListener {
             @Override
             public void onChanged(Bingo bingo) {
                 if (bingo.equals(Bingo.Bingo)) {
-                    toastMaker(String.valueOf(bingo));
+                    model.showToast(getActivity(),String.valueOf(bingo), getResources().getDrawable(R.drawable.ic_action_achievement));
                     model.setBingoScore(Bingo.notBingo);
                 }
             }
@@ -144,20 +145,5 @@ public class MapFive extends Fragment implements View.OnLongClickListener {
             imageView.setImageURI(uri);
             model.setImageUri(uri);
         }
-    }
-
-    private void toastMaker(String toastMessage) {
-        LayoutInflater inflater = getActivity().getLayoutInflater();
-        View layout = inflater.inflate(R.layout.toast, (ViewGroup) getActivity().findViewById(R.id.toast_root));
-        ImageView imageView = layout.findViewById(R.id.image_fot_toast);
-        imageView.setImageDrawable(getResources().getDrawable(R.drawable.ic_action_achievement));
-        TextView text = layout.findViewById(R.id.text_for_toast);
-        text.setTextSize(27);
-        text.setText(String.valueOf(toastMessage));
-        Toast toast = new Toast(getActivity().getApplicationContext());
-        toast.setGravity(Gravity.CENTER, 0, 0);
-        toast.setDuration(Toast.LENGTH_SHORT);
-        toast.setView(layout);
-        toast.show();
     }
 }
