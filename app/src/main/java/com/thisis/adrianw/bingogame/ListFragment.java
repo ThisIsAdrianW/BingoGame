@@ -8,22 +8,19 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.thisis.adrianw.bingogame.Bingodata.IndexWord;
 import com.thisis.adrianw.bingogame.Bingodata.Words;
 import com.thisis.adrianw.bingogame.Helpers.BingoListAdapter;
 import com.thisis.adrianw.bingogame.databinding.FragmentListBinding;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -100,7 +97,7 @@ public class ListFragment extends Fragment {
 
     private int generateRandomNumber() {
         final int min = 1;
-        final int max = 100;
+        final int max = 75;
         final int random = new Random().nextInt((max - min) + 1) + min;
         return random;
     }
@@ -108,14 +105,21 @@ public class ListFragment extends Fragment {
     public void generateRandomList(View view) {
         int numberOfIndex = generateRandomNumber();
         IndexWord indexWord = new IndexWord();
+        ArrayList<Integer> randomList = new ArrayList<Integer>();
         String indexString = getResources().getString(R.string.randomList) + " " + String.valueOf(numberOfIndex);
         indexWord.setIndexforwords(indexString);
         model.insertBingoIndex(indexWord);
-        for (int i = 0; i < 24; i++) {
+        while (randomList.size() <50) {
+            int newValue = generateRandomNumber();
+            if (!randomList.contains(newValue)){
+                randomList.add(newValue);
+            }
+
+        }
+        for (int i = 0; i < randomList.size(); i++) {
             Words words = new Words();
             words.setIndexforword(indexString);
-            int currentValue = generateRandomNumber();
-            words.setWordForBingo(String.valueOf(currentValue));
+            words.setWordForBingo(String.valueOf(randomList.get(i)));
             model.inserBingoWord(words);
         }
         model.showToast(getActivity(), getResources().getString(R.string.savedRandom), null);

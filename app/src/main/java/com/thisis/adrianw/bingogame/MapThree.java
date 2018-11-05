@@ -10,6 +10,8 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
+import android.os.Handler;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -75,6 +77,7 @@ public class MapThree extends Fragment implements View.OnLongClickListener {
         final FragmentMapThreeBinding binding = FragmentMapThreeBinding.inflate(inflater, container, false);
         binding.setLifecycleOwner(this);
         model = ViewModelProviders.of(getActivity()).get(GameViewModel.class);
+        model.cancelToast();
         binding.setTestString(model.testString);
         binding.setViewModel(model);
         model.setCurrentBoardModel(9);
@@ -84,6 +87,7 @@ public class MapThree extends Fragment implements View.OnLongClickListener {
             if (!indexFromBundle.equals(model.getMutableIndex())) {
                 model.getStringMutableLiveData().setValue(indexFromBundle);
                 model.updateWordList();
+                model.prepareBingoNumbers();
             }
         }
         if (model.getStringMutableLiveData().getValue() != null) {
@@ -104,6 +108,7 @@ public class MapThree extends Fragment implements View.OnLongClickListener {
                 }
             }
         });
+        model.prepareBingoNumbers();
         return binding.getRoot();
     }
 
@@ -144,5 +149,10 @@ public class MapThree extends Fragment implements View.OnLongClickListener {
                 })
                 .show();
         return false;
+    }
+    public void generateRandomWord(View view) {
+        String newWord = model.prepareRandomWord();
+        model.showToast(getActivity(), newWord, null);
+        model.toast = null;
     }
 }

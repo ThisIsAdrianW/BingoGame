@@ -259,4 +259,31 @@ public class BingoRepository {
     }
 
 
+    public List<Words> getAllWordsRandom(String indexword) {
+        try {
+            return new getAllWordsRandomAsyncTask(bingoDao).execute(indexword).get();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    private static class getAllWordsRandomAsyncTask extends AsyncTask<String, Void, List<Words>> {
+        private BingoDao AsyncTaskDao;
+
+        getAllWordsRandomAsyncTask(BingoDao dao) {
+            AsyncTaskDao = dao;
+        }
+
+        @Override
+        protected List<Words> doInBackground(final String... params) {
+            return AsyncTaskDao.getWordsListRandom(params[0]);
+        }
+
+
+    }
+
+
 }

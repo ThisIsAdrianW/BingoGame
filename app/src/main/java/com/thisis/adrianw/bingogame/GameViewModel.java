@@ -4,10 +4,12 @@ import android.app.Activity;
 import android.app.Application;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,6 +22,7 @@ import com.thisis.adrianw.bingogame.Model.BingoBoard;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import androidx.databinding.ObservableArrayMap;
 import androidx.lifecycle.AndroidViewModel;
@@ -34,6 +37,8 @@ public class GameViewModel extends AndroidViewModel {
     private int currentListSize;
     private int currentBoardModel;
     private Uri imageUri;
+    private List<Words> randomWordList;
+    private int randomBingoInt;
     private static final int MIN_REQ_FIELDS = 9;
     private List<IndexWord> myIndexWords;
     private List<Words> words;
@@ -154,6 +159,11 @@ public class GameViewModel extends AndroidViewModel {
         this.currentBoardModel = currentBoardModel;
     }
 
+    public List<Words> getAllWordsRandom(String index) {
+        return bingoRepository.getAllWordsRandom(index);
+
+    }
+
     public MutableLiveData<Bingo> getBingoScore() {
         return bingoScore;
     }
@@ -188,26 +198,24 @@ public class GameViewModel extends AndroidViewModel {
         bingoRepository.deleteWord(words);
     }
 
-    public List<Words> returnAllWordsStandard(String strring) {
-        return bingoRepository.getAllWordsStandard(strring);
+    public List<Words> returnAllWordsStandard(String string) {
+        return bingoRepository.getAllWordsStandard(string);
     }
 
     public void showToast(Activity activity, String message, Drawable drawable) {
         if (message.equals(String.valueOf(Bingo.Bingo))) {
-            toast=null;
+            toast = null;
         }
-        if (toast!=null) {
+        if (toast != null) {
             toast.cancel();
-            toast=null;
-        }
-        else {
+            toast = null;
+        } else {
             LayoutInflater inflater = activity.getLayoutInflater();
             View layout = inflater.inflate(R.layout.toast, (ViewGroup) activity.findViewById(R.id.toast_root));
             ImageView imageView = layout.findViewById(R.id.image_fot_toast);
-            if (drawable==null) {
+            if (drawable == null) {
                 imageView.setImageDrawable(activity.getResources().getDrawable(R.drawable.ic_action_save));
-            }
-            else {
+            } else {
                 imageView.setImageDrawable(drawable);
             }
             toast = new Toast(activity.getApplicationContext());
@@ -219,10 +227,42 @@ public class GameViewModel extends AndroidViewModel {
             toast.show();
         }
     }
+
     public void cancelToast() {
-        if (toast!=null) {
+        if (toast != null) {
             toast.cancel();
-            toast=null;
+            toast = null;
         }
     }
+
+    public void prepareBingoNumbers () {
+        List<Words> listForGame = null;
+        if (getMutableIndex()!=null && !getMutableIndex().trim().isEmpty()) {
+            String title = getMutableIndex().trim();
+             randomWordList = getAllWordsRandom(title);
+        }
+    }
+
+    public int getRandomBingoInt() {
+        return randomBingoInt;
+    }
+
+    public void setRandomBingoInt(int randomBingoInt) {
+        this.randomBingoInt = randomBingoInt;
+    }
+
+    public String prepareRandomWord() {
+        String toReturn = null;
+        if (randomWordList!=null && getRandomBingoInt()<=randomWordList.size()) {
+            int current = getRandomBingoInt();
+            toReturn = randomWordList.get(current).getWordForBingo();
+            current++;
+            setRandomBingoInt(current);
+        }
+        else if (randomWordList==null || getRandomBingoInt()>randomWordList.size()) {
+            setRandomBingoInt(0);
+        }
+        return toReturn;
+    }
+
 }

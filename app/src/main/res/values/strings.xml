@@ -15,7 +15,8 @@
     <string name="help_and_about">Help and about</string>
     <string name="about">This app was created in my very limited free time for my friends.
         You can always contact me or leave comment. I hope You have fun ;-)</string>
-    <string name="help">Long clicking on tile will display text in it \n \n
+    <string name="help">
+        \n\n Long clicking on tile will display text in it \n \n
         Single click marks tile as bingo \n \n
     If You want to use 5x5 board for game Your word list will need to have at least 24 words or expressions \n \n
         Words are always randomly picked from whole Your list \n \n
