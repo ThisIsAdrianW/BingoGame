@@ -1,6 +1,7 @@
 package com.thisis.adrianw.bingogame;
 
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -14,6 +15,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 
 import com.thisis.adrianw.bingogame.Bingodata.IndexWord;
 import com.thisis.adrianw.bingogame.Bingodata.Words;
@@ -79,8 +81,13 @@ public class ListFragment extends Fragment {
                 }
             }
         });
+        InputMethodManager inputManager = (InputMethodManager) getActivity()
+                .getSystemService(Context.INPUT_METHOD_SERVICE);
+        View currentFocusedView = getActivity().getCurrentFocus();
+        if (currentFocusedView != null) {
+            inputManager.hideSoftInputFromWindow(currentFocusedView.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+        }
         return binding.getRoot();
-
     }
 
     @Override

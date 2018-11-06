@@ -203,13 +203,9 @@ public class GameViewModel extends AndroidViewModel {
     }
 
     public void showToast(Activity activity, String message, Drawable drawable) {
-        if (message.equals(String.valueOf(Bingo.Bingo))) {
-            toast = null;
-        }
-        if (toast != null) {
+        if (toast!=null) {
             toast.cancel();
-            toast = null;
-        } else {
+        }
             LayoutInflater inflater = activity.getLayoutInflater();
             View layout = inflater.inflate(R.layout.toast, (ViewGroup) activity.findViewById(R.id.toast_root));
             ImageView imageView = layout.findViewById(R.id.image_fot_toast);
@@ -225,7 +221,6 @@ public class GameViewModel extends AndroidViewModel {
             TextView text = (TextView) layout.findViewById(R.id.text_for_toast);
             text.setText(String.valueOf(message));
             toast.show();
-        }
     }
 
     public void cancelToast() {
@@ -253,14 +248,18 @@ public class GameViewModel extends AndroidViewModel {
 
     public String prepareRandomWord() {
         String toReturn = null;
-        if (randomWordList!=null && getRandomBingoInt()<=randomWordList.size()) {
+        if (randomWordList!=null && getRandomBingoInt()<randomWordList.size()) {
             int current = getRandomBingoInt();
             toReturn = randomWordList.get(current).getWordForBingo();
             current++;
             setRandomBingoInt(current);
+            Log.v("GameViewModel", "current is" + getRandomBingoInt() + "and list is" + randomWordList.size());
+            if (getRandomBingoInt()==randomWordList.size()) {
+                setRandomBingoInt(0);
+            }
         }
-        else if (randomWordList==null || getRandomBingoInt()>randomWordList.size()) {
-            setRandomBingoInt(0);
+        else if (randomWordList==null || getRandomBingoInt()>=randomWordList.size()) {
+            setRandomBingoInt(1);
         }
         return toReturn;
     }
