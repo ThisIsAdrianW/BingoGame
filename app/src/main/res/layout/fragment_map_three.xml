@@ -21,6 +21,9 @@
         <variable
             name="viewModel"
             type="com.thisis.adrianw.bingogame.GameViewModel" />
+        <variable
+            name="toShow"
+            type="java.lang.Boolean"/>
 
         <variable
             name="activity"
@@ -156,6 +159,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="end|bottom"
             android:scaleType="fitCenter"
+            android:visibility='@{viewModel.getVisibilityFab ? View.VISIBLE : View.GONE}'
             android:onClick="@{(view) -> activity.generateRandomWord(view)}"
             android:background="@color/colorPrimary"
             android:src="@drawable/ic_action_dice6" />

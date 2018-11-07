@@ -95,6 +95,8 @@ public class MapFive extends Fragment implements View.OnLongClickListener {
         super.onPrepareOptionsMenu(menu);
         MenuItem clearItem = menu.findItem(R.id.clearBoard);
         MenuItem changeItem = menu.findItem(R.id.changeBoard);
+        MenuItem randomValue = menu.findItem(R.id.menuBingoGenerator);
+        randomValue.setVisible(true);
         clearItem.setVisible(true);
         changeItem.setTitle(R.string.set3x3);
         changeItem.setVisible(true);

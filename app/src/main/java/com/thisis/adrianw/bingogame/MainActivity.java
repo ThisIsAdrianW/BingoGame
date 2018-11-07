@@ -1,8 +1,6 @@
 package com.thisis.adrianw.bingogame;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.view.menu.MenuBuilder;
-import androidx.appcompat.widget.Toolbar;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -59,8 +57,10 @@ public class MainActivity extends AppCompatActivity {
     public boolean onPrepareOptionsMenu(Menu menu) {
         MenuItem clearItem = menu.findItem(R.id.clearBoard);
         MenuItem changeItem = menu.findItem(R.id.changeBoard);
+        MenuItem randomValue = menu.findItem(R.id.menuBingoGenerator);
         clearItem.setVisible(false);
         changeItem.setVisible(false);
+        randomValue.setVisible(false);
         return true;
     }
 
@@ -84,6 +84,9 @@ public class MainActivity extends AppCompatActivity {
             case R.id.helpandAbout:
                 helpAndAbout();
                 return true;
+            case R.id.menuBingoGenerator:
+                gameViewModel.setVisibilityFab(true);
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -97,34 +100,33 @@ public class MainActivity extends AppCompatActivity {
             fragment = new MapThree();
             gameViewModel.setBingoScore(Bingo.notBingo);
         }
-        FragmentTransaction transaction = fragmentManager.beginTransaction();
-        transaction.replace(R.id.frameLayout, fragment);
-        transaction.addToBackStack(null);
-        transaction.commit();
+        changeFragments();
     }
 
     public void addWords() {
-        Fragment addWords = new AddWords();
-        FragmentTransaction transaction = fragmentManager.beginTransaction();
-        transaction.replace(R.id.frameLayout, addWords);
-//        transaction.addToBackStack(null);
-        transaction.commit();
+        fragment = new AddWords();
+        changeFragments();
     }
 
     public void listFragment() {
-        Fragment listFragment = new ListFragment();
-        FragmentTransaction transaction = fragmentManager.beginTransaction();
-        transaction.replace(R.id.frameLayout, listFragment);
-//        transaction.addToBackStack(null);
-        transaction.commit();
+        fragment = new ListFragment();
+        changeFragments();
     }
 
     public void helpAndAbout() {
-        Fragment helpAndAbout = new HelpAndAbout();
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.frameLayout, helpAndAbout);
-//        transaction.addToBackStack(null);
-        transaction.commit();
+        fragment = new HelpAndAbout();
+        changeFragments();
+    }
+
+    private void changeFragments() {
+        if (fragment!=null) {
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            transaction.replace(R.id.frameLayout,fragment);
+            if (fragment instanceof MapThree || fragment instanceof MapFive) {
+                transaction.addToBackStack(null);
+            }
+            transaction.commit();
+        }
     }
 
 }

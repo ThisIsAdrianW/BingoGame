@@ -2,6 +2,7 @@ package com.thisis.adrianw.bingogame;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 
@@ -29,6 +30,7 @@ import com.thisis.adrianw.bingogame.databinding.FragmentMapThreeBinding;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 
 public class MapThree extends Fragment implements View.OnLongClickListener {
@@ -117,6 +119,8 @@ public class MapThree extends Fragment implements View.OnLongClickListener {
         super.onPrepareOptionsMenu(menu);
         MenuItem clearItem = menu.findItem(R.id.clearBoard);
         MenuItem changeItem = menu.findItem(R.id.changeBoard);
+        MenuItem randomValue = menu.findItem(R.id.menuBingoGenerator);
+        randomValue.setVisible(true);
         clearItem.setVisible(true);
         if (tempList.size() >= 24) {
             changeItem.setVisible(true);
@@ -152,7 +156,9 @@ public class MapThree extends Fragment implements View.OnLongClickListener {
     }
     public void generateRandomWord(View view) {
         String newWord = model.prepareRandomWord();
-        model.showToast(getActivity(), newWord, null);
-        model.toast = null;
+        Drawable [] drawables = {getResources().getDrawable(R.drawable.ic_action_dice1),getResources().getDrawable(R.drawable.ic_action_dice2), getResources().getDrawable(R.drawable.ic_action_dice3) ,
+                getResources().getDrawable(R.drawable.ic_action_dice4), getResources().getDrawable(R.drawable.ic_action_dice5),getResources().getDrawable(R.drawable.ic_action_dice6)};
+        final int random = new Random().nextInt((5));
+        model.showToast(getActivity(), newWord, drawables[random]);
     }
 }

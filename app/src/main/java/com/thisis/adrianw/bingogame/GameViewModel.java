@@ -9,7 +9,6 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,8 +21,9 @@ import com.thisis.adrianw.bingogame.Model.BingoBoard;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
+import androidx.databinding.BaseObservable;
+import androidx.databinding.Bindable;
 import androidx.databinding.ObservableArrayMap;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
@@ -253,7 +253,6 @@ public class GameViewModel extends AndroidViewModel {
             toReturn = randomWordList.get(current).getWordForBingo();
             current++;
             setRandomBingoInt(current);
-            Log.v("GameViewModel", "current is" + getRandomBingoInt() + "and list is" + randomWordList.size());
             if (getRandomBingoInt()==randomWordList.size()) {
                 setRandomBingoInt(0);
             }
@@ -263,5 +262,18 @@ public class GameViewModel extends AndroidViewModel {
         }
         return toReturn;
     }
+
+    public class ShowFAB extends BaseObservable {
+        private boolean showView = false;
+        @Bindable
+        public boolean getShowFab() {
+            return this.showView;
+        }
+        public void setShowFab(boolean bool) {
+            this.showView = bool;
+            notifyPropertyChanged(BR.toShow);
+        }
+    }
+
 
 }

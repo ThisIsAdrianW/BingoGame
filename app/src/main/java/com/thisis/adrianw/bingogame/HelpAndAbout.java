@@ -56,6 +56,8 @@ public class HelpAndAbout extends Fragment {
         MenuItem clearItem = menu.findItem(R.id.clearBoard);
         MenuItem changeItem = menu.findItem(R.id.changeBoard);
         MenuItem helpAndAbout = menu.findItem(R.id.helpandAbout);
+        MenuItem randomValue = menu.findItem(R.id.menuBingoGenerator);
+        randomValue.setVisible(false);
         clearItem.setVisible(false);
         changeItem.setVisible(false);
         helpAndAbout.setVisible(false);

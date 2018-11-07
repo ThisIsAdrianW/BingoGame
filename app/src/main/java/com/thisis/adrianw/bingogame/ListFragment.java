@@ -94,6 +94,8 @@ public class ListFragment extends Fragment {
     public void onPrepareOptionsMenu(Menu menu) {
         super.onPrepareOptionsMenu(menu);
         MenuItem listItemMenu = menu.findItem(R.id.chooseList);
+        MenuItem randomValue = menu.findItem(R.id.menuBingoGenerator);
+        randomValue.setVisible(false);
         listItemMenu.setVisible(false);
     }
 

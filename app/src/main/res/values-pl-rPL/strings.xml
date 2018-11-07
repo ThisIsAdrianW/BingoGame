@@ -34,4 +34,5 @@
         Kliknięcie pola pośrodku planszy 5x5 załaduje obrazek dla ekstremalnych wrażeń^_^ \n \n
         Możesz generować losowe liczby do bingo będąc na liście wyboru wartości do bingo.
     </string>
+    <string name="pickRandomValue" translatable="true">Maszyna losująca</string>
 </resources>

@@ -170,6 +170,8 @@ public class AddWords extends Fragment {
         MenuItem clearItem = menu.findItem(R.id.clearBoard);
         MenuItem changeItem = menu.findItem(R.id.changeBoard);
         MenuItem addItem = menu.findItem(R.id.new_words);
+        MenuItem randomValue = menu.findItem(R.id.menuBingoGenerator);
+        randomValue.setVisible(false);
         clearItem.setVisible(false);
         changeItem.setVisible(false);
         addItem.setVisible(false);
