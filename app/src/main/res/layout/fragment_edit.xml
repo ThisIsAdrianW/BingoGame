@@ -17,7 +17,7 @@
     android:layout_height="match_parent"
     android:paddingLeft="@dimen/padding10"
     android:paddingRight="@dimen/padding10"
-    android:background="@color/colorPrimary"
+    android:background="@color/secondaryDarkColor"
     tools:context=".EditFragment">
    <androidx.recyclerview.widget.RecyclerView
        android:id="@+id/editRecycleView"

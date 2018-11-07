@@ -23,7 +23,7 @@
         android:id="@+id/addWordsFrameLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/primaryLightColor"
+        android:background="@color/secondaryDarkColor"
         tools:context=".AddWords">
 
         <LinearLayout
@@ -42,7 +42,8 @@
                     android:id="@+id/titleForList"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/editTextH50"
-                    android:background="@color/secondaryLightColor"
+                    android:textColorHint="@color/textBlack"
+                    android:background="@color/colorBlue"
                     android:hint="@string/add_title_for_game"
                     android:inputType="text" />
             </LinearLayout>
@@ -62,6 +63,7 @@
                         android:id="@+id/wordToAdd"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/editTextH50"
+                        android:textColorHint="@color/textBlack"
                         android:background="@color/primaryLightColor"
                         android:hint="@string/add_words_for_game" />
                 </LinearLayout>
