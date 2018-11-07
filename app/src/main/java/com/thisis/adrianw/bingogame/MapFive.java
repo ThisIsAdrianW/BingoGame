@@ -4,6 +4,7 @@ package com.thisis.adrianw.bingogame;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -25,6 +26,8 @@ import android.widget.Toast;
 
 import com.thisis.adrianw.bingogame.Model.Bingo;
 import com.thisis.adrianw.bingogame.databinding.FragmentMapFiveBinding;
+
+import java.util.Random;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -87,6 +90,7 @@ public class MapFive extends Fragment implements View.OnLongClickListener {
                 }
             }
         });
+        binding.linearFAB5.setVisibility(model.getVisibilityFor5());
         return binding.getRoot();
     }
 
@@ -147,5 +151,12 @@ public class MapFive extends Fragment implements View.OnLongClickListener {
             imageView.setImageURI(uri);
             model.setImageUri(uri);
         }
+    }
+    public void generateRandomWord(View view) {
+        String newWord = model.prepareRandomWord();
+        final int random = new Random().nextInt((5));
+        Drawable[] drawables = {getResources().getDrawable(R.drawable.ic_action_dice1),getResources().getDrawable(R.drawable.ic_action_dice2), getResources().getDrawable(R.drawable.ic_action_dice3) ,
+                getResources().getDrawable(R.drawable.ic_action_dice4), getResources().getDrawable(R.drawable.ic_action_dice5),getResources().getDrawable(R.drawable.ic_action_dice6)};
+        model.showToast(getActivity(), newWord, drawables[random]);
     }
 }

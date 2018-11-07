@@ -22,8 +22,8 @@
             name="viewModel"
             type="com.thisis.adrianw.bingogame.GameViewModel" />
         <variable
-            name="toShow"
-            type="java.lang.Boolean"/>
+            name="imageBck"
+            type="android.graphics.drawable.Drawable"/>
 
         <variable
             name="activity"
@@ -153,15 +153,22 @@
                     android:textColor='@{String.valueOf(viewModel.cells["22"]).equals("Bingo") ? @color/textBlack : @color/textWhite}' />
             </LinearLayout>
         </LinearLayout>
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/FABRandomWord"
+        <LinearLayout
+            android:id="@+id/linearFAB3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="end|bottom"
-            android:scaleType="fitCenter"
-            android:visibility='@{viewModel.getVisibilityFab ? View.VISIBLE : View.GONE}'
-            android:onClick="@{(view) -> activity.generateRandomWord(view)}"
-            android:background="@color/colorPrimary"
-            android:src="@drawable/ic_action_dice6" />
+            android:visibility="gone"
+            android:layout_gravity="end|bottom">
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/FABRandomWord"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end|bottom"
+                android:scaleType="fitCenter"
+                android:onClick="@{(view) -> activity.generateRandomWord(view)}"
+                android:background="@color/colorPrimary"
+                android:src="@drawable/ic_action_dice3" />
+        </LinearLayout>
+
     </FrameLayout>
 </layout>

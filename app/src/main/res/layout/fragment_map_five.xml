@@ -462,6 +462,21 @@
                 app:layout_constraintTop_toBottomOf="@id/guidelinecolumn5" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
+        <LinearLayout
+            android:id="@+id/linearFAB5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_gravity="end|bottom">
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/FABRandomWord5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end|bottom"
+                android:scaleType="fitCenter"
+                android:onClick="@{(view) -> activity.generateRandomWord(view)}"
+                android:background="@color/colorPrimary"
+                android:src="@drawable/ic_action_dice6" />
+        </LinearLayout>
     </FrameLayout>
 </layout>

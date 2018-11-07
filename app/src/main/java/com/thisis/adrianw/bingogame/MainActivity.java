@@ -10,7 +10,8 @@ import androidx.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-
+import android.view.View;
+import android.widget.LinearLayout;
 import com.thisis.adrianw.bingogame.Model.Bingo;
 import com.thisis.adrianw.bingogame.databinding.ActivityMainBinding;
 
@@ -85,7 +86,29 @@ public class MainActivity extends AppCompatActivity {
                 helpAndAbout();
                 return true;
             case R.id.menuBingoGenerator:
-                gameViewModel.setVisibilityFab(true);
+                if (gameViewModel.getCurrentBoardModel()==9) {
+                    LinearLayout linearLayoutFAB3 = findViewById(R.id.linearFAB3);
+                    if (linearLayoutFAB3.getVisibility()==View.GONE) {
+                        linearLayoutFAB3.setVisibility(View.VISIBLE);
+                        gameViewModel.setVisibilityFor3(View.VISIBLE);
+                    }
+                    else {
+                        linearLayoutFAB3.setVisibility(View.GONE);
+                        gameViewModel.setVisibilityFor3(View.GONE);
+                    }
+                }
+                else {
+                    LinearLayout linearLayout5 = findViewById(R.id.linearFAB5);
+                    if (linearLayout5.getVisibility()==View.GONE) {
+                        linearLayout5.setVisibility(View.VISIBLE);
+                        gameViewModel.setVisibilityFor5(View.VISIBLE);
+                    }
+                    else {
+                        linearLayout5.setVisibility(View.GONE);
+                        gameViewModel.setVisibilityFor5(View.GONE);
+                    }
+                }
+
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

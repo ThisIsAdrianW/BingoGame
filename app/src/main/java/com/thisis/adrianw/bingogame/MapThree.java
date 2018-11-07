@@ -10,22 +10,15 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
-
-import android.os.Handler;
-import android.util.Log;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.thisis.adrianw.bingogame.Bingodata.Words;
 import com.thisis.adrianw.bingogame.Model.Bingo;
-import com.thisis.adrianw.bingogame.Model.BingoBoard;
 import com.thisis.adrianw.bingogame.databinding.FragmentMapThreeBinding;
 
 import java.util.ArrayList;
@@ -44,14 +37,12 @@ public class MapThree extends Fragment implements View.OnLongClickListener {
     private String indexFromBundle;
     private List<String> tempList = new ArrayList<String>();
 
-
     public MapThree() {
         // Required empty public constructor
     }
 
     public static MapThree newInstance(String param1, String param2) {
         MapThree fragment = new MapThree();
-        String indexTitleFromClick;
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -84,7 +75,6 @@ public class MapThree extends Fragment implements View.OnLongClickListener {
         binding.setViewModel(model);
         model.setCurrentBoardModel(9);
         binding.setActivity(MapThree.this);
-        BingoBoard bingoBoard = new BingoBoard(5);
         if (indexFromBundle != null && !indexFromBundle.trim().isEmpty()) {
             if (!indexFromBundle.equals(model.getMutableIndex())) {
                 model.getStringMutableLiveData().setValue(indexFromBundle);
@@ -110,6 +100,7 @@ public class MapThree extends Fragment implements View.OnLongClickListener {
                 }
             }
         });
+        binding.linearFAB3.setVisibility(model.getVisibilityFor3());
         model.prepareBingoNumbers();
         return binding.getRoot();
     }
@@ -156,9 +147,10 @@ public class MapThree extends Fragment implements View.OnLongClickListener {
     }
     public void generateRandomWord(View view) {
         String newWord = model.prepareRandomWord();
+        final int random = new Random().nextInt((5));
         Drawable [] drawables = {getResources().getDrawable(R.drawable.ic_action_dice1),getResources().getDrawable(R.drawable.ic_action_dice2), getResources().getDrawable(R.drawable.ic_action_dice3) ,
                 getResources().getDrawable(R.drawable.ic_action_dice4), getResources().getDrawable(R.drawable.ic_action_dice5),getResources().getDrawable(R.drawable.ic_action_dice6)};
-        final int random = new Random().nextInt((5));
         model.showToast(getActivity(), newWord, drawables[random]);
     }
+
 }

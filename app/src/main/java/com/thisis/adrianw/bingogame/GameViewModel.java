@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.app.Application;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,9 +20,6 @@ import com.thisis.adrianw.bingogame.Model.BingoBoard;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import androidx.databinding.BaseObservable;
-import androidx.databinding.Bindable;
 import androidx.databinding.ObservableArrayMap;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
@@ -39,6 +35,8 @@ public class GameViewModel extends AndroidViewModel {
     private Uri imageUri;
     private List<Words> randomWordList;
     private int randomBingoInt;
+    private int visibilityFor3 = View.GONE;
+    private int visibilityFor5 = View.GONE;
     private static final int MIN_REQ_FIELDS = 9;
     private List<IndexWord> myIndexWords;
     private List<Words> words;
@@ -47,7 +45,7 @@ public class GameViewModel extends AndroidViewModel {
     private BingoRepository bingoRepository;
     private MutableLiveData<String> stringMutableLiveData = new MutableLiveData<String>();
     private MutableLiveData<Bingo> bingoScore = new MutableLiveData<Bingo>();
-    Toast toast;
+    private Toast toast;
 
     public GameViewModel(Application application) {
         super(application);
@@ -107,10 +105,6 @@ public class GameViewModel extends AndroidViewModel {
 
     public MutableLiveData<String> getStringMutableLiveData() {
         return stringMutableLiveData;
-    }
-
-    public void setMutableLiveDataString(String string) {
-        stringMutableLiveData.postValue(string);
     }
 
     public String getMutableIndex() {
@@ -231,7 +225,6 @@ public class GameViewModel extends AndroidViewModel {
     }
 
     public void prepareBingoNumbers () {
-        List<Words> listForGame = null;
         if (getMutableIndex()!=null && !getMutableIndex().trim().isEmpty()) {
             String title = getMutableIndex().trim();
              randomWordList = getAllWordsRandom(title);
@@ -263,16 +256,20 @@ public class GameViewModel extends AndroidViewModel {
         return toReturn;
     }
 
-    public class ShowFAB extends BaseObservable {
-        private boolean showView = false;
-        @Bindable
-        public boolean getShowFab() {
-            return this.showView;
-        }
-        public void setShowFab(boolean bool) {
-            this.showView = bool;
-            notifyPropertyChanged(BR.toShow);
-        }
+    public int getVisibilityFor3() {
+        return visibilityFor3;
+    }
+
+    public void setVisibilityFor3(int visibilityFor3) {
+        this.visibilityFor3 = visibilityFor3;
+    }
+
+    public int getVisibilityFor5() {
+        return visibilityFor5;
+    }
+
+    public void setVisibilityFor5(int visibilityFor5) {
+        this.visibilityFor5 = visibilityFor5;
     }
 
 
