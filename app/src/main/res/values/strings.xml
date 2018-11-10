@@ -17,7 +17,7 @@
         You can always contact me or leave comment. I hope You have fun ;-)</string>
     <string name="help">
         \n Long clicking on tile will display text in it \n \n
-        Single click marks tile as bingo \n \n
+        Single click marks tile. Click again to unmark this tile \n \n
     If You want to use 5x5 board for game your word list will need to have at least 24 words or expressions \n \n
         Words are always randomly picked from whole your list \n \n
         In Edit Mode every new value should be at start of list with name "0. You should change this" \n \n

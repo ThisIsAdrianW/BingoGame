@@ -63,6 +63,7 @@ public class BingoListAdapter extends RecyclerView.Adapter<BingoListAdapter.Bing
                 Bundle argumentsBundle = new Bundle();
                 argumentsBundle.putString("titleArgument", title);
                 defaultFragment3.setArguments(argumentsBundle);
+                gameViewModel.cleanBingoBoard();
                 //.addToBackStack(null)
                 fragmentManager.beginTransaction().replace(R.id.frameLayout, defaultFragment3).addToBackStack(null).commit();
             } else if (view instanceof ImageView) {
