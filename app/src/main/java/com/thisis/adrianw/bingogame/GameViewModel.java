@@ -271,6 +271,4 @@ public class GameViewModel extends AndroidViewModel {
     public void setVisibilityFor5(int visibilityFor5) {
         this.visibilityFor5 = visibilityFor5;
     }
-
-
 }

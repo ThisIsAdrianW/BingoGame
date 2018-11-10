@@ -1,14 +1,14 @@
 <resources>
     <string name="app_name">Bingo Game</string>
-    <string name="add_title_for_game">Add title for Your word list</string>
-    <string name="add_words_for_game">Add words for Your game</string>
-    <string name="Toast_error_title">You need title for Your words list</string>
+    <string name="add_title_for_game">Add title for your word list</string>
+    <string name="add_words_for_game">Add words for your game</string>
+    <string name="Toast_error_title">You need title for your words list</string>
     <string name="Toast_error_count">You need at least 9 words for list</string>
-    <string name="Toast_error_empty">You need to write Your word inside field</string>
-    <string name="Toast_saved_word">Your word was saved</string>
-    <string name="Toast_saved">Saved Your list</string>
+    <string name="Toast_error_empty">You need to write your word inside field</string>
+    <string name="Toast_saved_word">your word was saved</string>
+    <string name="Toast_saved">Saved your list</string>
     <string name="Missing_Value">You are missing value for this cell</string>
-    <string name="Empty_list">You need to add words for Your bingo games ^_^</string>
+    <string name="Empty_list">You need to add words for your bingo games ^_^</string>
     <string name="set5x5">Change board to: 5x5 </string>
     <string name="set3x3">Change board to: 3x3 </string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -20,6 +20,7 @@
         Single click marks tile as bingo \n \n
     If You want to use 5x5 board for game your word list will need to have at least 24 words or expressions \n \n
         Words are always randomly picked from whole your list \n \n
+        In Edit Mode every new value should be at start of list with name "0. You should change this" \n \n
         Clicking on tile in middle of 5x5 board will load image into it for extreme game experience ^_^ \n \n
         You can generate random numbers in your saved words list.
     </string>
