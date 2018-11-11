@@ -22,7 +22,8 @@
         Words are always randomly picked from whole your list \n \n
         In Edit Mode every new value should be at start of list with name "0. You should change this" \n \n
         Clicking on tile in middle of 5x5 board will load image into it for extreme game experience ^_^ \n \n
-        You can generate random numbers in your saved words list.
+        You can generate pseudo-random numbers when viewing your saved words list. \n \n
+        Click on "pick random value" from menu to show or hide draw button.
     </string>
     <string name="randomList">Random list number</string>
     <string name="savedRandom">Saved new list with random numbers</string>
