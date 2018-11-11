@@ -13,32 +13,45 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:padding="@dimen/padding10">
+
             <ScrollView
-                android:layout_weight="1"
-                android:layout_gravity="center"
                 android:layout_width="match_parent"
-                android:layout_height="0dp">
-                <TextView
-                    android:id="@+id/helpTextView"
-                    style="@style/helpTextStyle"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:layout_gravity="center"
-                    android:autoSizeMinTextSize="@dimen/helpTextSize"
-                    android:paddingRight="@dimen/padding10"
-                    android:paddingLeft="@dimen/padding10"
-                    android:text="@string/help" />
+                android:layout_height="0dp"
+                android:layout_gravity="center"
+                android:layout_weight="1">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/helpTextView1"
+                        style="@style/helpTextStyle"
+                        android:layout_gravity="center"
+                        android:autoSizeMinTextSize="@dimen/helpTextSize"
+                        android:text="@string/help1" />
+
+                    <TextView
+                        android:id="@+id/helpTextView2"
+                        style="@style/helpTextStyle"
+                        android:layout_gravity="center"
+                        android:autoSizeMinTextSize="@dimen/helpTextSize"
+                        android:text="@string/help2" />
+                </LinearLayout>
+
             </ScrollView>
+
             <ScrollView
-                android:layout_weight="1"
-                android:layout_gravity="center"
                 android:layout_width="match_parent"
-                android:layout_height="0dp">
+                android:layout_height="0dp"
+                android:layout_gravity="center"
+                android:layout_weight="1">
+
                 <TextView
                     android:id="@+id/aboutTextView"
                     style="@style/helpTextStyle"
                     android:layout_gravity="center"
-                    android:gravity="center"
                     android:autoSizeMinTextSize="@dimen/helpTextSize"
                     android:text="@string/about" />
             </ScrollView>

@@ -86,19 +86,6 @@ public class EditListAdapter extends RecyclerView.Adapter<EditListAdapter.EditVi
                         notifyItemRangeChanged(wordPlace, words.size());
                     } else {
                         model.showToast(fragmentActivity,String.valueOf(context.getResources().getString(R.string.Toast_error_count)), context.getResources().getDrawable(R.drawable.ic_report_problem) );
-//                        LayoutInflater inflater = fragmentActivity.getLayoutInflater();
-//                        View layout = inflater.inflate(R.layout.toast, (ViewGroup) fragmentActivity.findViewById(R.id.toast_root));
-//                        layout.setBackgroundColor(fragmentActivity.getResources().getColor(R.color.primaryDarkColor));
-//                        ImageView image = layout.findViewById(R.id.image_fot_toast);
-//                        image.setImageDrawable(fragmentActivity.getResources().getDrawable(R.drawable.ic_action_save));
-//                        TextView text = layout.findViewById(R.id.text_for_toast);
-//                        text.setText(String.valueOf(context.getResources().getString(R.string.Toast_error_count)));
-//                        Toast toast = new Toast(fragmentActivity.getApplicationContext());
-//                        toast.setGravity(Gravity.CENTER, 0, 0);
-//                        toast.setDuration(Toast.LENGTH_SHORT);
-//                        toast.setView(layout);
-//                        toast.show();
-                        //Toast.makeText(context, context.getResources().getString(R.string.Toast_error_count), Toast.LENGTH_SHORT).show();
                     }
                 }
             });
@@ -108,37 +95,11 @@ public class EditListAdapter extends RecyclerView.Adapter<EditListAdapter.EditVi
                     String newBingoWord = holder.editText.getText().toString().trim();
                     if (newBingoWord == null || newBingoWord.isEmpty()) {
                         model.showToast(fragmentActivity, context.getResources().getString(R.string.Toast_error_empty), context.getResources().getDrawable(R.drawable.ic_report_problem));
-//                        LayoutInflater inflater = fragmentActivity.getLayoutInflater();
-//                        View layout = inflater.inflate(R.layout.toast, (ViewGroup) fragmentActivity.findViewById(R.id.toast_root));
-//                        layout.setBackgroundColor(fragmentActivity.getResources().getColor(R.color.primaryDarkColor));
-//                        ImageView image = layout.findViewById(R.id.image_fot_toast);
-//                        image.setImageDrawable(fragmentActivity.getResources().getDrawable(R.drawable.ic_action_save));
-//                        TextView text = layout.findViewById(R.id.text_for_toast);
-//                        text.setText(String.valueOf(context.getResources().getString(R.string.Toast_error_empty)));
-//                        Toast toast = new Toast(fragmentActivity.getApplicationContext());
-//                        toast.setGravity(Gravity.CENTER, 0, 0);
-//                        toast.setDuration(Toast.LENGTH_SHORT);
-//                        toast.setView(layout);
-//                        toast.show();
-                        //Toast.makeText(context, context.getResources().getString(R.string.), Toast.LENGTH_SHORT).show();
                     } else {
                         current.setWordForBingo(newBingoWord);
                         model.updateWord(current);
                         notifyItemChanged(words.indexOf(current));
                         model.showToast(fragmentActivity, context.getResources().getString(R.string.Toast_saved_word), null);
-//                        LayoutInflater inflater = fragmentActivity.getLayoutInflater();
-//                        View layout = inflater.inflate(R.layout.toast, (ViewGroup) fragmentActivity.findViewById(R.id.toast_root));
-//                        layout.setBackgroundColor(fragmentActivity.getResources().getColor(R.color.primaryDarkColor));
-//                        ImageView image = layout.findViewById(R.id.image_fot_toast);
-//                        image.setImageDrawable(fragmentActivity.getResources().getDrawable(R.drawable.ic_action_save));
-//                        TextView text = layout.findViewById(R.id.text_for_toast);
-//                        text.setText(String.valueOf(context.getResources().getString(R.string.Toast_saved_word)));
-//                        Toast toast = new Toast(fragmentActivity.getApplicationContext());
-//                        toast.setGravity(Gravity.CENTER, 0, 0);
-//                        toast.setDuration(Toast.LENGTH_SHORT);
-//                        toast.setView(layout);
-//                        toast.show();
-                        //Toast.makeText(context, context.getResources().getString(R.string.Toast_saved_word), Toast.LENGTH_SHORT).show();
                     }
                 }
             });

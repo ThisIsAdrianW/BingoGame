@@ -20,6 +20,7 @@ import com.thisis.adrianw.bingogame.Model.BingoBoard;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import androidx.databinding.ObservableArrayMap;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
@@ -197,24 +198,24 @@ public class GameViewModel extends AndroidViewModel {
     }
 
     public void showToast(Activity activity, String message, Drawable drawable) {
-        if (toast!=null) {
+        if (toast != null) {
             toast.cancel();
         }
-            LayoutInflater inflater = activity.getLayoutInflater();
-            View layout = inflater.inflate(R.layout.toast, (ViewGroup) activity.findViewById(R.id.toast_root));
-            ImageView imageView = layout.findViewById(R.id.image_fot_toast);
-            if (drawable == null) {
-                imageView.setImageDrawable(activity.getResources().getDrawable(R.drawable.ic_action_save));
-            } else {
-                imageView.setImageDrawable(drawable);
-            }
-            toast = new Toast(activity.getApplicationContext());
-            toast.setGravity(Gravity.CENTER, 0, 0);
-            toast.setDuration(Toast.LENGTH_SHORT);
-            toast.setView(layout);
-            TextView text = (TextView) layout.findViewById(R.id.text_for_toast);
-            text.setText(String.valueOf(message));
-            toast.show();
+        LayoutInflater inflater = activity.getLayoutInflater();
+        View layout = inflater.inflate(R.layout.toast, (ViewGroup) activity.findViewById(R.id.toast_root));
+        ImageView imageView = layout.findViewById(R.id.image_fot_toast);
+        if (drawable == null) {
+            imageView.setImageDrawable(activity.getResources().getDrawable(R.drawable.ic_action_save));
+        } else {
+            imageView.setImageDrawable(drawable);
+        }
+        toast = new Toast(activity.getApplicationContext());
+        toast.setGravity(Gravity.CENTER, 0, 0);
+        toast.setDuration(Toast.LENGTH_SHORT);
+        toast.setView(layout);
+        TextView text = (TextView) layout.findViewById(R.id.text_for_toast);
+        text.setText(String.valueOf(message));
+        toast.show();
     }
 
     public void cancelToast() {
@@ -224,10 +225,10 @@ public class GameViewModel extends AndroidViewModel {
         }
     }
 
-    public void prepareBingoNumbers () {
-        if (getMutableIndex()!=null && !getMutableIndex().trim().isEmpty()) {
+    public void prepareBingoNumbers() {
+        if (getMutableIndex() != null && !getMutableIndex().trim().isEmpty()) {
             String title = getMutableIndex().trim();
-             randomWordList = getAllWordsRandom(title);
+            randomWordList = getAllWordsRandom(title);
         }
     }
 
@@ -241,16 +242,15 @@ public class GameViewModel extends AndroidViewModel {
 
     public String prepareRandomWord() {
         String toReturn = null;
-        if (randomWordList!=null && getRandomBingoInt()<randomWordList.size()) {
+        if (randomWordList != null && getRandomBingoInt() < randomWordList.size()) {
             int current = getRandomBingoInt();
             toReturn = randomWordList.get(current).getWordForBingo();
             current++;
             setRandomBingoInt(current);
-            if (getRandomBingoInt()==randomWordList.size()) {
+            if (getRandomBingoInt() == randomWordList.size()) {
                 setRandomBingoInt(0);
             }
-        }
-        else if (randomWordList==null || getRandomBingoInt()>=randomWordList.size()) {
+        } else if (randomWordList == null || getRandomBingoInt() >= randomWordList.size()) {
             setRandomBingoInt(1);
         }
         return toReturn;

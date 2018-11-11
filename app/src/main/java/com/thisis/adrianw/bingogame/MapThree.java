@@ -10,6 +10,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
+
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -145,11 +146,12 @@ public class MapThree extends Fragment implements View.OnLongClickListener {
                 .show();
         return false;
     }
+
     public void generateRandomWord(View view) {
         String newWord = model.prepareRandomWord();
         final int random = new Random().nextInt((5));
-        Drawable [] drawables = {getResources().getDrawable(R.drawable.ic_action_dice1),getResources().getDrawable(R.drawable.ic_action_dice2), getResources().getDrawable(R.drawable.ic_action_dice3) ,
-                getResources().getDrawable(R.drawable.ic_action_dice4), getResources().getDrawable(R.drawable.ic_action_dice5),getResources().getDrawable(R.drawable.ic_action_dice6)};
+        Drawable[] drawables = {getResources().getDrawable(R.drawable.ic_action_dice1), getResources().getDrawable(R.drawable.ic_action_dice2), getResources().getDrawable(R.drawable.ic_action_dice3),
+                getResources().getDrawable(R.drawable.ic_action_dice4), getResources().getDrawable(R.drawable.ic_action_dice5), getResources().getDrawable(R.drawable.ic_action_dice6)};
         model.showToast(getActivity(), newWord, drawables[random]);
     }
 

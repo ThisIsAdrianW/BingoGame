@@ -2,8 +2,10 @@ package com.thisis.adrianw.bingogame.Bingodata;
 
 import android.app.Application;
 import android.os.AsyncTask;
+
 import java.util.List;
 import java.util.concurrent.ExecutionException;
+
 import androidx.lifecycle.LiveData;
 
 public class BingoRepository {
@@ -281,8 +283,6 @@ public class BingoRepository {
         protected List<Words> doInBackground(final String... params) {
             return AsyncTaskDao.getWordsListRandom(params[0]);
         }
-
-
     }
 
 

@@ -118,9 +118,9 @@ public class ListFragment extends Fragment {
         String indexString = getResources().getString(R.string.randomList) + " " + String.valueOf(numberOfIndex);
         indexWord.setIndexforwords(indexString);
         model.insertBingoIndex(indexWord);
-        while (randomList.size() <50) {
+        while (randomList.size() < 50) {
             int newValue = generateRandomNumber();
-            if (!randomList.contains(newValue)){
+            if (!randomList.contains(newValue)) {
                 randomList.add(newValue);
             }
 

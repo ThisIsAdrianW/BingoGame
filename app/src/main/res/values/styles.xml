@@ -60,7 +60,7 @@
         <item name="android:layout_weight">1</item>
         <item name="android:gravity">center</item>
         <item name="autoSizeTextType">uniform</item>
-        <item name="autoSizeMaxTextSize">22sp</item>
+        <item name="autoSizeMaxTextSize">18sp</item>
         <item name="android:textColor">@color/primaryTextColor</item>
         <item name="autoSizeStepGranularity">1sp</item>
     </style>

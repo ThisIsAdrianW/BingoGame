@@ -85,7 +85,7 @@ public class MapFive extends Fragment implements View.OnLongClickListener {
             @Override
             public void onChanged(Bingo bingo) {
                 if (bingo.equals(Bingo.Bingo)) {
-                    model.showToast(getActivity(),String.valueOf(bingo), getResources().getDrawable(R.drawable.ic_action_achievement));
+                    model.showToast(getActivity(), String.valueOf(bingo), getResources().getDrawable(R.drawable.ic_action_achievement));
                     model.setBingoScore(Bingo.notBingo);
                 }
             }
@@ -152,11 +152,12 @@ public class MapFive extends Fragment implements View.OnLongClickListener {
             model.setImageUri(uri);
         }
     }
+
     public void generateRandomWord(View view) {
         String newWord = model.prepareRandomWord();
         final int random = new Random().nextInt((5));
-        Drawable[] drawables = {getResources().getDrawable(R.drawable.ic_action_dice1),getResources().getDrawable(R.drawable.ic_action_dice2), getResources().getDrawable(R.drawable.ic_action_dice3) ,
-                getResources().getDrawable(R.drawable.ic_action_dice4), getResources().getDrawable(R.drawable.ic_action_dice5),getResources().getDrawable(R.drawable.ic_action_dice6)};
+        Drawable[] drawables = {getResources().getDrawable(R.drawable.ic_action_dice1), getResources().getDrawable(R.drawable.ic_action_dice2), getResources().getDrawable(R.drawable.ic_action_dice3),
+                getResources().getDrawable(R.drawable.ic_action_dice4), getResources().getDrawable(R.drawable.ic_action_dice5), getResources().getDrawable(R.drawable.ic_action_dice6)};
         model.showToast(getActivity(), newWord, drawables[random]);
     }
 }
