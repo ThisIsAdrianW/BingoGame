@@ -128,16 +128,19 @@ public class MainActivity extends AppCompatActivity {
 
     public void addWords() {
         fragment = new AddWords();
+        hideFABs();
         changeFragments();
     }
 
     public void listFragment() {
         fragment = new ListFragment();
+        hideFABs();
         changeFragments();
     }
 
     public void helpAndAbout() {
         fragment = new HelpAndAbout();
+        hideFABs();
         changeFragments();
     }
 
@@ -150,6 +153,11 @@ public class MainActivity extends AppCompatActivity {
             }
             transaction.commit();
         }
+    }
+
+    private void hideFABs() {
+        gameViewModel.setVisibilityFor3(View.GONE);
+        gameViewModel.setVisibilityFor5(View.GONE);
     }
 
 }
