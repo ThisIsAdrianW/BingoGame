@@ -129,7 +129,7 @@ public class ListFragment extends Fragment {
             Words words = new Words();
             words.setIndexforword(indexString);
             words.setWordForBingo(String.valueOf(randomList.get(i)));
-            model.inserBingoWord(words);
+            model.insertBingoWord(words);
         }
         model.showToast(getActivity(), getResources().getString(R.string.savedRandom), null);
     }

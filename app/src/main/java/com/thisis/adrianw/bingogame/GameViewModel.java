@@ -27,8 +27,9 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 public class GameViewModel extends AndroidViewModel {
-    String testString = "Default text for tests";
+    private static final int MIN_REQ_FIELDS = 9;
     public final ObservableArrayMap<String, String> cells = new ObservableArrayMap<>();
+    String testString = "Default text for tests";
     private BingoBoard model;
     private int boardSize = 5;
     private int currentListSize;
@@ -38,7 +39,6 @@ public class GameViewModel extends AndroidViewModel {
     private int randomBingoInt;
     private int visibilityFor3 = View.GONE;
     private int visibilityFor5 = View.GONE;
-    private static final int MIN_REQ_FIELDS = 9;
     private List<IndexWord> myIndexWords;
     private List<Words> words;
     private List<String> stringList = new ArrayList<String>();
@@ -80,7 +80,7 @@ public class GameViewModel extends AndroidViewModel {
         cells.size();
     }
 
-    public void inserBingoWord(Words word) {
+    public void insertBingoWord(Words word) {
         bingoRepository.insertBingoWord(word);
     }
 
@@ -94,10 +94,6 @@ public class GameViewModel extends AndroidViewModel {
 
     public List<IndexWord> returnIndexAsync() {
         return bingoRepository.getAllIndexWordsAsync();
-    }
-
-    public List<Words> returnBingoWords(String indexWord) {
-        return bingoRepository.getAllWords(indexWord);
     }
 
     public LiveData<List<IndexWord>> getLiveIndex() {
@@ -179,10 +175,6 @@ public class GameViewModel extends AndroidViewModel {
 
     public void setImageUri(Uri imageUri) {
         this.imageUri = imageUri;
-    }
-
-    public void updateIndexWord(String indexWord, String newTitle) {
-        bingoRepository.updateIndexWord(indexWord, newTitle);
     }
 
     public void updateWord(Words words) {

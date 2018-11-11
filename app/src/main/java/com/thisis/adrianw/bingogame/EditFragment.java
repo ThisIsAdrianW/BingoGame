@@ -81,7 +81,7 @@ public class EditFragment extends Fragment {
             String message = view.getRootView().getResources().getString(R.string.changeThis);
             words.setWordForBingo(message);
             currentList.add(words);
-            model.inserBingoWord(words);
+            model.insertBingoWord(words);
             currentList = model.returnAllWordsStandard(indexForEdit);
             editListAdapter.setWords(currentList);
             editListAdapter.notifyDataSetChanged();

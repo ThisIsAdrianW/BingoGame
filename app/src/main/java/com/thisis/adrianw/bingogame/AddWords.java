@@ -7,7 +7,6 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProviders;
 
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -15,8 +14,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.thisis.adrianw.bingogame.Bingodata.IndexWord;
 import com.thisis.adrianw.bingogame.Bingodata.Words;
@@ -129,7 +126,7 @@ public class AddWords extends Fragment {
                 Words words = new Words();
                 words.setIndexforword(keyWord);
                 words.setWordForBingo(listOfWords.get(j));
-                model.inserBingoWord(words);
+                model.insertBingoWord(words);
             }
             switchToList();
             model.showToast(getActivity(), getResources().getString(R.string.Toast_saved), null);
