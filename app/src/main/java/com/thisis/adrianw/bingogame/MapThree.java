@@ -16,6 +16,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.TextView;
 
 import com.thisis.adrianw.bingogame.Model.Bingo;
@@ -102,6 +103,12 @@ public class MapThree extends Fragment implements View.OnLongClickListener {
         });
         binding.linearFAB3.setVisibility(model.getVisibilityFor3());
         model.prepareBingoNumbers();
+        InputMethodManager inputManager = (InputMethodManager) getActivity()
+                .getSystemService(Context.INPUT_METHOD_SERVICE);
+        View currentFocusedView = getActivity().getCurrentFocus();
+        if (currentFocusedView != null) {
+            inputManager.hideSoftInputFromWindow(currentFocusedView.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+        }
         return binding.getRoot();
     }
 

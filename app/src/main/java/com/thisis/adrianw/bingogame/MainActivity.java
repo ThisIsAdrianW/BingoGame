@@ -71,10 +71,12 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.new_words:
                 addWords();
+                clearBackStack();
                 return true;
             case R.id.chooseList:
                 gameViewModel.cleanBingoBoard();
                 listFragment();
+                clearBackStack();
                 return true;
             case R.id.clearBoard:
                 gameViewModel.cleanBingoBoard();
@@ -84,6 +86,7 @@ public class MainActivity extends AppCompatActivity {
                 gameViewModel.cleanBingoBoard();
                 return true;
             case R.id.helpandAbout:
+                clearBackStack();
                 helpAndAbout();
                 return true;
             case R.id.menuBingoGenerator:
@@ -156,6 +159,12 @@ public class MainActivity extends AppCompatActivity {
     private void hideFABs() {
         gameViewModel.setVisibilityFor3(View.GONE);
         gameViewModel.setVisibilityFor5(View.GONE);
+    }
+
+    private void clearBackStack() {
+        for (int i = 1; i < fragmentManager.getBackStackEntryCount(); ++i) {
+            fragmentManager.popBackStack();
+        }
     }
 
 }
