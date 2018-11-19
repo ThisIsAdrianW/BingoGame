@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Bingo Game</string>
+    <string name="app_name">Bingo Words</string>
     <string name="add_title_for_game">Add title for your word list</string>
     <string name="add_words_for_game">Add words for your game</string>
     <string name="Toast_error_title">You need title for your words list</string>

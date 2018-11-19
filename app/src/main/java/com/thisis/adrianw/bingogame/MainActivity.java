@@ -7,6 +7,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProviders;
 
+
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -33,13 +34,6 @@ public class MainActivity extends AppCompatActivity {
         if (savedInstanceState == null) {
             listFragment();
         }
-        fragmentManager.addOnBackStackChangedListener(new FragmentManager.OnBackStackChangedListener() {
-            @Override
-            public void onBackStackChanged() {
-                if (fragmentManager.getBackStackEntryCount() == 0) finish();
-            }
-        });
-
     }
 
     @Override
@@ -109,7 +103,6 @@ public class MainActivity extends AppCompatActivity {
                         gameViewModel.setVisibilityFor5(View.GONE);
                     }
                 }
-
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -149,9 +142,6 @@ public class MainActivity extends AppCompatActivity {
         if (fragment != null) {
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
             transaction.replace(R.id.frameLayout, fragment);
-            if (fragment instanceof MapThree || fragment instanceof MapFive) {
-                transaction.addToBackStack(null);
-            }
             transaction.commit();
         }
     }
@@ -166,5 +156,4 @@ public class MainActivity extends AppCompatActivity {
             fragmentManager.popBackStack();
         }
     }
-
 }

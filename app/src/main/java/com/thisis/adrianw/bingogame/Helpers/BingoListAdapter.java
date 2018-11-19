@@ -65,7 +65,7 @@ public class BingoListAdapter extends RecyclerView.Adapter<BingoListAdapter.Bing
                 defaultFragment3.setArguments(argumentsBundle);
                 gameViewModel.cleanBingoBoard();
                 //.addToBackStack(null)
-                fragmentManager.beginTransaction().replace(R.id.frameLayout, defaultFragment3).addToBackStack(null).commit();
+                fragmentManager.beginTransaction().replace(R.id.frameLayout, defaultFragment3).commit();
             } else if (view instanceof ImageView) {
                 if (view.getId() == R.id.deleteIcon) {
                     IndexWord indexWord = new IndexWord();

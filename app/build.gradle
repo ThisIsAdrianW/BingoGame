@@ -7,8 +7,8 @@ android {
         applicationId "com.thisis.adrianw.bingogame"
         minSdkVersion 19
         targetSdkVersion 28
-        versionCode 8
-        versionName "1.4"
+        versionCode 9
+        versionName "1.5"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         dataBinding {
             enabled = true

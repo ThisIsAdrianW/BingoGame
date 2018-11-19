@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Bingo Game</string>
+    <string name="app_name">Bingo Words</string>
     <string name="add_title_for_game" translatable="true">Dodaj tytuł do swojej listy słów</string>
     <string name="add_words_for_game" translatable="true">Dodaj słowa do swojej gry</string>
     <string name="Toast_error_title">Lista słów musi mieć tytuł</string>
